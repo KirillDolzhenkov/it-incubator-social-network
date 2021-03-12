@@ -1,0 +1,37 @@
+.app-wrapper {
+  display: grid;
+  margin: 0 auto;
+  width: 1200px ;
+
+  grid-template-areas:
+  'h h'
+  'n c';
+
+  grid-template-rows: 75px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
+}
+
+.header {
+  grid-area: h;
+  background-color: #20232a;
+}
+.header img {
+  width: 75px;
+  height: 65px;
+  padding: 5px;
+}
+
+
+.app-wrapper-content {
+  grid-area: c;
+  /*
+  background-color: #4E5D74;
+  */
+  background-color: #EDEEF0;
+}
+.app-wrapper-content img {
+  width: 1000px;
+  height: 200px;
+}
+

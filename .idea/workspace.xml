@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6e8c24bb-e36e-46a6-b31d-b34f613f8876" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogItems/DialogItems.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Dialogs/Messages/Messages.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header/Header.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header/Header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header/logo_transparent_01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header/logo_transparent_02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header/logo_transparent_03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Music/Music.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Music/Music.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/News/News.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/News/News.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/PostsArea/Post/Post.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/PostsArea/Post/Post.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/PostsArea/PostsArea.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/PostsArea/PostsArea.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/Profile.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/Profile.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/Profile.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Settings/Settings.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Settings/Settings.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/state.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1nzPJCk5MFTeNIBOwmqwtuQmHRB" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="ts.external.directory.path" value="F:\WebstormProjects\it-incubator-social-network\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\WebstormProjects\new-social-network\new-social-network-01\src\components" />
+      <recent name="F:\WebstormProjects\new-social-network\new-social-network-01\src\Components2" />
+      <recent name="F:\WebstormProjects\new-social-network\new-social-network-01\src\Components\Dialogs\DialogItems" />
+      <recent name="F:\WebstormProjects\new-social-network\new-social-network-01\src\Components\News" />
+      <recent name="F:\WebstormProjects\new-social-network\new-social-network-01\src\Components\Music" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\WebstormProjects\new-social-network\new-social-network-01\src\Components\Dialogs" />
+      <recent name="F:\WebstormProjects\new-social-network\new-social-network-01\src\Components\Music" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6e8c24bb-e36e-46a6-b31d-b34f613f8876" name="Default Changelist" comment="" />
+      <created>1612389874339</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1612389874339</updated>
+      <workItem from="1612389877903" duration="1291000" />
+      <workItem from="1613652753783" duration="1495000" />
+      <workItem from="1613697157022" duration="68116000" />
+      <workItem from="1613953729154" duration="8872000" />
+      <workItem from="1614033961757" duration="1265000" />
+      <workItem from="1615504999364" duration="67000" />
+      <workItem from="1615507338609" duration="144000" />
+      <workItem from="1615508250486" duration="61000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
