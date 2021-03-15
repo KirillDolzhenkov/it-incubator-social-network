@@ -1,5 +1,5 @@
 import React from "react";
-import stylesModule from "./Settings.module.css"
+/*import stylesModule from "./Settings.module.css"*/
 
 type SettingsType = {}
 

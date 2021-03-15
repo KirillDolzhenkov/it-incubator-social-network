@@ -2,6 +2,7 @@
   display: grid;
   margin: 0 auto;
   width: 1200px ;
+  background-image: url(https://img3.goodfon.ru/wallpaper/nbig/7/6d/ozero-gory-otrazhenie-priroda-3483.jpg);
 
   grid-template-areas:
   'h h'
@@ -28,10 +29,12 @@
   /*
   background-color: #4E5D74;
   */
-  background-color: #EDEEF0;
+  background-color: #edeef0;
+  opacity: 0.89;
 }
 .app-wrapper-content img {
   width: 1000px;
   height: 200px;
+  opacity: 2;
 }
 
