@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import './App.css';
 import {Dialogs} from './Components/Dialogs/Dialogs';
 import {Header} from './Components/Header/Header';
@@ -12,7 +12,8 @@ import {RootStateType} from './redux/state';
 
 type AppPropsType = {
     state: RootStateType
-    addPost: Function
+    addPost: (postValue: string)=> void
+    messageForNewPost: (inputValue: string)=> void
 }
 
 const App: React.FC<AppPropsType> = (props) => {
@@ -21,7 +22,10 @@ const App: React.FC<AppPropsType> = (props) => {
             <Header/>
             <Navbar/>
             <div className='app-wrapper-content'>
-                <Route path='/profile' render={() => <Profile state={props.state} addPost={props.addPost}/>}/>
+                <Route path='/profile' render={() => <Profile state={props.state}
+                                                              addPost={props.addPost}
+                                                              messageForNewPost={props.messageForNewPost}
+                />}/>
                 <Route path='/dialogs' render={() => <Dialogs state={props.state}/>}/>
                 <Route path='/news' render={() => <News/>}/>
                 <Route path='/music' render={() => <Music/>}/>

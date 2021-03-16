@@ -1,9 +1,9 @@
 import React from "react";
 import styleModule from "./Profile.module.css";
 
-type ProfileInfoType = {}
+type ProfileInfoPropsType = {}
 
-export const ProfileInfo: React.FC<ProfileInfoType> = (props) => {
+export const ProfileInfo: React.FC<ProfileInfoPropsType> = (props) => {
     return (
         <div>
             <div>

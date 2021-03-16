@@ -7,13 +7,18 @@ import {RootStateType} from "../../redux/state";
 
 type ProfilePropsType = {
     state: RootStateType
-    addPost: Function
+    addPost: (postValue: string)=> void
+    messageForNewPost: (inputValue: string)=> void
 }
 export const Profile: React.FC<ProfilePropsType> = (props) => {
     return (
         <div>
             <ProfileInfo/>
-            <PostsArea posts={props.state.profilePage.post} addPost={props.addPost}/>
+            <PostsArea posts={props.state.profilePage.posts}
+                       newPostText={props.state.profilePage.newPostText}
+                       addPost={props.addPost}
+                       messageForNewPost={props.messageForNewPost}
+            />
         </div>
     );
 }
