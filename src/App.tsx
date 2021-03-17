@@ -22,10 +22,13 @@ const App: React.FC<AppPropsType> = (props) => {
             <Header/>
             <Navbar/>
             <div className='app-wrapper-content'>
-                <Route path='/profile' render={() => <Profile state={props.state}
-                                                              addPost={props.addPost}
-                                                              messageForNewPost={props.messageForNewPost}
-                />}/>
+                <Route
+                    path='/profile'
+                    render={() => <Profile state={props.state}
+                                           addPost={props.addPost}
+                                           messageForNewPost={props.messageForNewPost}
+                    />}
+                />
                 <Route path='/dialogs' render={() => <Dialogs state={props.state}/>}/>
                 <Route path='/news' render={() => <News/>}/>
                 <Route path='/music' render={() => <Music/>}/>

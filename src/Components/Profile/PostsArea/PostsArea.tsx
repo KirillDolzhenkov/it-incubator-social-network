@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ChangeEvent} from "react";
 import {Post} from "./Post/Post";
 import styleModule from "./PostsArea.module.css";
 import {PostType} from "../../../redux/state";
@@ -11,20 +11,19 @@ type PostsAreaPropsType = {
 }
 export const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
 
-    let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
-    let newPostText = React.createRef<HTMLTextAreaElement>()
+    let postsElements = props.posts
+        .map(p => <Post
+            key={p.id}
+            message={p.message}
+            likesCount={p.likesCount}
+        />)
+    /*let newPostText = React.createRef<HTMLTextAreaElement>()*/
     let addPostHandler = () => {
-        if (newPostText.current) {
-            props.addPost(newPostText.current.value)
-        }
-
+        props.addPost(props.newPostText)
     }
-    let onPostChange = () => {
-        if (newPostText.current) {
-            props.messageForNewPost(newPostText.current.value)
-        }
+    let onPostChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        props.messageForNewPost(e.currentTarget.value)
     }
-
 
     return (
         <div className={styleModule.postBlock}>
@@ -33,7 +32,7 @@ export const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
                 <textarea
                     value={props.newPostText}
                     onChange={onPostChange}
-                    ref={newPostText}
+                    /*ref={newPostText}*/
                     placeholder="Write something"
                 />
             </div>

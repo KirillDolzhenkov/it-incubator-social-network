@@ -51,10 +51,10 @@ export const messageForNewPost = (newPostText: string) => {
     state.profilePage.newPostText = newPostText
     rerenderEntireTree(state);
 }
-export const addPost = (postValue: string) => {
+export const addPost = () => {
     let newPost = {
         id: 3,
-        message: postValue,
+        message: state.profilePage.newPostText,
         likesCount: 0
     }
     state.profilePage.posts.push(newPost)
