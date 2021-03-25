@@ -13,6 +13,12 @@ export const Dialogs: React.FC<DialogsType> = (props) => {
     let dialogsElements = props.state.dialogsPage.dialog.map(d => <DialogItems id={d.id} name={d.name}/>);
     let messagesElements = props.state.dialogsPage.message.map(m => <Messages messageText={m.message}/>);
 
+    const newMessageElement = React.createRef<HTMLTextAreaElement>()
+    const addPost = () => {
+        alert(newMessageElement.current?.value)
+    }
+
+
     return (
         <div className={styleModule.dialogs}>
             <div className={styleModule.dialogsItems}>
@@ -20,6 +26,13 @@ export const Dialogs: React.FC<DialogsType> = (props) => {
             </div>
             <div className={styleModule.messages}>
                 {messagesElements}
+                <hr/>
+                <div>
+                    <textarea ref={newMessageElement} placeholder="Write something"/>
+                </div>
+                <div>
+                    <button onClick={addPost}>Send</button>
+                </div>
             </div>
         </div>
     )

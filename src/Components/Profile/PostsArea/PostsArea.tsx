@@ -28,6 +28,7 @@ export const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
     return (
         <div className={styleModule.postBlock}>
             <h3>My posts</h3>
+
             <div>
                 <textarea
                     value={props.newPostText}
@@ -39,6 +40,7 @@ export const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
             <div>
                 <button onClick={addPostHandler}>Send</button>
             </div>
+            <hr/>
             <div className={styleModule.posts}>
                 {postsElements}
             </div>
