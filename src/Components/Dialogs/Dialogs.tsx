@@ -6,6 +6,7 @@ import {RootStateType} from "../../redux/state";
 
 type DialogsType = {
     state: RootStateType
+    addMessage: (messageText: string) => void
 }
 
 export const Dialogs: React.FC<DialogsType> = (props) => {
@@ -15,7 +16,10 @@ export const Dialogs: React.FC<DialogsType> = (props) => {
 
     const newMessageElement = React.createRef<HTMLTextAreaElement>()
     const addPost = () => {
-        alert(newMessageElement.current?.value)
+        if(newMessageElement.current){
+            console.log(newMessageElement.current.value)
+            props.addMessage(newMessageElement.current.value)
+        }
     }
 
 
@@ -28,7 +32,7 @@ export const Dialogs: React.FC<DialogsType> = (props) => {
                 {messagesElements}
                 <hr/>
                 <div>
-                    <textarea ref={newMessageElement} placeholder="Write something"/>
+                    <textarea ref={newMessageElement}  placeholder="Write something"/>
                 </div>
                 <div>
                     <button onClick={addPost}>Send</button>

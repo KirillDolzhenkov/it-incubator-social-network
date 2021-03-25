@@ -1,6 +1,6 @@
 import React from 'react';
 import reportWebVitals from './reportWebVitals';
-import state, { subscribe } from './redux/state'
+import state, {addMessage, subscribe } from './redux/state'
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -15,6 +15,7 @@ export let rerenderEntireTree = () => {
                 <App
                     state={state}
                     addPost={addPost}
+                    addMessage={addMessage}
                     messageForNewPost={messageForNewPost}
                 />
             </BrowserRouter>

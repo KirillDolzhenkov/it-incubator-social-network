@@ -40,7 +40,6 @@ export const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
             <div>
                 <button onClick={addPostHandler}>Send</button>
             </div>
-            <hr/>
             <div className={styleModule.posts}>
                 {postsElements}
             </div>
