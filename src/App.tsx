@@ -15,6 +15,7 @@ type AppPropsType = {
     addPost: (postValue: string)=> void
     addMessage: (messageText: string) => void
     messageForNewPost: (inputValue: string)=> void
+    messageForNewDialog: (inputValue: string)=> void
 }
 
 const App: React.FC<AppPropsType> = (props) => {
@@ -32,6 +33,8 @@ const App: React.FC<AppPropsType> = (props) => {
                 />
                 <Route path='/dialogs' render={() => <Dialogs state={props.state}
                                                               addMessage={props.addMessage}
+                                                              messageForNewDialog={props.messageForNewDialog}
+                                                              newDialogText={props.state.dialogsPage.newMessageText}
                 />}
                 />
                 <Route path='/news' render={() => <News/>}/>

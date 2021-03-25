@@ -1,6 +1,6 @@
 import React from 'react';
 import reportWebVitals from './reportWebVitals';
-import state, {addMessage, subscribe } from './redux/state'
+import state, {addMessage, messageForNewDialog, subscribe } from './redux/state'
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -17,6 +17,7 @@ export let rerenderEntireTree = () => {
                     addPost={addPost}
                     addMessage={addMessage}
                     messageForNewPost={messageForNewPost}
+                    messageForNewDialog={messageForNewDialog}
                 />
             </BrowserRouter>
         </React.StrictMode>,

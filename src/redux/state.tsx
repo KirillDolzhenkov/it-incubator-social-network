@@ -56,6 +56,11 @@ export const messageForNewPost = (newPostText: string) => {
     state.profilePage.newPostText = newPostText
     rerenderEntireTree();
 }
+export const messageForNewDialog= (newDialogText: string) => {
+    state.dialogsPage.newMessageText = newDialogText
+    rerenderEntireTree();
+}
+
 export const addPost = () => {
     let newPost = {
         id: 3,
@@ -73,6 +78,8 @@ export const addMessage = (messageText: string) => {
         message: messageText
     }
     state.dialogsPage.message.push(newMessage)
+    rerenderEntireTree();
+    state.dialogsPage.newMessageText = ""
 }
 
 export const subscribe = (observer: ()=>void) => {

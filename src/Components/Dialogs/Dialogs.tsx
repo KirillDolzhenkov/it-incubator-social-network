@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ChangeEvent} from "react";
 import styleModule from "./Dialogs.module.css";
 import {Messages} from "./Messages/Messages"
 import {DialogItems} from "./DialogItems/DialogItems";
@@ -7,6 +7,9 @@ import {RootStateType} from "../../redux/state";
 type DialogsType = {
     state: RootStateType
     addMessage: (messageText: string) => void
+    newDialogText: string
+    messageForNewDialog: (newPostText: string) => void
+
 }
 
 export const Dialogs: React.FC<DialogsType> = (props) => {
@@ -14,14 +17,16 @@ export const Dialogs: React.FC<DialogsType> = (props) => {
     let dialogsElements = props.state.dialogsPage.dialog.map(d => <DialogItems id={d.id} name={d.name}/>);
     let messagesElements = props.state.dialogsPage.message.map(m => <Messages messageText={m.message}/>);
 
-    const newMessageElement = React.createRef<HTMLTextAreaElement>()
-    const addPost = () => {
-        if(newMessageElement.current){
-            console.log(newMessageElement.current.value)
-            props.addMessage(newMessageElement.current.value)
-        }
-    }
+    /*const newMessageElement = React.createRef<HTMLTextAreaElement>()*/
+    const addPostHandler = () => {
 
+
+            props.addMessage(props.newDialogText)
+
+    }
+    let onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        props.messageForNewDialog(e.currentTarget.value)
+    }
 
     return (
         <div className={styleModule.dialogs}>
@@ -32,10 +37,13 @@ export const Dialogs: React.FC<DialogsType> = (props) => {
                 {messagesElements}
                 <hr/>
                 <div>
-                    <textarea ref={newMessageElement}  placeholder="Write something"/>
+                    <textarea value={props.newDialogText}
+                              onChange={onChangeHandler}
+                              placeholder="Write something"
+                    />
                 </div>
                 <div>
-                    <button onClick={addPost}>Send</button>
+                    <button onClick={addPostHandler}>Send</button>
                 </div>
             </div>
         </div>

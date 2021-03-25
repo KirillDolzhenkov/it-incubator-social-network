@@ -28,7 +28,7 @@ export const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
     return (
         <div className={styleModule.postBlock}>
             <h3>My posts</h3>
-
+            <hr/>
             <div>
                 <textarea
                     value={props.newPostText}
