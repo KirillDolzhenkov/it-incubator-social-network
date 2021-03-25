@@ -33,7 +33,6 @@ export const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
                 <textarea
                     value={props.newPostText}
                     onChange={onPostChange}
-                    /*ref={newPostText}*/
                     placeholder="Write something"
                 />
             </div>

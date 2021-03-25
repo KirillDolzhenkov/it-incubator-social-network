@@ -17,7 +17,6 @@ export const Dialogs: React.FC<DialogsType> = (props) => {
     let dialogsElements = props.state.dialogsPage.dialog.map(d => <DialogItems id={d.id} name={d.name}/>);
     let messagesElements = props.state.dialogsPage.message.map(m => <Messages messageText={m.message}/>);
 
-    /*const newMessageElement = React.createRef<HTMLTextAreaElement>()*/
     const addPostHandler = () => {
 
 
