@@ -17,7 +17,7 @@ export const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
             message={p.message}
             likesCount={p.likesCount}
         />)
-    /*let newPostText = React.createRef<HTMLTextAreaElement>()*/
+
     let addPostHandler = () => {
         props.addPost(props.newPostText)
     }

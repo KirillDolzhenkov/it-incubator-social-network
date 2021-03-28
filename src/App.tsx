@@ -8,17 +8,14 @@ import {Profile} from "./Components/Profile/Profile";
 import {News} from "./Components/News/News";
 import {Music} from "./Components/Music/Music";
 import {Settings} from "./Components/Settings/Settings";
-import {RootStateType} from './redux/state';
+import  {StoreType} from './redux/state';
 
 type AppPropsType = {
-    state: RootStateType
-    addPost: (postValue: string)=> void
-    addMessage: (messageText: string) => void
-    messageForNewPost: (inputValue: string)=> void
-    messageForNewDialog: (inputValue: string)=> void
+    store: StoreType
 }
 
 const App: React.FC<AppPropsType> = (props) => {
+    const state = props.store.getState();
     return (
         <div className='app-wrapper'>
             <Header/>
@@ -26,16 +23,20 @@ const App: React.FC<AppPropsType> = (props) => {
             <div className='app-wrapper-content'>
                 <Route
                     path='/profile'
-                    render={() => <Profile state={props.state}
-                                           addPost={props.addPost}
-                                           messageForNewPost={props.messageForNewPost}
+                    render={() => <Profile
+                        state={state}
+                        addPost={props.store.addPost.bind(props.store)}
+                        messageForNewPost={props.store.messageForNewPost.bind(props.store)}
                     />}
                 />
-                <Route path='/dialogs' render={() => <Dialogs state={props.state}
-                                                              addMessage={props.addMessage}
-                                                              messageForNewDialog={props.messageForNewDialog}
-                                                              newDialogText={props.state.dialogsPage.newMessageText}
-                />}
+                <Route
+                    path='/dialogs'
+                    render={() => <Dialogs
+                        state={state}
+                        addMessage={props.store.addMessage.bind(props.store)}
+                        messageForNewDialog={props.store.messageForNewDialog.bind(props.store)}
+                        newDialogText={state.dialogsPage.newMessageText}
+                    />}
                 />
                 <Route path='/news' render={() => <News/>}/>
                 <Route path='/music' render={() => <Music/>}/>

@@ -1,8 +1,3 @@
-/*import {rerenderEntireTree} from "../render";*/
-let rerenderEntireTree = () => {
-    console.log('rerenderEntireTree')
-}
-
 export type PostType = {
     id: number
     message: string
@@ -30,7 +25,20 @@ export type RootStateType = {
     profilePage: ProfilePageType
     dialogsPage: DialogsPageType
 }
-let state: RootStateType = {
+
+export type StoreType = {
+    _state: RootStateType
+    _onChangeRender: () => void
+    messageForNewPost: (newPostText: string) => void
+    messageForNewDialog: (newDialogText: string) => void
+    addPost: () => void
+    addMessage: () => void
+    subscribe: (observer: ()=>void) => void
+    getState: () => RootStateType
+}
+
+const store: StoreType = {
+    _state: {
     profilePage: {
         posts: [
             {id: 1, message: 'Hello', likesCount: 12},
@@ -50,40 +58,44 @@ let state: RootStateType = {
         newMessageText: ''
     },
 
-}
+},
+    _onChangeRender() {
+        console.log('rerenderEntireTree')
+    },
+    messageForNewPost(newPostText: string) {
+        this._state.profilePage.newPostText = newPostText
+        this._onChangeRender()
+    },
+    messageForNewDialog(newDialogText: string) {
+        this._state.dialogsPage.newMessageText = newDialogText
+        this._onChangeRender()
+    },
+    addPost() {
+        let newPost = {
+            id: 3,
+            message: this._state.profilePage.newPostText,
+            likesCount: 0
+        }
+        this._state.profilePage.posts.push(newPost)
+        this._state.profilePage.newPostText = ""
+        this._onChangeRender()
+    },
+    addMessage() {
+        let newMessage: MessageType = {
+            id: 3,
+            message: this._state.dialogsPage.newMessageText
+        }
+        this._state.dialogsPage.message.push(newMessage)
+        this._state.dialogsPage.newMessageText = ""
+        this._onChangeRender()
 
-export const messageForNewPost = (newPostText: string) => {
-    state.profilePage.newPostText = newPostText
-    rerenderEntireTree();
-}
-export const messageForNewDialog= (newDialogText: string) => {
-    state.dialogsPage.newMessageText = newDialogText
-    rerenderEntireTree();
-}
-
-export const addPost = () => {
-    let newPost = {
-        id: 3,
-        message: state.profilePage.newPostText,
-        likesCount: 0
+    },
+    subscribe(observer: ()=>void) {
+        this._onChangeRender = observer
+    },
+    getState() {
+        return this._state;
     }
-    state.profilePage.posts.push(newPost)
-    state.profilePage.newPostText = ""
-    rerenderEntireTree();
 }
 
-export const addMessage = (messageText: string) => {
-    let newMessage: MessageType = {
-        id: 3,
-        message: messageText
-    }
-    state.dialogsPage.message.push(newMessage)
-    rerenderEntireTree();
-    state.dialogsPage.newMessageText = ""
-}
-
-export const subscribe = (observer: ()=>void) => {
-    rerenderEntireTree = observer;
-}
-
-export default state;
+export default store;
