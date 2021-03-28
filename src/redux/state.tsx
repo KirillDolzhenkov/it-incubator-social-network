@@ -26,6 +26,28 @@ export type RootStateType = {
     dialogsPage: DialogsPageType
 }
 
+
+type AddPostActionType = {
+    type: "ADD-POST"
+}
+type ChangePostTextActionType = {
+    type: "CHANGE-POST-TEXT"
+    newPostText: string
+}
+type AddMessageActionType = {
+    type: "ADD-MESSAGE"
+}
+type ChangeMessageTextActionType = {
+    type: "CHANGE-MESSAGE-TEXT"
+    newDialogText: string
+}
+
+export type ActionType = AddPostActionType
+    | ChangePostTextActionType
+    | AddMessageActionType
+    | ChangeMessageTextActionType
+
+
 export type StoreType = {
     _state: RootStateType
     _callSubscriber: () => void
@@ -35,6 +57,7 @@ export type StoreType = {
     addMessage: () => void
     subscribe: (observer: ()=>void) => void
     getState: () => RootStateType
+    dispatch: (action: ActionType) => void
 }
 
 const store: StoreType = {
@@ -95,7 +118,36 @@ const store: StoreType = {
     },
     getState() {
         return this._state;
+    },
+
+
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            const newPost = {
+                id: 3,
+                message: this._state.profilePage.newPostText,
+                likesCount: 0
+            }
+            this._state.profilePage.posts.push(newPost)
+            this._state.profilePage.newPostText = ""
+            this._callSubscriber()
+        } else if (action.type === 'CHANGE-POST-TEXT') {
+            this._state.profilePage.newPostText = action.newPostText
+            this._callSubscriber()
+        } else if(action.type === 'ADD-MESSAGE') {
+            const newMessage: MessageType = {
+                id: 3,
+                message: this._state.dialogsPage.newMessageText
+            }
+            this._state.dialogsPage.message.push(newMessage)
+            this._state.dialogsPage.newMessageText = ""
+            this._callSubscriber()
+        } else if(action.type === 'CHANGE-MESSAGE-TEXT') {
+            this._state.dialogsPage.newMessageText = action.newDialogText
+            this._callSubscriber()
+        }
     }
 }
+
 
 export default store;

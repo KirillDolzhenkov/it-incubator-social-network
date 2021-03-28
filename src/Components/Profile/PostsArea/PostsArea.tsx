@@ -12,14 +12,12 @@ type PostsAreaPropsType = {
 export const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
 
     let postsElements = props.posts
-        .map(p => <Post
-            key={p.id}
-            message={p.message}
-            likesCount={p.likesCount}
-        />)
+        .map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>)
 
     const addItem = () => {
-        props.addPost(props.newPostText)
+        if(props.newPostText.trim()){
+            props.addPost(props.newPostText)
+        }
     }
     const onPostChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
         props.messageForNewPost(e.currentTarget.value)
