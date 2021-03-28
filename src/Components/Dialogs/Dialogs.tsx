@@ -13,14 +13,22 @@ type DialogsType = {
 
 export const Dialogs: React.FC<DialogsType> = (props) => {
 
-    let dialogsElements = props.state.dialogsPage.dialog.map(d => <DialogItems id={d.id} name={d.name}/>)
-    let messagesElements = props.state.dialogsPage.message.map(m => <Messages messageText={m.message}/>)
+    let dialogsElements = props.state.dialogsPage.dialog
+        .map(d => <DialogItems key={d.id} id={d.id} name={d.name}/>)
+    let messagesElements = props.state.dialogsPage.message
+        .map(m => <Messages key={m.id} messageText={m.message}/>)
 
-    const addPostHandler = () => {
-            props.addMessage(props.state.dialogsPage.newMessageText)
+    const addItem = () => {
+        props.addMessage(props.state.dialogsPage.newMessageText)
     }
     let onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
         props.messageForNewDialog(e.currentTarget.value)
+    }
+
+    const onKeyPressHandler = (e: React.KeyboardEvent<HTMLElement>) => {
+        if (e.key === 'Enter') {
+            addItem();
+        }
     }
 
     return (
@@ -34,11 +42,12 @@ export const Dialogs: React.FC<DialogsType> = (props) => {
                 <div>
                     <textarea value={props.state.dialogsPage.newMessageText}
                               onChange={onChangeHandler}
+                              onKeyPress={onKeyPressHandler}
                               placeholder="Write something"
                     />
                 </div>
                 <div>
-                    <button onClick={addPostHandler}>Send</button>
+                    <button onClick={addItem}>Send</button>
                 </div>
             </div>
         </div>

@@ -28,7 +28,7 @@ export type RootStateType = {
 
 export type StoreType = {
     _state: RootStateType
-    _onChangeRender: () => void
+    _callSubscriber: () => void
     messageForNewPost: (newPostText: string) => void
     messageForNewDialog: (newDialogText: string) => void
     addPost: () => void
@@ -59,39 +59,39 @@ const store: StoreType = {
     },
 
 },
-    _onChangeRender() {
+    _callSubscriber() {
         console.log('rerenderEntireTree')
     },
     messageForNewPost(newPostText: string) {
         this._state.profilePage.newPostText = newPostText
-        this._onChangeRender()
+        this._callSubscriber()
     },
     messageForNewDialog(newDialogText: string) {
         this._state.dialogsPage.newMessageText = newDialogText
-        this._onChangeRender()
+        this._callSubscriber()
     },
     addPost() {
-        let newPost = {
+        const newPost = {
             id: 3,
             message: this._state.profilePage.newPostText,
             likesCount: 0
         }
         this._state.profilePage.posts.push(newPost)
         this._state.profilePage.newPostText = ""
-        this._onChangeRender()
+        this._callSubscriber()
     },
     addMessage() {
-        let newMessage: MessageType = {
+        const newMessage: MessageType = {
             id: 3,
             message: this._state.dialogsPage.newMessageText
         }
         this._state.dialogsPage.message.push(newMessage)
         this._state.dialogsPage.newMessageText = ""
-        this._onChangeRender()
+        this._callSubscriber()
 
     },
     subscribe(observer: ()=>void) {
-        this._onChangeRender = observer
+        this._callSubscriber = observer
     },
     getState() {
         return this._state;

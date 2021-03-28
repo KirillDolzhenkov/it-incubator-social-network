@@ -18,11 +18,16 @@ export const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
             likesCount={p.likesCount}
         />)
 
-    let addPostHandler = () => {
+    const addItem = () => {
         props.addPost(props.newPostText)
     }
-    let onPostChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const onPostChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
         props.messageForNewPost(e.currentTarget.value)
+    }
+    const onKeyPressHandler = (e: React.KeyboardEvent<HTMLElement>) => {
+        if (e.key === 'Enter') {
+            addItem();
+        }
     }
 
     return (
@@ -33,11 +38,12 @@ export const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
                 <textarea
                     value={props.newPostText}
                     onChange={onPostChange}
+                    onKeyPress={onKeyPressHandler}
                     placeholder="Write something"
                 />
             </div>
             <div>
-                <button onClick={addPostHandler}>Send</button>
+                <button onClick={addItem}>Send</button>
             </div>
             <div className={styleModule.posts}>
                 {postsElements}
