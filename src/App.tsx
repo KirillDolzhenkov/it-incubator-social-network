@@ -35,7 +35,7 @@ const App: React.FC<AppPropsType> = (props) => {
                         state={state}
                         addMessage={props.store.addMessage.bind(props.store)}
                         messageForNewDialog={props.store.messageForNewDialog.bind(props.store)}
-                        newDialogText={state.dialogsPage.newMessageText}
+                        /*newDialogText={state.dialogsPage.newMessageText}*/
                     />}
                 />
                 <Route path='/news' render={() => <News/>}/>

@@ -7,21 +7,17 @@ import {RootStateType} from "../../redux/state";
 type DialogsType = {
     state: RootStateType
     addMessage: (messageText: string) => void
-    newDialogText: string
+    /*newDialogText: string*/
     messageForNewDialog: (newPostText: string) => void
-
 }
 
 export const Dialogs: React.FC<DialogsType> = (props) => {
 
-    let dialogsElements = props.state.dialogsPage.dialog.map(d => <DialogItems id={d.id} name={d.name}/>);
-    let messagesElements = props.state.dialogsPage.message.map(m => <Messages messageText={m.message}/>);
+    let dialogsElements = props.state.dialogsPage.dialog.map(d => <DialogItems id={d.id} name={d.name}/>)
+    let messagesElements = props.state.dialogsPage.message.map(m => <Messages messageText={m.message}/>)
 
     const addPostHandler = () => {
-
-
-            props.addMessage(props.newDialogText)
-
+            props.addMessage(props.state.dialogsPage.newMessageText)
     }
     let onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
         props.messageForNewDialog(e.currentTarget.value)
@@ -36,7 +32,7 @@ export const Dialogs: React.FC<DialogsType> = (props) => {
                 {messagesElements}
                 <hr/>
                 <div>
-                    <textarea value={props.newDialogText}
+                    <textarea value={props.state.dialogsPage.newMessageText}
                               onChange={onChangeHandler}
                               placeholder="Write something"
                     />
