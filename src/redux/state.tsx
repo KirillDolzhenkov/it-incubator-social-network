@@ -29,6 +29,7 @@ export type RootStateType = {
 
 type AddPostActionType = {
     type: "ADD-POST"
+    newPostText: string
 }
 type ChangePostTextActionType = {
     type: "CHANGE-POST-TEXT"
@@ -36,6 +37,7 @@ type ChangePostTextActionType = {
 }
 type AddMessageActionType = {
     type: "ADD-MESSAGE"
+    newMessageText: string
 }
 type ChangeMessageTextActionType = {
     type: "CHANGE-MESSAGE-TEXT"
@@ -125,7 +127,7 @@ const store: StoreType = {
         if (action.type === 'ADD-POST') {
             const newPost = {
                 id: 3,
-                message: this._state.profilePage.newPostText,
+                message: action.newPostText,
                 likesCount: 0
             }
             this._state.profilePage.posts.push(newPost)
@@ -137,7 +139,7 @@ const store: StoreType = {
         } else if(action.type === 'ADD-MESSAGE') {
             const newMessage: MessageType = {
                 id: 3,
-                message: this._state.dialogsPage.newMessageText
+                message: action.newMessageText
             }
             this._state.dialogsPage.message.push(newMessage)
             this._state.dialogsPage.newMessageText = ""

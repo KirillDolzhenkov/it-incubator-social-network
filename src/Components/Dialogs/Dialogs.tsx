@@ -2,13 +2,15 @@ import React, {ChangeEvent} from "react";
 import styleModule from "./Dialogs.module.css";
 import {Messages} from "./Messages/Messages"
 import {DialogItems} from "./DialogItems/DialogItems";
-import {RootStateType} from "../../redux/state";
+import {ActionType, RootStateType} from "../../redux/state";
 
 type DialogsType = {
     state: RootStateType
-    addMessage: (messageText: string) => void
+    dispatch: (action: ActionType) => void
+    /*addMessage: (messageText: string) => void
+    messageForNewDialog: (newPostText: string) => void*/
+
     /*newDialogText: string*/
-    messageForNewDialog: (newPostText: string) => void
 }
 
 export const Dialogs: React.FC<DialogsType> = (props) => {
@@ -20,11 +22,13 @@ export const Dialogs: React.FC<DialogsType> = (props) => {
 
     const addItem = () => {
         if(props.state.dialogsPage.newMessageText.trim()){
-            props.addMessage(props.state.dialogsPage.newMessageText)
+            /*props.addMessage(props.state.dialogsPage.newMessageText)*/
+            props.dispatch({type: "ADD-MESSAGE", newMessageText: props.state.dialogsPage.newMessageText})
         }
     }
     let onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.messageForNewDialog(e.currentTarget.value)
+        /*props.messageForNewDialog(e.currentTarget.value)*/
+        props.dispatch({type: "CHANGE-MESSAGE-TEXT", newDialogText: (e.currentTarget.value)})
     }
 
     const onKeyPressHandler = (e: React.KeyboardEvent<HTMLElement>) => {

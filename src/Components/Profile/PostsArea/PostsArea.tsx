@@ -1,13 +1,14 @@
 import React, {ChangeEvent} from "react";
 import {Post} from "./Post/Post";
 import styleModule from "./PostsArea.module.css";
-import {PostType} from "../../../redux/state";
+import {ActionType, PostType} from "../../../redux/state";
 
 type PostsAreaPropsType = {
     posts: Array<PostType>
-    addPost: (postText: string) => void
     newPostText: string
-    messageForNewPost: (newPostText: string) => void
+    dispatch: (action: ActionType) => void
+    /*addPost: (postText: string) => void
+    messageForNewPost: (newPostText: string) => void*/
 }
 export const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
 
@@ -16,11 +17,13 @@ export const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
 
     const addItem = () => {
         if(props.newPostText.trim()){
-            props.addPost(props.newPostText)
+            /*props.addPost(props.newPostText)*/
+            props.dispatch({type: "ADD-POST", newPostText: props.newPostText})
         }
     }
     const onPostChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.messageForNewPost(e.currentTarget.value)
+        /*props.messageForNewPost(e.currentTarget.value)*/
+        props.dispatch({type: "CHANGE-POST-TEXT", newPostText: (e.currentTarget.value)})
     }
     const onKeyPressHandler = (e: React.KeyboardEvent<HTMLElement>) => {
         if (e.key === 'Enter') {
