@@ -26,8 +26,6 @@ const App: React.FC<AppPropsType> = (props) => {
                     render={() => <Profile
                         state={state}
                         dispatch={props.store.dispatch.bind(props.store)}
-                       /* addPost={props.store.addPost.bind(props.store)}
-                        messageForNewPost={props.store.messageForNewPost.bind(props.store)}*/
                     />}
                 />
                 <Route
@@ -35,10 +33,6 @@ const App: React.FC<AppPropsType> = (props) => {
                     render={() => <Dialogs
                         state={state}
                         dispatch={props.store.dispatch.bind(props.store)}
-                        /*addMessage={props.store.addMessage.bind(props.store)}
-                        messageForNewDialog={props.store.messageForNewDialog.bind(props.store)}*/
-
-                        /*newDialogText={state.dialogsPage.newMessageText}*/
                     />}
                 />
                 <Route path='/news' render={() => <News/>}/>

@@ -7,8 +7,6 @@ import {ActionType, RootStateType} from "../../redux/state";
 
 type ProfilePropsType = {
     state: RootStateType
-/*    addPost: (postValue: string)=> void
-    messageForNewPost: (inputValue: string)=> void*/
     dispatch: (action: ActionType) => void
 }
 export const Profile: React.FC<ProfilePropsType> = (props) => {
@@ -19,8 +17,6 @@ export const Profile: React.FC<ProfilePropsType> = (props) => {
                 dispatch={props.dispatch}
                 posts={props.state.profilePage.posts}
                 newPostText={props.state.profilePage.newPostText}
-                /*addPost={props.addPost}
-                messageForNewPost={props.messageForNewPost}*/
             />
         </div>
     );

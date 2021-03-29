@@ -7,10 +7,6 @@ import {ActionType, addMessageAC, RootStateType} from "../../redux/state";
 type DialogsType = {
     state: RootStateType
     dispatch: (action: ActionType) => void
-    /*addMessage: (messageText: string) => void
-    messageForNewDialog: (newPostText: string) => void*/
-
-    /*newDialogText: string*/
 }
 
 export const Dialogs: React.FC<DialogsType> = (props) => {
@@ -22,16 +18,12 @@ export const Dialogs: React.FC<DialogsType> = (props) => {
 
     const addItem = () => {
         if(props.state.dialogsPage.newMessageText.trim()){
-            /*props.addMessage(props.state.dialogsPage.newMessageText)*/
-            /*props.dispatch({type: "ADD-MESSAGE", newMessageText: props.state.dialogsPage.newMessageText})*/
             props.dispatch(addMessageAC(props.state.dialogsPage.newMessageText))
         }
     }
     let onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        /*props.messageForNewDialog(e.currentTarget.value)*/
         props.dispatch({type: "CHANGE-MESSAGE-TEXT", newDialogText: (e.currentTarget.value)})
     }
-
     const onKeyPressHandler = (e: React.KeyboardEvent<HTMLElement>) => {
         if (e.key === 'Enter') {
             addItem();
