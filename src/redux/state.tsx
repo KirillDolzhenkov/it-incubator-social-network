@@ -1,3 +1,5 @@
+import {ChangeEvent} from "react";
+
 export type PostType = {
     id: number
     message: string
@@ -53,14 +55,22 @@ export type ActionType = AddPostActionType
 export type StoreType = {
     _state: RootStateType
     _callSubscriber: () => void
-    messageForNewPost: (newPostText: string) => void
+/*    messageForNewPost: (newPostText: string) => void
     messageForNewDialog: (newDialogText: string) => void
     addPost: () => void
-    addMessage: () => void
-    subscribe: (observer: ()=>void) => void
+    addMessage: () => void*/
     getState: () => RootStateType
+    subscribe: (observer: ()=>void) => void
     dispatch: (action: ActionType) => void
 }
+
+export const addPostAC = (newPostText: string):AddPostActionType => {
+    return{type: "ADD-POST", newPostText}
+}
+export const changePostAC = (newPostText: string):ChangePostTextActionType => {
+    return{type: "CHANGE-POST-TEXT", newPostText}
+}
+
 
 const store: StoreType = {
     _state: {
@@ -87,7 +97,7 @@ const store: StoreType = {
     _callSubscriber() {
         console.log('rerenderEntireTree')
     },
-    messageForNewPost(newPostText: string) {
+    /*messageForNewPost(newPostText: string) {
         this._state.profilePage.newPostText = newPostText
         this._callSubscriber()
     },
@@ -114,7 +124,7 @@ const store: StoreType = {
         this._state.dialogsPage.newMessageText = ""
         this._callSubscriber()
 
-    },
+    },*/
     subscribe(observer: ()=>void) {
         this._callSubscriber = observer
     },
@@ -150,6 +160,7 @@ const store: StoreType = {
         }
     }
 }
+
 
 
 export default store;
