@@ -70,6 +70,12 @@ export const addPostAC = (newPostText: string):AddPostActionType => {
 export const changePostAC = (newPostText: string):ChangePostTextActionType => {
     return{type: "CHANGE-POST-TEXT", newPostText}
 }
+export const addMessageAC = (newMessageText: string):AddMessageActionType => {
+    return{type: "ADD-MESSAGE", newMessageText}
+}
+export const changeMessageAC = (newDialogText: string):ChangeMessageTextActionType => {
+    return{type: "CHANGE-MESSAGE-TEXT", newDialogText}
+}
 
 
 const store: StoreType = {
