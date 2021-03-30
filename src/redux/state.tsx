@@ -1,5 +1,3 @@
-import {ChangeEvent} from "react";
-
 export type PostType = {
     id: number
     message: string
@@ -26,31 +24,13 @@ export type DialogsPageType = {
 export type RootStateType = {
     profilePage: ProfilePageType
     dialogsPage: DialogsPageType
+    sidebar: {}
 }
 
-
-type AddPostActionType = {
-    type: "ADD-POST"
-    newPostText: string
-}
-type ChangePostTextActionType = {
-    type: "CHANGE-POST-TEXT"
-    newPostText: string
-}
-type AddMessageActionType = {
-    type: "ADD-MESSAGE"
-    newMessageText: string
-}
-type ChangeMessageTextActionType = {
-    type: "CHANGE-MESSAGE-TEXT"
-    newDialogText: string
-}
-
-export type ActionType = AddPostActionType
-    | ChangePostTextActionType
-    | AddMessageActionType
-    | ChangeMessageTextActionType
-
+export type ActionType = ReturnType<typeof addPostAC>
+    | ReturnType<typeof changePostAC>
+    | ReturnType<typeof addMessageAC>
+    | ReturnType<typeof changeMessageAC>
 
 export type StoreType = {
     _state: RootStateType
@@ -60,17 +40,22 @@ export type StoreType = {
     dispatch: (action: ActionType) => void
 }
 
-export const addPostAC = (newPostText: string):AddPostActionType => {
-    return{type: "ADD-POST", newPostText}
+const SEND_POST = "ADD-POST"
+const UPDATE_NEW_POST_BODY = "CHANGE-POST-TEXT"
+const SEND_MESSAGE = "ADD-MESSAGE"
+const UPDATE_NEW_MESSAGE_BODY = "CHANGE-MESSAGE-TEXT"
+
+export const addPostAC = (newPostText: string) => {
+    return{type: SEND_POST, newPostText} as const
 }
-export const changePostAC = (newPostText: string):ChangePostTextActionType => {
-    return{type: "CHANGE-POST-TEXT", newPostText}
+export const changePostAC = (newPostText: string) => {
+    return{type: UPDATE_NEW_POST_BODY, newPostText} as const
 }
-export const addMessageAC = (newMessageText: string):AddMessageActionType => {
-    return{type: "ADD-MESSAGE", newMessageText}
+export const addMessageAC = (newMessageText: string) => {
+    return{type: SEND_MESSAGE, newMessageText} as const
 }
-export const changeMessageAC = (newDialogText: string):ChangeMessageTextActionType => {
-    return{type: "CHANGE-MESSAGE-TEXT", newDialogText}
+export const changeMessageAC = (newDialogText: string) => {
+    return{type: UPDATE_NEW_MESSAGE_BODY, newDialogText} as const
 }
 
 
@@ -94,7 +79,7 @@ const store: StoreType = {
             ],
             newMessageText: ''
         },
-
+        sidebar: {}
     },
     _callSubscriber() {
         console.log('rerenderEntireTree')
@@ -112,7 +97,7 @@ const store: StoreType = {
                 message: action.newPostText,
                 likesCount: 0
             }
-            this._state.profilePage.posts.push(newPost)
+            this._state.profilePage.posts.unshift(newPost)
             this._state.profilePage.newPostText = ""
             this._callSubscriber()
         } else if (action.type === 'CHANGE-POST-TEXT') {

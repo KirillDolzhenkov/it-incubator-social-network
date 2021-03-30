@@ -24,6 +24,7 @@ export const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
     }
     const onKeyPressHandler = (e: React.KeyboardEvent<HTMLElement>) => {
         if (e.key === 'Enter') {
+            e.preventDefault()
             addItem();
         }
     }

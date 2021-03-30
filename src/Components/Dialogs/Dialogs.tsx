@@ -2,7 +2,7 @@ import React, {ChangeEvent} from "react";
 import styleModule from "./Dialogs.module.css";
 import {Messages} from "./Messages/Messages"
 import {DialogItems} from "./DialogItems/DialogItems";
-import {ActionType, addMessageAC, RootStateType} from "../../redux/state";
+import {ActionType, addMessageAC, changeMessageAC, RootStateType} from "../../redux/state";
 
 type DialogsType = {
     state: RootStateType
@@ -22,10 +22,11 @@ export const Dialogs: React.FC<DialogsType> = (props) => {
         }
     }
     let onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.dispatch({type: "CHANGE-MESSAGE-TEXT", newDialogText: (e.currentTarget.value)})
+        props.dispatch(changeMessageAC(e.currentTarget.value))
     }
     const onKeyPressHandler = (e: React.KeyboardEvent<HTMLElement>) => {
         if (e.key === 'Enter') {
+            e.preventDefault()
             addItem();
         }
     }
