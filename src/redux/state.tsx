@@ -1,3 +1,7 @@
+import dialogsReducer from "./dialogs-reducer";
+import profileReducer from "./profile-reducer";
+import sidebarReducer from "./sidebar-reducer";
+
 export type PostType = {
     id: number
     message: string
@@ -58,7 +62,6 @@ export const changeMessageAC = (newDialogText: string) => {
     return{type: UPDATE_NEW_MESSAGE_BODY, newDialogText} as const
 }
 
-
 const store: StoreType = {
     _state: {
         profilePage: {
@@ -91,31 +94,10 @@ const store: StoreType = {
         return this._state;
     },
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
-            const newPost = {
-                id: 3,
-                message: action.newPostText,
-                likesCount: 0
-            }
-            this._state.profilePage.posts.unshift(newPost)
-            this._state.profilePage.newPostText = ""
-            this._callSubscriber()
-        } else if (action.type === 'CHANGE-POST-TEXT') {
-            this._state.profilePage.newPostText = action.newPostText
-            this._callSubscriber()
-        } else if(action.type === 'ADD-MESSAGE') {
-            const newMessage: MessageType = {
-                id: 3,
-                message: action.newMessageText
-            }
-            this._state.dialogsPage.message.push(newMessage)
-            this._state.dialogsPage.newMessageText = ""
-            this._callSubscriber()
-        } else if(action.type === 'CHANGE-MESSAGE-TEXT') {
-            this._state.dialogsPage.newMessageText = action.newDialogText
-            this._callSubscriber()
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+        this._state.sidebar = sidebarReducer(this._state.sidebar, action)
+        this._callSubscriber()
     }
 }
-
 export default store;
