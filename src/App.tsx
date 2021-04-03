@@ -1,14 +1,14 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
 import './App.css';
-import {Dialogs} from './Components/Dialogs/Dialogs';
-import {Header} from './Components/Header/Header';
-import {Navbar} from './Components/Navbar/Navbar';
-import {Profile} from "./Components/Profile/Profile";
-import {News} from "./Components/News/News";
-import {Music} from "./Components/Music/Music";
-import {Settings} from "./Components/Settings/Settings";
-import {StoreType} from './redux/state';
+import {Dialogs} from './сomponents/Dialogs/Dialogs';
+import {Header} from './сomponents/Header/Header';
+import {Navbar} from './сomponents/Navbar/Navbar';
+import {Profile} from "./сomponents/Profile/Profile";
+import {News} from "./сomponents/News/News";
+import {Music} from "./сomponents/Music/Music";
+import {Settings} from "./сomponents/Settings/Settings";
+import {StoreType} from './redux/store';
 
 type AppPropsType = {
     store: StoreType

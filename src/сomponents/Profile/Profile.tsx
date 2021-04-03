@@ -2,7 +2,7 @@ import React from "react";
 /*import styleModule from "./Profile.module.css";*/
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 import {PostsArea} from "./PostsArea/PostsArea";
-import {ActionType, RootStateType} from "../../redux/state";
+import {ActionType, RootStateType} from "../../redux/store";
 
 
 type ProfilePropsType = {

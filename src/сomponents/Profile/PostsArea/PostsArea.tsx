@@ -1,7 +1,7 @@
 import React, {ChangeEvent} from "react";
 import {Post} from "./Post/Post";
 import styleModule from "./PostsArea.module.css";
-import {ActionType, addPostAC, changePostAC, PostType} from "../../../redux/state";
+import {ActionType, addPostAC, changePostAC, PostType} from "../../../redux/store";
 
 type PostsAreaPropsType = {
     posts: Array<PostType>
