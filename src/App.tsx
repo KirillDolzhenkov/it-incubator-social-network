@@ -8,10 +8,11 @@ import {Profile} from "./сomponents/Profile/Profile";
 import {News} from "./сomponents/News/News";
 import {Music} from "./сomponents/Music/Music";
 import {Settings} from "./сomponents/Settings/Settings";
-import {StoreType} from './redux/store';
+/*import {StoreType} from './redux/store';*/
+import { reducersType } from './redux/redux-store';
 
 type AppPropsType = {
-    store: StoreType
+    store: reducersType
 }
 
 const App: React.FC<AppPropsType> = (props) => {

@@ -40,7 +40,7 @@ export type StoreType = {
     _state: RootStateType
     _callSubscriber: () => void
     getState: () => RootStateType
-    subscribe: (observer: ()=>void) => void
+    subscribe: (observer: () => void) => void
     dispatch: (action: ActionType) => void
 }
 
@@ -50,16 +50,16 @@ const SEND_MESSAGE = "ADD-MESSAGE"
 const UPDATE_NEW_MESSAGE_BODY = "CHANGE-MESSAGE-TEXT"
 
 export const addPostAC = (newPostText: string) => {
-    return{type: SEND_POST, newPostText} as const
+    return {type: SEND_POST, newPostText} as const
 }
 export const changePostAC = (newPostText: string) => {
-    return{type: UPDATE_NEW_POST_BODY, newPostText} as const
+    return {type: UPDATE_NEW_POST_BODY, newPostText} as const
 }
 export const addMessageAC = (newMessageText: string) => {
-    return{type: SEND_MESSAGE, newMessageText} as const
+    return {type: SEND_MESSAGE, newMessageText} as const
 }
 export const changeMessageAC = (newDialogText: string) => {
-    return{type: UPDATE_NEW_MESSAGE_BODY, newDialogText} as const
+    return {type: UPDATE_NEW_MESSAGE_BODY, newDialogText} as const
 }
 
 const store: StoreType = {

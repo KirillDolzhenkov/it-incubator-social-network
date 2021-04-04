@@ -4,16 +4,16 @@ const SEND_MESSAGE = "ADD-MESSAGE"
 const UPDATE_NEW_MESSAGE_BODY = "CHANGE-MESSAGE-TEXT"
 
 const initialState = {
-        dialog: [
-            {id: 1, name: "Dima"},
-            {id: 2, name: "Sasha"},
-        ],
-        message: [
-            {id: 1, message: "hello"},
-            {id: 2, message: "How are you?"},
-        ],
-        newMessageText: ''
-    }
+    dialog: [
+        {id: 1, name: "Dima"},
+        {id: 2, name: "Sasha"},
+    ],
+    message: [
+        {id: 1, message: "hello"},
+        {id: 2, message: "How are you?"},
+    ],
+    newMessageText: ''
+}
 
 const dialogsReducer = (state: DialogsPageType = initialState, action: ActionType) => {
     if (action.type === SEND_MESSAGE) {
