@@ -2,12 +2,12 @@ import React from 'react';
 import reportWebVitals from './reportWebVitals';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import store from './redux/redux-store'
+import {App} from './App';
+import {store} from './redux/redux-store'
 import {BrowserRouter} from "react-router-dom";
 
 
-export let rerenderEntireTree = () => {
+let rerenderEntireTree = () => {
     ReactDOM.render(
         <React.StrictMode>
             <BrowserRouter>
@@ -27,3 +27,7 @@ store.subscribe(rerenderEntireTree);
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+export {
+    rerenderEntireTree
+}

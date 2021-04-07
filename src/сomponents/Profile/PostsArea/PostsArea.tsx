@@ -9,7 +9,7 @@ type PostsAreaPropsType = {
     dispatch: (action: ActionType) => void
 }
 
-export const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
+const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
 
     let postsElements = props.posts
         .map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>)
@@ -49,4 +49,8 @@ export const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
             </div>
         </div>
     )
+}
+
+export {
+    PostsArea
 }

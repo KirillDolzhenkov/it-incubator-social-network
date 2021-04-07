@@ -28,4 +28,6 @@ const dialogsReducer = (state: DialogsPageType = initialState, action: ActionTyp
     }
     return state;
 }
-export default dialogsReducer;
+export {
+    dialogsReducer
+}

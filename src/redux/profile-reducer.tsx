@@ -26,5 +26,7 @@ const profileReducer = (state: ProfilePageType = initialState, action: ActionTyp
     return state;
 }
 
-export default profileReducer;
+export {
+    profileReducer
+}
 

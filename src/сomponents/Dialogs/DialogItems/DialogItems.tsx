@@ -7,10 +7,14 @@ type DialogItemsType = {
     name: string
 }
 
-export const DialogItems: React.FC<DialogItemsType> = (props) => {
+const DialogItems: React.FC<DialogItemsType> = (props) => {
     return (
         <div className={styleModule.dialog}>
             <NavLink to = {'/dialogs/' + props.id} >{props.name}</NavLink>
         </div>
     )
+}
+
+export {
+    DialogItems
 }

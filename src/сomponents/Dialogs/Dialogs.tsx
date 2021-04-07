@@ -9,7 +9,7 @@ type DialogsType = {
     dispatch: (action: ActionType) => void
 }
 
-export const Dialogs: React.FC<DialogsType> = (props) => {
+const Dialogs: React.FC<DialogsType> = (props) => {
 
     let dialogsElements = props.state.dialogsPage.dialog
         .map(d => <DialogItems key={d.id} id={d.id} name={d.name}/>)
@@ -52,4 +52,8 @@ export const Dialogs: React.FC<DialogsType> = (props) => {
             </div>
         </div>
     )
+}
+
+export {
+    Dialogs
 }

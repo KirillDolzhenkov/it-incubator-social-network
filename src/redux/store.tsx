@@ -1,6 +1,6 @@
-import dialogsReducer from "./dialogs-reducer";
-import profileReducer from "./profile-reducer";
-import sidebarReducer from "./sidebar-reducer";
+import {dialogsReducer} from "./dialogs-reducer";
+import {profileReducer} from "./profile-reducer";
+import {sidebarReducer} from "./sidebar-reducer";
 
 export type PostType = {
     id: number
@@ -100,4 +100,7 @@ const store: StoreType = {
         this._callSubscriber()
     }
 }
-export default store;
+
+export {
+    store
+}

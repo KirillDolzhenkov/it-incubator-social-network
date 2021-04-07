@@ -3,9 +3,9 @@ import styleModule from "./Navbar.module.css";
 import {NavLink} from 'react-router-dom';
 
 
-type NavbarType = {}
+type NavbarPropsType = {}
 
-export const Navbar: React.FC<NavbarType> = (props) => {
+const Navbar: React.FC<NavbarPropsType> = (props) => {
     return (
         <nav className={styleModule.nav}>
             <div className={styleModule.item}>
@@ -25,4 +25,8 @@ export const Navbar: React.FC<NavbarType> = (props) => {
             </div>
         </nav>
     )
+}
+
+export {
+    Navbar
 }

@@ -5,10 +5,14 @@ type MessagePropsType = {
     messageText: string
 }
 
-export const Messages: React.FC<MessagePropsType> = (props) =>{
+const Messages: React.FC<MessagePropsType> = (props) =>{
     return (
         <div className={styleModule.message}>
             {props.messageText}
         </div>
     )
+}
+
+export {
+    Messages
 }
