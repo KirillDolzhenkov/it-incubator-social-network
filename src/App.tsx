@@ -8,11 +8,10 @@ import {Profile} from "./сomponents/Profile/Profile";
 import {News} from "./сomponents/News/News";
 import {Music} from "./сomponents/Music/Music";
 import {Settings} from "./сomponents/Settings/Settings";
-/*import {StoreType} from './redux/store';*/
-import { reducersType } from './redux/redux-store';
+import {StoreType} from "./redux/store";
 
 type AppPropsType = {
-    store: reducersType
+    store: StoreType
 }
 
 const App: React.FC<AppPropsType> = (props) => {
@@ -22,20 +21,13 @@ const App: React.FC<AppPropsType> = (props) => {
             <Header/>
             <Navbar/>
             <div className='app-wrapper-content'>
-                <Route
-                    path='/profile'
-                    render={() => <Profile
-                        state={state}
-                        dispatch={props.store.dispatch.bind(props.store)}
-                    />}
-                />
-                <Route
-                    path='/dialogs'
-                    render={() => <Dialogs
-                        state={state}
-                        dispatch={props.store.dispatch.bind(props.store)}
-                    />}
-                />
+                <Route path='/profile'
+                       render={() => <Profile
+                           store={props.store}/>}/>
+                <Route path='/dialogs'
+                       render={() => <Dialogs
+                           state={state}
+                           dispatch={props.store.dispatch.bind(props.store)}/>}/>
                 <Route path='/news' render={() => <News/>}/>
                 <Route path='/music' render={() => <Music/>}/>
                 <Route path='/settings' render={() => <Settings/>}/>

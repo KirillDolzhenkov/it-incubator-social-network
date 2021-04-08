@@ -1,12 +1,14 @@
 import React, {ChangeEvent} from "react";
 import {Post} from "./Post/Post";
 import styleModule from "./PostsArea.module.css";
-import {ActionType, addPostAC, changePostAC, PostType} from "../../../redux/store";
+import {PostType} from "../../../redux/store";
+
 
 type PostsAreaPropsType = {
+    updateNewPostText: (text: string) => void
+    addPost: (text: string) => void
     posts: Array<PostType>
     newPostText: string
-    dispatch: (action: ActionType) => void
 }
 
 const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
@@ -14,18 +16,20 @@ const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
     let postsElements = props.posts
         .map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>)
 
-    const addItem = () => {
+    const onAddPost = () => {
         if(props.newPostText.trim()){
-            props.dispatch(addPostAC(props.newPostText))
+            props.addPost(props.newPostText)
         }
     }
+
     const onPostChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.dispatch(changePostAC(e.currentTarget.value))
+        props.updateNewPostText(e.currentTarget.value)
     }
+
     const onKeyPressHandler = (e: React.KeyboardEvent<HTMLElement>) => {
         if (e.key === 'Enter') {
             e.preventDefault()
-            addItem();
+            onAddPost();
         }
     }
 
@@ -42,7 +46,7 @@ const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
                 />
             </div>
             <div>
-                <button onClick={addItem}>Send</button>
+                <button onClick={onAddPost}>Send</button>
             </div>
             <div className={styleModule.posts}>
                 {postsElements}
