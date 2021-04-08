@@ -8,10 +8,11 @@ import {Profile} from "./сomponents/Profile/Profile";
 import {News} from "./сomponents/News/News";
 import {Music} from "./сomponents/Music/Music";
 import {Settings} from "./сomponents/Settings/Settings";
+import {DialogsContainer} from './сomponents/Dialogs/DialogsContainer'
 import {StoreType} from "./redux/store";
 
 type AppPropsType = {
-    store: StoreType
+    store: any
 }
 
 const App: React.FC<AppPropsType> = (props) => {
@@ -25,9 +26,8 @@ const App: React.FC<AppPropsType> = (props) => {
                        render={() => <Profile
                            store={props.store}/>}/>
                 <Route path='/dialogs'
-                       render={() => <Dialogs
-                           state={state}
-                           dispatch={props.store.dispatch.bind(props.store)}/>}/>
+                       render={() => <DialogsContainer
+                           store={props.store}/>}/>
                 <Route path='/news' render={() => <News/>}/>
                 <Route path='/music' render={() => <Music/>}/>
                 <Route path='/settings' render={() => <Settings/>}/>

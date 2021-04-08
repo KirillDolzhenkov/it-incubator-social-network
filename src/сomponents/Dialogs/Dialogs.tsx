@@ -2,32 +2,35 @@ import React, {ChangeEvent} from "react";
 import styleModule from "./Dialogs.module.css";
 import {Messages} from "./Messages/Messages"
 import {DialogItems} from "./DialogItems/DialogItems";
-import {ActionType, addMessageAC, changeMessageAC, RootStateType} from "../../redux/store";
+import {DialogType, MessageType} from "../../redux/store";
 
-type DialogsType = {
-    state: RootStateType
-    dispatch: (action: ActionType) => void
+type DialogsPropsType = {
+    updateNewMessageText: (text: string) => void
+    addMessage: (text: string) => void
+    message: Array<MessageType>
+    newMessageText: string
+    dialog: Array<DialogType>
 }
 
-const Dialogs: React.FC<DialogsType> = (props) => {
+const Dialogs: React.FC<DialogsPropsType> = (props) => {
 
-    let dialogsElements = props.state.dialogsPage.dialog
+    let dialogsElements = props.dialog
         .map(d => <DialogItems key={d.id} id={d.id} name={d.name}/>)
-    let messagesElements = props.state.dialogsPage.message
+    let messagesElements = props.message
         .map(m => <Messages key={m.id} messageText={m.message}/>)
 
-    const addItem = () => {
-        if(props.state.dialogsPage.newMessageText.trim()){
-            props.dispatch(addMessageAC(props.state.dialogsPage.newMessageText))
+    const addMessage = () => {
+        if(props.newMessageText.trim()){
+            props.addMessage(props.newMessageText)
         }
     }
     let onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.dispatch(changeMessageAC(e.currentTarget.value))
+        props.updateNewMessageText(e.currentTarget.value)
     }
     const onKeyPressHandler = (e: React.KeyboardEvent<HTMLElement>) => {
         if (e.key === 'Enter') {
             e.preventDefault()
-            addItem();
+            addMessage();
         }
     }
 
@@ -40,14 +43,14 @@ const Dialogs: React.FC<DialogsType> = (props) => {
                 {messagesElements}
                 <hr/>
                 <div>
-                    <textarea value={props.state.dialogsPage.newMessageText}
+                    <textarea value={props.newMessageText}
                               onChange={onChangeHandler}
                               onKeyPress={onKeyPressHandler}
                               placeholder="Write something"
                     />
                 </div>
                 <div>
-                    <button onClick={addItem}>Send</button>
+                    <button onClick={addMessage}>Send</button>
                 </div>
             </div>
         </div>
