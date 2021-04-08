@@ -16,7 +16,6 @@ type AppPropsType = {
 }
 
 const App: React.FC<AppPropsType> = (props) => {
-    const state = props.store.getState();
     return (
         <div className='app-wrapper'>
             <Header/>
@@ -39,3 +38,4 @@ const App: React.FC<AppPropsType> = (props) => {
 export {
     App
 }
+
