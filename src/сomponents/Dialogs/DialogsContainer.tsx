@@ -13,7 +13,7 @@ const DialogsContainer: React.FC<DialogsContainerPropsType> = (props) => {
     return (
         <StoreContext.Consumer>
             {(store) => {
-                const state = store.getState();
+                const state = store.getState().dialogsPage;
 
                 const addMessage = (text: string) => {
                    store.dispatch(addMessageAC(text))
@@ -26,9 +26,9 @@ const DialogsContainer: React.FC<DialogsContainerPropsType> = (props) => {
                         <Dialogs
                             updateNewMessageText={onMessageChange}
                             addMessage={addMessage}
-                            message={state.dialogsPage.message}
-                            newMessageText={state.dialogsPage.newMessageText}
-                            dialog={state.dialogsPage.dialog}
+                            message={state.message}
+                            newMessageText={state.newMessageText}
+                            dialog={state.dialog}
                         />
                     </div>
                 )

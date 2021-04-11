@@ -20,6 +20,7 @@ export type ProfilePageType = {
     newPostText: string
 
 }
+export type SidebarPageType = {}
 export type DialogsPageType = {
     dialog: Array<DialogType>
     message: Array<MessageType>
@@ -42,6 +43,7 @@ export type StoreType = {
     getState: () => RootStateType
     subscribe: (observer: () => void) => void
     dispatch: (action: ActionType) => void
+    action?: ActionType
 }
 
 const SEND_POST = "ADD-POST"

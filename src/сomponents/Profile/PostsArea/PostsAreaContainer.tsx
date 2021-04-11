@@ -14,7 +14,7 @@ const PostsAreaContainer: React.FC<PostsAreaContainerPropsType> = (props) => {
     return (
         <StoreContext.Consumer>
             {(store) => {
-                const state = store.getState();
+                const state = store.getState().profilePage;
 
                 const addPost = (text: string) => {
                     store.dispatch(addPostAC(text))
@@ -26,8 +26,8 @@ const PostsAreaContainer: React.FC<PostsAreaContainerPropsType> = (props) => {
                     <PostsArea
                         updateNewPostText={onPostChange}
                         addPost={addPost}
-                        posts={state.profilePage.posts}
-                        newPostText={state.profilePage.newPostText}
+                        posts={state.posts}
+                        newPostText={state.newPostText}
                     />
                 </div>
             }
