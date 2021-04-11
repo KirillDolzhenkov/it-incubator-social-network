@@ -5,14 +5,14 @@ import {PostsAreaContainer} from "./PostsArea/PostsAreaContainer";
 
 
 type ProfilePropsType = {
-    store: StoreType
+    /*store: StoreType*/
 }
 export const Profile: React.FC<ProfilePropsType> = (props) => {
     return (
         <div>
             <ProfileInfo/>
             <PostsAreaContainer
-                store={props.store}
+                /*store={props.store}*/
             />
         </div>
     );
