@@ -1,5 +1,5 @@
-import {dialogsReducer} from "./dialogs-reducer";
-import {profileReducer} from "./profile-reducer";
+import {addMessageAC, changeMessageAC, dialogsReducer} from "./dialogs-reducer";
+import {addPostAC, changePostAC, profileReducer} from "./profile-reducer";
 import {sidebarReducer} from "./sidebar-reducer";
 
 export type PostType = {
@@ -46,7 +46,7 @@ export type StoreType = {
     action?: ActionType
 }
 
-const SEND_POST = "ADD-POST"
+/*const SEND_POST = "ADD-POST"
 const UPDATE_NEW_POST_BODY = "CHANGE-POST-TEXT"
 const SEND_MESSAGE = "ADD-MESSAGE"
 const UPDATE_NEW_MESSAGE_BODY = "CHANGE-MESSAGE-TEXT"
@@ -62,7 +62,7 @@ export const addMessageAC = (newMessageText: string) => {
 }
 export const changeMessageAC = (newDialogText: string) => {
     return {type: UPDATE_NEW_MESSAGE_BODY, newDialogText} as const
-}
+}*/
 
 const store: StoreType = {
     _state: {

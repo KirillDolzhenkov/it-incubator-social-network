@@ -1,7 +1,8 @@
 import React from "react";
-import {addMessageAC, changeMessageAC, StoreType} from "../../redux/store";
+
 import {Dialogs} from "./Dialogs";
 import {StoreContext} from "../../StoreContext";
+import {addMessageAC, changeMessageAC} from "../../redux/dialogs-reducer";
 
 type DialogsContainerPropsType = {
     /*store: StoreType*/

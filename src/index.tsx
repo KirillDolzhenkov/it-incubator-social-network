@@ -1,9 +1,9 @@
-import React from 'react';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import reportWebVitals from "./reportWebVitals";
 import ReactDOM from 'react-dom';
-import './index.css';
-import {App} from './App';
-import {store} from './redux/redux-store'
+import "./index.css";
+import {App} from "./App";
+import {store} from "./redux/redux-store"
 import {BrowserRouter} from "react-router-dom";
 import {Provider} from "./StoreContext";
 
@@ -17,7 +17,7 @@ let renderEntireTree = () => {
                 </Provider>
             </BrowserRouter>
         </React.StrictMode>,
-        document.getElementById('root')
+        document.getElementById("root")
     );
 }
 

@@ -11,6 +11,13 @@ const initialState = {
     newPostText: ''
 }
 
+export const addPostAC = (newPostText: string) => {
+    return {type: SEND_POST, newPostText} as const
+}
+export const changePostAC = (newPostText: string) => {
+    return {type: UPDATE_NEW_POST_BODY, newPostText} as const
+}
+
 const profileReducer = (state: ProfilePageType = initialState, action: ActionType) => {
     if (action.type === SEND_POST) {
         const newPost: PostType = {

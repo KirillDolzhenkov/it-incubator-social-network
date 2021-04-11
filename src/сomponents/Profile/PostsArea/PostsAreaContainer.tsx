@@ -1,7 +1,8 @@
 import React from "react";
-import {addPostAC, changePostAC, StoreType} from "../../../redux/store";
+
 import {PostsArea} from "./PostsArea";
 import {StoreContext} from "../../../StoreContext";
+import {addPostAC, changePostAC} from "../../../redux/profile-reducer";
 
 
 type PostsAreaContainerPropsType = {

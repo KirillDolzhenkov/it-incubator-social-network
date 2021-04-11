@@ -3,6 +3,13 @@ import {ActionType, DialogsPageType, MessageType} from "./store";
 const SEND_MESSAGE = "ADD-MESSAGE"
 const UPDATE_NEW_MESSAGE_BODY = "CHANGE-MESSAGE-TEXT"
 
+export const addMessageAC = (newMessageText: string) => {
+    return {type: SEND_MESSAGE, newMessageText} as const
+}
+export const changeMessageAC = (newDialogText: string) => {
+    return {type: UPDATE_NEW_MESSAGE_BODY, newDialogText} as const
+}
+
 const initialState = {
     dialog: [
         {id: 1, name: "Dima"},
