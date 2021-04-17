@@ -1,4 +1,21 @@
-import {ActionType, DialogsPageType, MessageType} from "./store";
+import {ActionType} from "./store";
+
+export type MessageType = {
+    id: number
+    message: string
+}
+export type DialogType = {
+    id: number
+    name: string
+}
+
+export type DialogsPageType = {
+    dialog: Array<DialogType>
+    message: Array<MessageType>
+    newMessageText: string
+}
+
+
 
 const SEND_MESSAGE = "ADD-MESSAGE"
 const UPDATE_NEW_MESSAGE_BODY = "CHANGE-MESSAGE-TEXT"
@@ -10,7 +27,7 @@ export const changeMessageAC = (newDialogText: string) => {
     return {type: UPDATE_NEW_MESSAGE_BODY, newDialogText} as const
 }
 
-const initialState = {
+const initialState: DialogsPageType = {
     dialog: [
         {id: 1, name: "Dima"},
         {id: 2, name: "Sasha"},
@@ -22,8 +39,10 @@ const initialState = {
     newMessageText: ''
 }
 
+
+
 const dialogsReducer = (state: DialogsPageType = initialState, action: ActionType) => {
-    if (action.type === SEND_MESSAGE) {
+    /*if (action.type === SEND_MESSAGE) {
         const newMessage: MessageType = {
             id: 3,
             message: action.newMessageText
@@ -33,7 +52,31 @@ const dialogsReducer = (state: DialogsPageType = initialState, action: ActionTyp
     } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
         state.newMessageText = action.newDialogText
     }
-    return state;
+    return state;*/
+    switch (action.type) {
+        case SEND_MESSAGE:{
+            const newMessage: MessageType = {
+                id: 3,
+                message: action.newMessageText
+            }
+            let stateCopy = {...state}
+            stateCopy.message = [...state.message]
+            stateCopy.message.push(newMessage)
+            stateCopy.newMessageText = ""
+            return stateCopy;
+        }
+        case UPDATE_NEW_MESSAGE_BODY:{
+            let stateCopy = {...state}
+            stateCopy.newMessageText = action.newDialogText
+            return stateCopy;
+        }
+        default: {
+            let stateCopy = {...state}
+            return stateCopy;
+        }
+
+    }
+
 }
 export {
     dialogsReducer

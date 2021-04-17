@@ -1,6 +1,6 @@
 import React from "react";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
-import {StoreType} from "../../redux/store";
+/*import {StoreType} from "../../redux/store";*/
 import {PostsAreaContainer} from "./PostsArea/PostsAreaContainer";
 
 

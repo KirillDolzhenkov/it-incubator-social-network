@@ -7,44 +7,44 @@ export type PostType = {
     message: string
     likesCount: number
 }
-export type DialogType = {
+/*export type DialogType = {
     id: number
     name: string
-}
-export type MessageType = {
+}*/
+/*export type MessageType = {
     id: number
     message: string
-}
+}*/
 export type ProfilePageType = {
     posts: Array<PostType>
     newPostText: string
 
 }
 export type SidebarPageType = {}
-export type DialogsPageType = {
+/*export type DialogsPageType = {
     dialog: Array<DialogType>
     message: Array<MessageType>
     newMessageText: string
-}
-export type RootStateType = {
+}*/
+/*export type RootStateType = {
     profilePage: ProfilePageType
     dialogsPage: DialogsPageType
     sidebar: {}
-}
+}*/
 
 export type ActionType = ReturnType<typeof addPostAC>
     | ReturnType<typeof changePostAC>
     | ReturnType<typeof addMessageAC>
     | ReturnType<typeof changeMessageAC>
 
-export type StoreType = {
+/*export type StoreType = {
     _state: RootStateType
     _callSubscriber: () => void
     getState: () => RootStateType
     subscribe: (observer: () => void) => void
     dispatch: (action: ActionType) => void
     action?: ActionType
-}
+}*/
 
 /*const SEND_POST = "ADD-POST"
 const UPDATE_NEW_POST_BODY = "CHANGE-POST-TEXT"
@@ -64,7 +64,7 @@ export const changeMessageAC = (newDialogText: string) => {
     return {type: UPDATE_NEW_MESSAGE_BODY, newDialogText} as const
 }*/
 
-const store: StoreType = {
+/*const store: StoreType = {
     _state: {
         profilePage: {
             posts: [
@@ -101,6 +101,10 @@ const store: StoreType = {
         this._state.sidebar = sidebarReducer(this._state.sidebar, action)
         this._callSubscriber()
     }
+}*/
+type StoreType = any
+const store: StoreType = {
+
 }
 
 export {

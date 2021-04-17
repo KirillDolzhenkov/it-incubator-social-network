@@ -5,7 +5,8 @@ import "./index.css";
 import {App} from "./App";
 import {store} from "./redux/redux-store"
 import {BrowserRouter} from "react-router-dom";
-import {Provider} from "./StoreContext";
+import {Provider} from "react-redux";
+/*import {Provider} from "./StoreContext";*/
 
 
 let renderEntireTree = () => {
@@ -22,7 +23,7 @@ let renderEntireTree = () => {
 }
 
 renderEntireTree();
-store.subscribe(renderEntireTree);
+/*store.subscribe(renderEntireTree);*/
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
