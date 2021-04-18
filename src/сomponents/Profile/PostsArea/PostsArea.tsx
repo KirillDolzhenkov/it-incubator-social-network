@@ -1,24 +1,30 @@
 import React, {ChangeEvent} from "react";
 import {Post} from "./Post/Post";
 import styleModule from "./PostsArea.module.css";
-import {PostType} from "../../../redux/store";
+import {ProfilePageInitialStateType} from "../../../redux/profile-reducer";
 
 
-type PostsAreaPropsType = {
+/*type PostsAreaPropsType = {
     updateNewPostText: (text: string) => void
     addPost: (text: string) => void
     posts: Array<PostType>
     newPostText: string
+}*/
+
+type PostsAreaPropsType = {
+    updateNewPostText: (text: string) => void
+    addPost: (text: string) => void
+    profilePage: ProfilePageInitialStateType
 }
 
 const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
 
-    let postsElements = props.posts
+    let postsElements = props.profilePage.posts
         .map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>)
 
     const onAddPost = () => {
-        if(props.newPostText.trim()){
-            props.addPost(props.newPostText)
+        if(props.profilePage.newPostText.trim()){
+            props.addPost(props.profilePage.newPostText)
         }
     }
 
@@ -39,7 +45,7 @@ const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
             <hr/>
             <div>
                 <textarea
-                    value={props.newPostText}
+                    value={props.profilePage.newPostText}
                     onChange={onPostChange}
                     onKeyPress={onKeyPressHandler}
                     placeholder="Write something"

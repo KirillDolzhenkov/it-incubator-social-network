@@ -3,7 +3,7 @@ import styleModule from "./Dialogs.module.css";
 import {Messages} from "./Messages/Messages"
 import {DialogItems} from "./DialogItems/DialogItems";
 
-import {DialogsPageType} from "../../redux/dialogs-reducer";
+import {DialogsPageInitialStateType} from "../../redux/dialogs-reducer";
 
 /*type DialogsPropsType = {
     updateNewMessageText: (text: string) => void
@@ -16,7 +16,7 @@ import {DialogsPageType} from "../../redux/dialogs-reducer";
 type DialogsPropsType = {
     updateNewMessageText: (text: string) => void
     addMessage: (text: string) => void
-    dialogsPage: DialogsPageType
+    dialogsPage: DialogsPageInitialStateType
 }
 
 const Dialogs: React.FC<DialogsPropsType> = (props) => {
