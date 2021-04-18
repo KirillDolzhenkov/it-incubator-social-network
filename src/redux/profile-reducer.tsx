@@ -1,4 +1,5 @@
 import {ActionType} from "./store";
+import {MessageType} from "./dialogs-reducer";
 
 export type PostType = {
     id: number
@@ -30,7 +31,7 @@ export const changePostAC = (newPostText: string) => {
 }
 
 const profileReducer = (state: ProfilePageInitialStateType = initialState, action: ActionType): ProfilePageInitialStateType => {
-    if (action.type === SEND_POST) {
+    /*if (action.type === SEND_POST) {
         const newPost: PostType = {
             id: 3,
             message: action.newPostText,
@@ -42,6 +43,30 @@ const profileReducer = (state: ProfilePageInitialStateType = initialState, actio
         state.newPostText = action.newPostText
     }
     return state;
+}*/
+
+    switch (action.type) {
+        case SEND_POST: {
+            const newPost: PostType = {
+                id: 3,
+                message: action.newPostText,
+                likesCount: 0
+            }
+            let stateCopy = {...state}
+            stateCopy.posts = [...state.posts]
+            stateCopy.posts.unshift(newPost)
+            stateCopy.newPostText = ""
+            return stateCopy;
+        }
+        case UPDATE_NEW_POST_BODY: {
+            let stateCopy = {...state}
+            stateCopy.newPostText = action.newPostText
+            return stateCopy;
+        }
+        default:
+            let stateCopy = {...state}
+            return stateCopy;
+    }
 }
 
 export {
