@@ -1,5 +1,5 @@
 import {Dialogs} from "./Dialogs";
-import {addMessageAC, changeMessageAC, DialogsPageType} from "../../redux/dialogs-reducer";
+import {addMessageAC, changeMessageAC, DialogsPageInitialStateType} from "../../redux/dialogs-reducer";
 import {connect} from "react-redux";
 import {RootStateReduxType} from "../../redux/redux-store";
 import { Dispatch } from "redux";
@@ -42,7 +42,7 @@ const DialogsContainer: React.FC<DialogsContainerPropsType> = (props) => {
 }*/
 
 type mapStateToPropsType = {
-    dialogsPage: DialogsPageType
+    dialogsPage: DialogsPageInitialStateType
 }
 type mapDispatchToPropsType = {
     updateNewMessageText: (text: string)=> void

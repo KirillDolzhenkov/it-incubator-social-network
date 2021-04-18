@@ -9,12 +9,11 @@ export type DialogType = {
     name: string
 }
 
-export type DialogsPageType = {
+export type DialogsPageInitialStateType = {
     dialog: Array<DialogType>
     message: Array<MessageType>
     newMessageText: string
 }
-
 
 
 const SEND_MESSAGE = "ADD-MESSAGE"
@@ -27,7 +26,7 @@ export const changeMessageAC = (newDialogText: string) => {
     return {type: UPDATE_NEW_MESSAGE_BODY, newDialogText} as const
 }
 
-const initialState: DialogsPageType = {
+const initialState: DialogsPageInitialStateType = {
     dialog: [
         {id: 1, name: "Dima"},
         {id: 2, name: "Sasha"},
@@ -40,8 +39,7 @@ const initialState: DialogsPageType = {
 }
 
 
-
-const dialogsReducer = (state: DialogsPageType = initialState, action: ActionType) => {
+const dialogsReducer = (state: DialogsPageInitialStateType = initialState, action: ActionType): DialogsPageInitialStateType => {
     /*if (action.type === SEND_MESSAGE) {
         const newMessage: MessageType = {
             id: 3,
@@ -54,7 +52,7 @@ const dialogsReducer = (state: DialogsPageType = initialState, action: ActionTyp
     }
     return state;*/
     switch (action.type) {
-        case SEND_MESSAGE:{
+        case SEND_MESSAGE: {
             const newMessage: MessageType = {
                 id: 3,
                 message: action.newMessageText
@@ -65,7 +63,7 @@ const dialogsReducer = (state: DialogsPageType = initialState, action: ActionTyp
             stateCopy.newMessageText = ""
             return stateCopy;
         }
-        case UPDATE_NEW_MESSAGE_BODY:{
+        case UPDATE_NEW_MESSAGE_BODY: {
             let stateCopy = {...state}
             stateCopy.newMessageText = action.newDialogText
             return stateCopy;

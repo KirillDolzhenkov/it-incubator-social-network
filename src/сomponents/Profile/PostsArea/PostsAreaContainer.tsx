@@ -1,15 +1,15 @@
-import React from "react";
-
 import {PostsArea} from "./PostsArea";
-import {StoreContext} from "../../../StoreContext";
-import {addPostAC, changePostAC} from "../../../redux/profile-reducer";
+import {connect} from "react-redux";
+import {RootStateReduxType} from "../../../redux/redux-store";
+import {addPostAC, changePostAC, ProfilePageInitialStateType} from "../../../redux/profile-reducer";
+import {Dispatch} from "redux";
 
 
-type PostsAreaContainerPropsType = {
-    /*store: StoreType*/
-}
+/*type PostsAreaContainerPropsType = {
+    store: StoreType
+}*/
 
-const PostsAreaContainer: React.FC<PostsAreaContainerPropsType> = (props) => {
+/*const PostsAreaContainer: React.FC<PostsAreaContainerPropsType> = (props) => {
 
 
     return (
@@ -36,7 +36,35 @@ const PostsAreaContainer: React.FC<PostsAreaContainerPropsType> = (props) => {
 
         </StoreContext.Consumer>
     )
+}*/
+
+type  mapStateToPropsType = {
+    profilePage: ProfilePageInitialStateType
 }
+
+const mapStateToProps = (state: RootStateReduxType): mapStateToPropsType =>{
+    return {
+        profilePage: state.profilePage
+    }
+}
+
+type mapDispatchToPropsType = {
+    updateNewPostText: (text: string)=> void
+    addPost: (text: string)=> void
+
+}
+const mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType =>{
+    return {
+        updateNewPostText: (text: string)=>{
+            dispatch(changePostAC(text))
+        },
+        addPost: (text: string)=>{
+            dispatch(addPostAC(text))
+        },
+    }
+}
+
+const PostsAreaContainer = connect(mapStateToProps, mapDispatchToProps)(PostsArea);
 
 export {
     PostsAreaContainer

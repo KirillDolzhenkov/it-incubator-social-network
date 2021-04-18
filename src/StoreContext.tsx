@@ -5,7 +5,7 @@ import {RootReduxStoreType} from "./redux/redux-store";
 const StoreContext = React.createContext({} as RootReduxStoreType)
 
 export type ProviderType = {
-    store:  RootReduxStoreType // need to fix it
+    store:  RootReduxStoreType
     children: React.ReactNode
 }
 
@@ -19,6 +19,7 @@ export const Provider: React.FC<ProviderType> = (props) => {
     )
 }
 
+/*
 export {
     StoreContext
-}
+}*/
