@@ -1,9 +1,8 @@
 import {ActionType} from "./store";
-import {MessageType} from "./dialogs-reducer";
 
 export type PostType = {
     id: number
-    message: string
+    messages: string
     likesCount: number
 }
 export type ProfilePageInitialStateType = {
@@ -17,10 +16,10 @@ const UPDATE_NEW_POST_BODY = "CHANGE-POST-TEXT"
 
 const initialState = {
     posts: [
-        {id: 1, message: 'Hello', likesCount: 12},
-        {id: 2, message: 'Wats up', likesCount: 13},
+        {id: 1, messages: 'Hello', likesCount: 12},
+        {id: 2, messages: 'Wats up', likesCount: 13},
     ],
-    newPostText: ''
+    newPostText: ""
 }
 
 export const addPostAC = (newPostText: string) => {
@@ -46,26 +45,22 @@ const profileReducer = (state: ProfilePageInitialStateType = initialState, actio
 }*/
 
     switch (action.type) {
-        case SEND_POST: {
-            const newPost: PostType = {
-                id: 3,
-                message: action.newPostText,
-                likesCount: 0
-            }
-            let stateCopy = {...state}
-            stateCopy.posts = [...state.posts]
-            stateCopy.posts.unshift(newPost)
-            stateCopy.newPostText = ""
-            return stateCopy;
-        }
         case UPDATE_NEW_POST_BODY: {
-            let stateCopy = {...state}
-            stateCopy.newPostText = action.newPostText
-            return stateCopy;
+            return {
+                ...state,
+                newPostText: action.newPostText
+            }
+        }
+        case SEND_POST: {
+            let body = state.newPostText
+            return  {
+                ...state,
+                posts: [{id: 3, messages: body, likesCount: 0},...state.posts],
+                newPostText: ""
+            }
         }
         default:
-            let stateCopy = {...state}
-            return stateCopy;
+            return state
     }
 }
 

@@ -20,7 +20,7 @@ import {sidebarReducer} from "./sidebar-reducer";
     newPostText: string
 
 }*/
-export type SidebarPageType = {}
+/*export type SidebarPageType = {}*/
 /*export type DialogsPageType = {
     dialog: Array<DialogType>
     message: Array<MessageType>
@@ -102,11 +102,8 @@ export const changeMessageAC = (newDialogText: string) => {
         this._callSubscriber()
     }
 }*/
-type StoreType = any
-const store: StoreType = {
 
-}
 
-export {
+/*export {
     store
-}
+}*/

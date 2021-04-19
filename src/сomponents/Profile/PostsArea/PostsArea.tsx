@@ -20,7 +20,7 @@ type PostsAreaPropsType = {
 const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
 
     let postsElements = props.profilePage.posts
-        .map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>)
+        .map(p => <Post key={p.id} message={p.messages} likesCount={p.likesCount}/>)
 
     const onAddPost = () => {
         if(props.profilePage.newPostText.trim()){

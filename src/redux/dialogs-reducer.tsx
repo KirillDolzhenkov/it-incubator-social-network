@@ -10,8 +10,8 @@ export type DialogType = {
 }
 
 export type DialogsPageInitialStateType = {
-    dialog: Array<DialogType>
-    message: Array<MessageType>
+    dialogs: Array<DialogType>
+    messages: Array<MessageType>
     newMessageText: string
 }
 
@@ -27,15 +27,15 @@ export const changeMessageAC = (newDialogText: string) => {
 }
 
 const initialState: DialogsPageInitialStateType = {
-    dialog: [
+    dialogs: [
         {id: 1, name: "Dima"},
         {id: 2, name: "Sasha"},
     ],
-    message: [
+    messages: [
         {id: 1, message: "hello"},
         {id: 2, message: "How are you?"},
     ],
-    newMessageText: ''
+    newMessageText: ""
 }
 
 
@@ -51,26 +51,23 @@ const dialogsReducer = (state: DialogsPageInitialStateType = initialState, actio
         state.newMessageText = action.newDialogText
     }
     return state;*/
+
     switch (action.type) {
-        case SEND_MESSAGE: {
-            const newMessage: MessageType = {
-                id: 3,
-                message: action.newMessageText
+        case UPDATE_NEW_MESSAGE_BODY:
+            return {
+                ...state,
+                newMessageText: action.newDialogText
             }
-            let stateCopy = {...state}
-            stateCopy.message = [...state.message]
-            stateCopy.message.push(newMessage)
-            stateCopy.newMessageText = ""
-            return stateCopy;
-        }
-        case UPDATE_NEW_MESSAGE_BODY: {
-            let stateCopy = {...state}
-            stateCopy.newMessageText = action.newDialogText
-            return stateCopy;
+        case SEND_MESSAGE: {
+            let body = state.newMessageText
+            return {
+                ...state,
+                messages: [...state.messages, {id: 3, message: body}],
+                newMessageText: ""
+            }
         }
         default: {
-            let stateCopy = {...state}
-            return stateCopy;
+            return state
         }
 
     }
