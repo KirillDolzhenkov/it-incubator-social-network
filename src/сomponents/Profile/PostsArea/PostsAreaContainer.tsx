@@ -1,6 +1,6 @@
 import {PostsArea} from "./PostsArea";
 import {connect} from "react-redux";
-import {RootStateReduxType} from "../../../redux/redux-store";
+import {AppStateType} from "../../../redux/redux-store";
 import {addPostAC, changePostAC, ProfilePageInitialStateType} from "../../../redux/profile-reducer";
 import {Dispatch} from "redux";
 
@@ -42,7 +42,7 @@ type  mapStateToPropsType = {
     profilePage: ProfilePageInitialStateType
 }
 
-const mapStateToProps = (state: RootStateReduxType): mapStateToPropsType =>{
+const mapStateToProps = (state: AppStateType): mapStateToPropsType =>{
     return {
         profilePage: state.profilePage
     }
