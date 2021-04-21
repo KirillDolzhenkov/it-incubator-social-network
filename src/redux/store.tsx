@@ -32,10 +32,10 @@ import {sidebarReducer} from "./sidebar-reducer";
     sidebar: {}
 }*/
 
-export type ActionType = ReturnType<typeof addPostAC>
+/*export type ActionType = ReturnType<typeof addPostAC>
     | ReturnType<typeof changePostAC>
     | ReturnType<typeof addMessageAC>
-    | ReturnType<typeof changeMessageAC>
+    | ReturnType<typeof changeMessageAC>*/
 
 /*export type StoreType = {
     _state: RootStateType

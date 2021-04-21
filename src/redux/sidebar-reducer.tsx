@@ -1,6 +1,6 @@
-import {ActionType} from "./store";
-
 export type SidebarPageType = {}
+
+type ActionType = any
 
 const initialState = {}
 

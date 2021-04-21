@@ -1,5 +1,3 @@
-import {ActionType} from "./store";
-
 export type PostType = {
     id: number
     messages: string
@@ -11,9 +9,6 @@ export type ProfilePageInitialStateType = {
 
 }
 
-const SEND_POST = "ADD-POST"
-const UPDATE_NEW_POST_BODY = "CHANGE-POST-TEXT"
-
 const initialState = {
     posts: [
         {id: 1, messages: 'Hello', likesCount: 12},
@@ -21,6 +16,10 @@ const initialState = {
     ],
     newPostText: ""
 }
+type ActionType = ReturnType<typeof addPostAC> | ReturnType<typeof changePostAC>
+
+const SEND_POST = "ADD-POST"
+const UPDATE_NEW_POST_BODY = "CHANGE-POST-TEXT"
 
 export const addPostAC = (newPostText: string) => {
     return {type: SEND_POST, newPostText} as const
