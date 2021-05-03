@@ -8,6 +8,7 @@ import {News} from "./сomponents/News/News";
 import {Music} from "./сomponents/Music/Music";
 import {Settings} from "./сomponents/Settings/Settings";
 import {DialogsContainer} from './сomponents/Dialogs/DialogsContainer'
+import {Users} from "./сomponents/Users/Users";
 
 type AppPropsType = {
 
@@ -23,6 +24,8 @@ const App: React.FC<AppPropsType> = (props) => {
                        render={() => <Profile/>}/>
                 <Route path='/dialogs'
                        render={() => <DialogsContainer/>}/>
+                <Route path='/users'
+                       render={() => <Users/>}/>
                 <Route path='/news' render={() => <News/>}/>
                 <Route path='/music' render={() => <Music/>}/>
                 <Route path='/settings' render={() => <Settings/>}/>

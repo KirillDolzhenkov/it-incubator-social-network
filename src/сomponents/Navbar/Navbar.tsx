@@ -15,6 +15,9 @@ const Navbar: React.FC<NavbarPropsType> = (props) => {
                 <NavLink to='/dialogs' activeClassName={styleModule.active}>Messages</NavLink>
             </div>
             <div className={styleModule.item}>
+                <NavLink to='/Users' activeClassName={styleModule.active}>Users</NavLink>
+            </div>
+            <div className={styleModule.item}>
                 <NavLink to='/news' activeClassName={styleModule.active}>News</NavLink>
             </div>
             <div className={styleModule.item}>
