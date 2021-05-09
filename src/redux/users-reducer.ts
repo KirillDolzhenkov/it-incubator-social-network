@@ -2,7 +2,7 @@ type locationType = {
     city: string
     country: string
 }
-type usersType = {
+export type usersType = {
     id: number
     followed: boolean
     fullName: string
