@@ -2,7 +2,7 @@ type locationType = {
     city: string
     country: string
 }
-export type usersType = {
+export type UsersType = {
     id: number
     followed: boolean
     fullName: string
@@ -11,7 +11,7 @@ export type usersType = {
 }
 
 export type usersPageInitialStateType = {
-    users: Array<usersType>
+    users: Array<UsersType>
 }
 
 const initialState: usersPageInitialStateType = {
@@ -32,7 +32,7 @@ export const followAC = (userId: number) => {
 export const unfollowAC = (userId: number) => {
     return {type: UNFOLLOW, userId} as const
 }
-export const setUsersAC = (users: Array<usersType>) => {
+export const setUsersAC = (users: Array<UsersType>) => {
     return {type: SET_USERS, users} as const
 }
 
@@ -41,20 +41,20 @@ const usersReducer = (state: usersPageInitialStateType = initialState, action: A
 
     switch (action.type) {
         case FOLLOW:{
-            return {...state, users: state.users.map(u=>{
-                if(u.id === action.userId){
-                    return {...u, followed: true}
-                }
-                return u
+            return {...state, users: state.users.map(u => {
+                    if (u.id === action.userId) {
+                        return {...u, followed: true}
+                    }
+                    return u;
                 })
             }
         }
         case UNFOLLOW:{
-            return {...state, users: state.users.map(u=>{
-                if(u.id === action.userId){
-                    return {...u, followed: false}
-                }
-                return u
+            return {...state, users: state.users.map(u => {
+                    if (u.id === action.userId) {
+                        return {...u, followed: false}
+                    }
+                    return u;
                 })
             }
         }
@@ -62,7 +62,7 @@ const usersReducer = (state: usersPageInitialStateType = initialState, action: A
             return {...state, users: [...state.users, ...action.users]}
         }
         default:
-            return state
+            return state;
     }
 }
 

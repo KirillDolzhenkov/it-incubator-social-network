@@ -59,7 +59,7 @@ const profileReducer = (state: ProfilePageInitialStateType = initialState, actio
             }
         }
         default:
-            return state
+            return state;
     }
 }
 
