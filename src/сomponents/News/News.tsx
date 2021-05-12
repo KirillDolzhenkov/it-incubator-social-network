@@ -1,5 +1,5 @@
 import React from "react";
-import styleModule from "./News.module.css";
+import stylesModule from "./News.module.css";
 
 type NewsType = {}
 

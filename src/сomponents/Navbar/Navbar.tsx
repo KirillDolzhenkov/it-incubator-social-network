@@ -1,5 +1,5 @@
 import React from "react";
-import styleModule from "./Navbar.module.css";
+import stylesModule from "./Navbar.module.css";
 import {NavLink} from 'react-router-dom';
 
 
@@ -7,24 +7,24 @@ type NavbarPropsType = {}
 
 const Navbar: React.FC<NavbarPropsType> = (props) => {
     return (
-        <nav className={styleModule.nav}>
-            <div className={styleModule.item}>
-                <NavLink to='/profile' activeClassName={styleModule.active} >Profile</NavLink>
+        <nav className={stylesModule.nav}>
+            <div className={stylesModule.item}>
+                <NavLink to='/profile' activeClassName={stylesModule.active} >Profile</NavLink>
             </div>
-            <div className={styleModule.item}>
-                <NavLink to='/dialogs' activeClassName={styleModule.active}>Messages</NavLink>
+            <div className={stylesModule.item}>
+                <NavLink to='/dialogs' activeClassName={stylesModule.active}>Messages</NavLink>
             </div>
-            <div className={styleModule.item}>
-                <NavLink to='/Users' activeClassName={styleModule.active}>Users</NavLink>
+            <div className={stylesModule.item}>
+                <NavLink to='/Users' activeClassName={stylesModule.active}>Users</NavLink>
             </div>
-            <div className={styleModule.item}>
-                <NavLink to='/news' activeClassName={styleModule.active}>News</NavLink>
+            <div className={stylesModule.item}>
+                <NavLink to='/news' activeClassName={stylesModule.active}>News</NavLink>
             </div>
-            <div className={styleModule.item}>
-                <NavLink to='/music' activeClassName={styleModule.active}>Music</NavLink>
+            <div className={stylesModule.item}>
+                <NavLink to='/music' activeClassName={stylesModule.active}>Music</NavLink>
             </div>
-            <div className={styleModule.item}>
-                <NavLink to='/settings'activeClassName={styleModule.active}>Settings</NavLink>
+            <div className={stylesModule.item}>
+                <NavLink to='/settings'activeClassName={stylesModule.active}>Settings</NavLink>
             </div>
         </nav>
     )

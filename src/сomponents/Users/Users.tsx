@@ -1,7 +1,11 @@
 import React from "react";
-import {usersPageInitialStateType} from "../../redux/users-reducer";
+import {usersPageInitialStateType, UsersType} from "../../redux/users-reducer";
+import stylesModule from "./users.module.css"
 
 type UsersPropsType = {
+    follow: (userId: number) => void
+    unfollow: (userId: number) => void
+    setUsers: (users: Array<UsersType>) => void
     usersPage: usersPageInitialStateType
 }
 
@@ -10,13 +14,15 @@ const Users: React.FC<UsersPropsType> = (props) => {
     return (
         <div>
             {
-                props.usersPage.users.map(u => <div key={u.id}>
+                props.usersPage.users.map(u => <div key={u.id} >
                     <div>img</div>
                     <div>
-                        <button>follow</button>
-                    </div>
-                    <div>
-                        <button>unfollow</button>
+                        { u.followed
+                            ?
+                            <button onClick={() => {props.unfollow(u.id)}}>unfollow</button>
+                            :
+                            <button onClick={()=>{props.follow(u.id)}}>follow</button>
+                        }
                     </div>
                     <span>
                         <div>{u.fullName}</div>
@@ -25,7 +31,7 @@ const Users: React.FC<UsersPropsType> = (props) => {
                     <span>
                         <div>{u.location.country}</div>
                         <div>{u.location.city}</div>
-                    </span>
+                    </span><hr/>
                 </div>)
             }
         </div>

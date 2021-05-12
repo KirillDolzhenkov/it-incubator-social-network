@@ -1,5 +1,5 @@
 import React, {ChangeEvent} from "react";
-import styleModule from "./Dialogs.module.css";
+import stylesModule from "./Dialogs.module.css";
 import {Messages} from "./Messages/Messages"
 import {DialogItems} from "./DialogItems/DialogItems";
 
@@ -42,11 +42,11 @@ const Dialogs: React.FC<DialogsPropsType> = (props) => {
     }
 
     return (
-        <div className={styleModule.dialogs}>
-            <div className={styleModule.dialogsItems}>
+        <div className={stylesModule.dialogs}>
+            <div className={stylesModule.dialogsItems}>
                 {dialogsElements}
             </div>
-            <div className={styleModule.messages}>
+            <div className={stylesModule.messages}>
                 {messagesElements}
                 <hr/>
                 <div>

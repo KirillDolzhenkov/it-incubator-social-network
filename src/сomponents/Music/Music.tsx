@@ -1,5 +1,5 @@
 import React from "react";
-import styleModule from "./Music.module.css";
+import stylesModule from "./Music.module.css";
 
 type MusicPropsType = {}
 

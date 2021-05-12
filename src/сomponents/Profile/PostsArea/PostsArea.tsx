@@ -1,6 +1,6 @@
 import React, {ChangeEvent} from "react";
 import {Post} from "./Post/Post";
-import styleModule from "./PostsArea.module.css";
+import stylesModule from "./PostsArea.module.css";
 import {ProfilePageInitialStateType} from "../../../redux/profile-reducer";
 
 
@@ -40,7 +40,7 @@ const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
     }
 
     return (
-        <div className={styleModule.postBlock}>
+        <div className={stylesModule.postBlock}>
             <h3>My posts</h3>
             <hr/>
             <div>
@@ -54,7 +54,7 @@ const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
             <div>
                 <button onClick={onAddPost}>Send</button>
             </div>
-            <div className={styleModule.posts}>
+            <div className={stylesModule.posts}>
                 {postsElements}
             </div>
         </div>

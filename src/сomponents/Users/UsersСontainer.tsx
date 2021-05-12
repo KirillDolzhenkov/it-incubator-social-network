@@ -20,6 +20,8 @@ const mapStateToProps = (state: AppStateType): mapStateToPropsType=> {
     }
 }
 
+
+
 const mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType=> {
         return {
             follow: (userId)=>{
