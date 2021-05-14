@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import {usersPageInitialStateType, UsersType} from "../../redux/users-reducer";
 import stylesModule from "./users.module.css"
@@ -10,12 +11,16 @@ type UsersPropsType = {
 }
 
 class UsersClass extends React.Component<UsersPropsType> {
-/*    getUsers = () =>
+    getUsers = () =>
 {
     if (this.props.usersPage.users.length === 0) {
-
+        axios.get("https://social-network.samuraijs.com/api/1.0/users")
+            .then(response=>{
+                this.props.setUsers(response.data.items);
+            });
     }
-}*/
+
+}
     render() {
         return (
             <div>
