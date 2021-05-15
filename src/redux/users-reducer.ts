@@ -20,7 +20,7 @@ export type usersPageInitialStateType = {
 const initialState: usersPageInitialStateType = {
     users: [],
     pageSize: 5,
-    totalUserCount: 20,
+    totalUserCount: 0,
     currentPage: 1,
 /*    users: [
         {id: 1, followed: false, fullName: 'Dmitry', status: 'I love react', location: {city: 'Minsk', country: 'Belarus'}},
@@ -31,11 +31,13 @@ type ActionType = ReturnType<typeof followAC>
     | ReturnType<typeof unfollowAC>
     | ReturnType<typeof setUsersAC>
     | ReturnType<typeof setCurrentPageAC>
+    | ReturnType<typeof setTotalUsersCountAC>
 
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
 
 
 const usersReducer = (state: usersPageInitialStateType = initialState, action: ActionType): usersPageInitialStateType => {
@@ -69,6 +71,9 @@ const usersReducer = (state: usersPageInitialStateType = initialState, action: A
         case SET_CURRENT_PAGE:{
             return {...state, currentPage: action.pageValue}
         }
+        case SET_TOTAL_USERS_COUNT: {
+            return { ...state, totalUserCount: action.countValue}
+        }
         default:
             return state;
     }
@@ -85,6 +90,9 @@ export const setUsersAC = (users: Array<UsersType>) => {
 }
 export const setCurrentPageAC = (pageValue: number) => {
     return { type: SET_CURRENT_PAGE, pageValue} as const;
+}
+export const setTotalUsersCountAC = (countValue: number) => {
+    return {type: SET_TOTAL_USERS_COUNT, countValue}  as const;
 }
 
 export {

@@ -9,6 +9,7 @@ type UsersPropsType = {
     setUsers: (users: Array<UsersType>) => void
     usersPage: usersPageInitialStateType
     setCurrentPage: (pageValue: number) => void
+    setTotalUsersCount: (countValue: number) => void
 }
 
 class Users extends React.Component<UsersPropsType, UsersPropsType> {
@@ -22,6 +23,7 @@ class Users extends React.Component<UsersPropsType, UsersPropsType> {
                 this.props.usersPage.pageSize}`)
                 .then(response => {
                     this.props.setUsers(response.data.items);
+                    this.props.setTotalUsersCount(response.data.totalCount) // TOO MANY PAGES !!!!!!
                 });
         }
     }
@@ -60,7 +62,7 @@ class Users extends React.Component<UsersPropsType, UsersPropsType> {
                 {
                     pages.map(p => {
                         return (
-                            <span // <-- need add thin/bold css to span
+                            <span
                                 className={this.props.usersPage.currentPage === p ? stylesModule.selectedPage : ""}
                                 onClick={() => {this.onPageGanged(p)}
                                 }

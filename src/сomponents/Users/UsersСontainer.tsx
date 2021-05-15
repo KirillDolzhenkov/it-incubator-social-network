@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import {
     followAC,
     setCurrentPageAC,
+    setTotalUsersCountAC,
     setUsersAC,
     unfollowAC,
     usersPageInitialStateType,
@@ -23,6 +24,7 @@ type mapDispatchToPropsType = {
     unfollow: (userId: number) => void
     setUsers: (users: Array<UsersType>) => void
     setCurrentPage: (pageValue: number)=> void
+    setTotalUsersCount: (countValue: number)=>void
 }
 
 const mapStateToProps = (state: AppStateType): mapStateToPropsType=> {
@@ -50,6 +52,9 @@ const mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType=> {
             },
             setCurrentPage: (pageValue)=> {
                 dispatch(setCurrentPageAC(pageValue));
+            },
+            setTotalUsersCount: (countValue)=> {
+                dispatch(setTotalUsersCountAC(countValue))
             }
         }
 
