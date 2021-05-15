@@ -11,7 +11,16 @@ type UsersPropsType = {
 }
 
 class Users extends React.Component<UsersPropsType, UsersPropsType> {
-    getUsers = () => {
+    constructor(props: UsersPropsType) {
+        super(props);
+        if (this.props.usersPage.users.length === 0) {
+            axios.get("https://social-network.samuraijs.com/api/1.0/users")
+                .then(response => {
+                    this.props.setUsers(response.data.items);
+                });
+        }
+    }
+    /*getUsers = () => {
         if (this.props.usersPage.users.length === 0) {
             axios.get("https://social-network.samuraijs.com/api/1.0/users")
                 .then(response => {
@@ -19,13 +28,13 @@ class Users extends React.Component<UsersPropsType, UsersPropsType> {
                 });
         }
 
-    }
+    }*/
 
     render() {
         return (
 
             <div>
-                <button onClick={this.getUsers}>Get users</button>
+                {/*<button onClick={this.getUsers}>Get users</button>*/}
                 {
                     this.props.usersPage.users.map(u => <div key={u.id}>
                         <div>img</div>
