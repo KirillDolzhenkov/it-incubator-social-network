@@ -12,10 +12,16 @@ export type UsersType = {
 
 export type usersPageInitialStateType = {
     users: Array<UsersType>
+    pageSize: number
+    totalUserCount: number
+    currentPage: number
 }
 
 const initialState: usersPageInitialStateType = {
-    users: []
+    users: [],
+    pageSize: 5,
+    totalUserCount: 20,
+    currentPage: 3,
 /*    users: [
         {id: 1, followed: false, fullName: 'Dmitry', status: 'I love react', location: {city: 'Minsk', country: 'Belarus'}},
         {id: 2, followed: true, fullName: 'Victor', status: 'I love react', location: {city: 'Mogilev', country: 'Belarus'}},

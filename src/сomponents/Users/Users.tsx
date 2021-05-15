@@ -11,15 +11,20 @@ type UsersPropsType = {
 }
 
 class Users extends React.Component<UsersPropsType, UsersPropsType> {
-    constructor(props: UsersPropsType) {
-        super(props);
+    /*constructor(props: UsersPropsType) {
+        super(props);*/
+
+    componentDidMount() {
         if (this.props.usersPage.users.length === 0) {
-            axios.get("https://social-network.samuraijs.com/api/1.0/users")
+            axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${
+                this.props.usersPage.currentPage}&count=${
+                this.props.usersPage.pageSize}`)
                 .then(response => {
                     this.props.setUsers(response.data.items);
                 });
         }
     }
+
     /*getUsers = () => {
         if (this.props.usersPage.users.length === 0) {
             axios.get("https://social-network.samuraijs.com/api/1.0/users")
@@ -31,9 +36,23 @@ class Users extends React.Component<UsersPropsType, UsersPropsType> {
     }*/
 
     render() {
+
+        let pagesCount = Math.ceil(this.props.usersPage.totalUserCount / this.props.usersPage.pageSize);
+
+        let pages = [];
+        for (let i = 1; i <= pagesCount; i++) {
+            pages.push(i);
+        }
+
         return (
 
             <div>
+                {
+                    pages.map(p=>{
+                        return<span>{p}</span>; // <-- need add thin/bold css to span
+                    })
+                }
+
                 {/*<button onClick={this.getUsers}>Get users</button>*/}
                 {
                     this.props.usersPage.users.map(u => <div key={u.id}>
