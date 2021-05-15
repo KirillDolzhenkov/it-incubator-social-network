@@ -61,10 +61,10 @@ class Users extends React.Component<UsersPropsType, UsersPropsType> {
                     pages.map(p => {
                         return (
                             <span // <-- need add thin/bold css to span
-                                /*className={this.props.usersPage.currentPage === p && stylesModule.selectedPage}*/
+                                className={this.props.usersPage.currentPage === p ? stylesModule.selectedPage : ""}
                                 onClick={() => {this.onPageGanged(p)}
                                 }
-                            >{p}</span>
+                            >{p} </span>
 
                         );
                     })
