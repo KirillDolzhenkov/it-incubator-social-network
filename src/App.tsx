@@ -8,7 +8,7 @@ import {News} from "./сomponents/News/News";
 import {Music} from "./сomponents/Music/Music";
 import {Settings} from "./сomponents/Settings/Settings";
 import {DialogsContainer} from './сomponents/Dialogs/DialogsContainer'
-import {Users} from "./сomponents/Users/Users";
+import {Users} from "./сomponents/Users/UsersFC";
 import {UsersContainer} from "./сomponents/Users/UsersСontainer";
 
 type AppPropsType = {

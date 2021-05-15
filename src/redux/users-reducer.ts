@@ -5,7 +5,7 @@ type locationType = {
 export type UsersType = {
     id: number
     followed: boolean
-    fullName: string
+    name: string
     status: string
     location: locationType
 }
@@ -15,10 +15,11 @@ export type usersPageInitialStateType = {
 }
 
 const initialState: usersPageInitialStateType = {
-    users: [
+    users: []
+/*    users: [
         {id: 1, followed: false, fullName: 'Dmitry', status: 'I love react', location: {city: 'Minsk', country: 'Belarus'}},
         {id: 2, followed: true, fullName: 'Victor', status: 'I love react', location: {city: 'Mogilev', country: 'Belarus'}},
-    ]
+    ]*/
 }
 type ActionType = ReturnType<typeof followAC> | ReturnType<typeof unfollowAC> | ReturnType<typeof setUsersAC>
 
