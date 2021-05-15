@@ -1,6 +1,6 @@
 import React from "react";
 import {usersPageInitialStateType, UsersType} from "../../redux/users-reducer";
-import stylesModule from "./users.module.css"
+import stylesModule from "./Users.module.css"
 
 type UsersPropsType = {
     follow: (userId: number) => void

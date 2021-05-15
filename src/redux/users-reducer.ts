@@ -21,27 +21,22 @@ const initialState: usersPageInitialStateType = {
     users: [],
     pageSize: 5,
     totalUserCount: 20,
-    currentPage: 3,
+    currentPage: 1,
 /*    users: [
         {id: 1, followed: false, fullName: 'Dmitry', status: 'I love react', location: {city: 'Minsk', country: 'Belarus'}},
         {id: 2, followed: true, fullName: 'Victor', status: 'I love react', location: {city: 'Mogilev', country: 'Belarus'}},
     ]*/
 }
-type ActionType = ReturnType<typeof followAC> | ReturnType<typeof unfollowAC> | ReturnType<typeof setUsersAC>
+type ActionType = ReturnType<typeof followAC>
+    | ReturnType<typeof unfollowAC>
+    | ReturnType<typeof setUsersAC>
+    | ReturnType<typeof setCurrentPageAC>
 
-const FOLLOW = "FOLLOW"
-const UNFOLLOW = "UNFOLLOW"
-const SET_USERS = "SET_USERS"
+const FOLLOW = "FOLLOW";
+const UNFOLLOW = "UNFOLLOW";
+const SET_USERS = "SET_USERS";
+const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 
-export const followAC = (userId: number) => {
-    return {type: FOLLOW, userId} as const
-}
-export const unfollowAC = (userId: number) => {
-    return {type: UNFOLLOW, userId} as const
-}
-export const setUsersAC = (users: Array<UsersType>) => {
-    return {type: SET_USERS, users} as const
-}
 
 const usersReducer = (state: usersPageInitialStateType = initialState, action: ActionType): usersPageInitialStateType => {
 
@@ -65,12 +60,31 @@ const usersReducer = (state: usersPageInitialStateType = initialState, action: A
                 })
             }
         }
-        case SET_USERS:{
+       /* case SET_USERS:{
             return {...state, users: [...state.users, ...action.users]}
+        }*/
+        case SET_USERS:{
+            return {...state, users: [ ...action.users]}
+        }
+        case SET_CURRENT_PAGE:{
+            return {...state, currentPage: action.pageValue}
         }
         default:
             return state;
     }
+}
+
+export const followAC = (userId: number) => {
+    return {type: FOLLOW, userId} as const;
+}
+export const unfollowAC = (userId: number) => {
+    return {type: UNFOLLOW, userId} as const;
+}
+export const setUsersAC = (users: Array<UsersType>) => {
+    return {type: SET_USERS, users} as const;
+}
+export const setCurrentPageAC = (pageValue: number) => {
+    return { type: SET_CURRENT_PAGE, pageValue} as const;
 }
 
 export {

@@ -1,13 +1,14 @@
 import axios from "axios";
 import React from "react";
 import {usersPageInitialStateType, UsersType} from "../../redux/users-reducer";
-import stylesModule from "./users.module.css"
+import stylesModule from "./Users.module.css"
 
 type UsersPropsType = {
     follow: (userId: number) => void
     unfollow: (userId: number) => void
     setUsers: (users: Array<UsersType>) => void
     usersPage: usersPageInitialStateType
+    setCurrentPage: (pageValue: number) => void
 }
 
 class Users extends React.Component<UsersPropsType, UsersPropsType> {
@@ -35,6 +36,15 @@ class Users extends React.Component<UsersPropsType, UsersPropsType> {
 
     }*/
 
+    onPageGanged = (p: number) => {
+        this.props.setCurrentPage(p)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${
+            p}&count=${
+            this.props.usersPage.pageSize}`)
+            .then(response => {
+                this.props.setUsers(response.data.items);
+            });
+    }
     render() {
 
         let pagesCount = Math.ceil(this.props.usersPage.totalUserCount / this.props.usersPage.pageSize);
@@ -48,8 +58,15 @@ class Users extends React.Component<UsersPropsType, UsersPropsType> {
 
             <div>
                 {
-                    pages.map(p=>{
-                        return<span>{p}</span>; // <-- need add thin/bold css to span
+                    pages.map(p => {
+                        return (
+                            <span // <-- need add thin/bold css to span
+                                /*className={this.props.usersPage.currentPage === p && stylesModule.selectedPage}*/
+                                onClick={() => {this.onPageGanged(p)}
+                                }
+                            >{p}</span>
+
+                        );
                     })
                 }
 
