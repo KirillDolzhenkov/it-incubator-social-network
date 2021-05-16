@@ -38,8 +38,6 @@ const mapStateToProps = (state: AppStateType): mapStateToPropsType=> {
     }
 }
 
-
-
 const mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType=> {
         return {
             follow: (userId)=>{
@@ -63,14 +61,10 @@ const mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType=> {
 }
 
 class UsersContainer extends React.Component<UsersPropsType, UsersPropsType> {
-    /*constructor(props: UsersPropsType) {
-        super(props);*/
 
     componentDidMount() {
         if (this.props.usersPage.users.length === 0) {
-            axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${
-                this.props.usersPage.currentPage}&count=${
-                this.props.usersPage.pageSize}`)
+            axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.usersPage.currentPage}&count=${this.props.usersPage.pageSize}`)
                 .then(response => {
                     this.props.setUsers(response.data.items);
                     this.props.setTotalUsersCount(response.data.totalCount) // TOO MANY PAGES !!!!!!
@@ -78,21 +72,9 @@ class UsersContainer extends React.Component<UsersPropsType, UsersPropsType> {
         }
     }
 
-    /*getUsers = () => {
-        if (this.props.usersPage.users.length === 0) {
-            axios.get("https://social-network.samuraijs.com/api/1.0/users")
-                .then(response => {
-                    this.props.setUsers(response.data.items);
-                });
-        }
-
-    }*/
-
     onPageGanged = (p: number) => {
         this.props.setCurrentPage(p)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${
-            p}&count=${
-            this.props.usersPage.pageSize}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.usersPage.pageSize}`)
             .then(response => {
                 this.props.setUsers(response.data.items);
             });

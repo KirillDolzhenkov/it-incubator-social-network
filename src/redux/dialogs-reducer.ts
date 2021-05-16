@@ -16,16 +16,8 @@ export type DialogsPageInitialStateType = {
 
 type ActionType = ReturnType<typeof addMessageAC> | ReturnType<typeof changeMessageAC>
 
-const SEND_MESSAGE = "ADD-MESSAGE"
-const UPDATE_NEW_MESSAGE_BODY = "CHANGE-MESSAGE-TEXT"
-
-export const addMessageAC = (newMessageText: string) => {
-    return {type: SEND_MESSAGE, newMessageText} as const
-}
-export const changeMessageAC = (newDialogText: string) => {
-    return {type: UPDATE_NEW_MESSAGE_BODY, newDialogText} as const
-}
-
+const SEND_MESSAGE = "ADD-MESSAGE";
+const UPDATE_NEW_MESSAGE_BODY = "CHANGE-MESSAGE-TEXT";
 
 const initialState: DialogsPageInitialStateType = {
     dialogs: [
@@ -39,19 +31,14 @@ const initialState: DialogsPageInitialStateType = {
     newMessageText: ""
 }
 
+export const addMessageAC = (newMessageText: string) => {
+    return {type: SEND_MESSAGE, newMessageText} as const;
+}
+export const changeMessageAC = (newDialogText: string) => {
+    return {type: UPDATE_NEW_MESSAGE_BODY, newDialogText} as const;
+}
 
 const dialogsReducer = (state: DialogsPageInitialStateType = initialState, action: ActionType): DialogsPageInitialStateType => {
-    /*if (action.type === SEND_MESSAGE) {
-        const newMessage: MessageType = {
-            id: 3,
-            message: action.newMessageText
-        };
-        state.message.push(newMessage)
-        state.newMessageText = ""
-    } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-        state.newMessageText = action.newDialogText
-    }
-    return state;*/
 
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_BODY:
@@ -60,7 +47,7 @@ const dialogsReducer = (state: DialogsPageInitialStateType = initialState, actio
                 newMessageText: action.newDialogText
             }
         case SEND_MESSAGE: {
-            let body = state.newMessageText
+            let body = state.newMessageText;
             return {
                 ...state,
                 messages: [...state.messages, {id: 3, message: body}],
@@ -68,7 +55,7 @@ const dialogsReducer = (state: DialogsPageInitialStateType = initialState, actio
             }
         }
         default: {
-            return state
+            return state;
         }
 
     }
