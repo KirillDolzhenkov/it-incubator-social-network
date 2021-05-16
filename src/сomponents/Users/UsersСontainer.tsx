@@ -10,7 +10,9 @@ import {
 } from "../../redux/users-reducer";
 import {AppStateType} from "../../redux/redux-store";
 import {Dispatch} from "redux";
-import {Users} from "./Users";
+import {Users, UsersPropsType} from "./Users";
+import React from "react";
+import axios from "axios";
 
 type mapStateToPropsType = {
     usersPage: usersPageInitialStateType
@@ -59,8 +61,62 @@ const mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType=> {
         }
 
 }
+
+class UsersContainer extends React.Component<UsersPropsType, UsersPropsType> {
+    /*constructor(props: UsersPropsType) {
+        super(props);*/
+
+    componentDidMount() {
+        if (this.props.usersPage.users.length === 0) {
+            axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${
+                this.props.usersPage.currentPage}&count=${
+                this.props.usersPage.pageSize}`)
+                .then(response => {
+                    this.props.setUsers(response.data.items);
+                    this.props.setTotalUsersCount(response.data.totalCount) // TOO MANY PAGES !!!!!!
+                });
+        }
+    }
+
+    /*getUsers = () => {
+        if (this.props.usersPage.users.length === 0) {
+            axios.get("https://social-network.samuraijs.com/api/1.0/users")
+                .then(response => {
+                    this.props.setUsers(response.data.items);
+                });
+        }
+
+    }*/
+
+    onPageGanged = (p: number) => {
+        this.props.setCurrentPage(p)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${
+            p}&count=${
+            this.props.usersPage.pageSize}`)
+            .then(response => {
+                this.props.setUsers(response.data.items);
+            });
+    }
+
+    render() {
+        return (
+            <Users
+                follow={this.props.follow}
+                unfollow={this.props.unfollow}
+                setUsers={this.props.setUsers}
+                usersPage={this.props.usersPage}
+                setCurrentPage={this.props.setCurrentPage}
+                setTotalUsersCount={this.props.setTotalUsersCount}
+                onPageGanged={this.onPageGanged}
+            />
+        )
+    }
+}
+
+/*
 const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(Users);
 
 export {
     UsersContainer
-}
+}*/
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
