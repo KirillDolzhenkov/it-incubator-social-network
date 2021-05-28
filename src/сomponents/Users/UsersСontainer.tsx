@@ -13,6 +13,7 @@ import {Dispatch} from "redux";
 import {Users, UsersPropsType} from "./Users";
 import React from "react";
 import axios from "axios";
+import {Preloader} from "../common/Preloader/Preloader";
 
 type mapStateToPropsType = {
     usersPage: usersPageInitialStateType
@@ -94,7 +95,8 @@ class UsersContainer extends React.Component<UsersPropsType, UsersPropsType> {
     render() {
         return (
             <>
-                {this.props.usersPage.isFetching ? <div> loading... </div> : null}
+                {/*{this.props.usersPage.isFetching ? <div> loading... </div> : null}*/}
+                <Preloader isFetching={this.props.usersPage.isFetching}/>
                 <Users
                     follow={this.props.follow}
                     unfollow={this.props.unfollow}

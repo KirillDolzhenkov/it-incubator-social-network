@@ -1,16 +1,17 @@
 import React from "react";
 
-type PreloaderPropsType = {}
+type PreloaderPropsType = {
+    isFetching: boolean
+}
 
-/*
 const Preloader: React.FC<PreloaderPropsType> = (props) => {
     return (
         <div>
-            {/!*{this.props.usersPage!.isFetching ? <div>hello</div> : null}*!/}
+            {props.isFetching ? <div>hello</div> : null}
         </div>
     )
 }
 
 export {
     Preloader
-}*/
+}
