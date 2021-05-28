@@ -15,6 +15,7 @@ const initialState = {
     ],
     newPostText: ""
 }
+
 type ActionType = ReturnType<typeof addPostAC> | ReturnType<typeof changePostAC>
 
 const SEND_POST = "ADD-POST";

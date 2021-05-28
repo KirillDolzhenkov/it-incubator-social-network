@@ -3,8 +3,9 @@ import {usersPageInitialStateType, UsersType} from "../../redux/users-reducer";
 import stylesModule from "./Users.module.css"
 
 type onPageGangedType = {
-    onPageGanged: (page: number)=>void
+    onPageGanged: (page: number) => void
 }
+
 export type UsersPropsType = {
     follow: (userId: number) => void
     unfollow: (userId: number) => void
@@ -12,8 +13,8 @@ export type UsersPropsType = {
     usersPage: usersPageInitialStateType
     setCurrentPage: (pageValue: number) => void
     setTotalUsersCount: (countValue: number) => void
+    toggleIsFetching: (isFetching: boolean) => void
 }
-
 
 const Users: React.FC<UsersPropsType & onPageGangedType> = (props) => {
 
@@ -25,7 +26,6 @@ const Users: React.FC<UsersPropsType & onPageGangedType> = (props) => {
     }
 
     return (
-
         <div>
             {
                 pages.map(p => {
@@ -36,12 +36,9 @@ const Users: React.FC<UsersPropsType & onPageGangedType> = (props) => {
                                 props.onPageGanged(p);
                             }}
                         >{p} </span>
-
                     );
                 })
             }
-
-            {/*<button onClick={this.getUsers}>Get users</button>*/}
             {
                 props.usersPage.users.map(u => <div key={u.id}>
                     <div>img</div>
@@ -71,7 +68,6 @@ const Users: React.FC<UsersPropsType & onPageGangedType> = (props) => {
         </div>
     )
 }
-
 
 export {
     Users
