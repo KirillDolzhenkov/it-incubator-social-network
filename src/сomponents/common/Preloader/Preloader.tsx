@@ -6,9 +6,9 @@ type PreloaderPropsType = {
 
 const Preloader: React.FC<PreloaderPropsType> = (props) => {
     return (
-        <div>
-            {props.isFetching ? <div>hello</div> : null}
-        </div>
+        <>
+            {props.isFetching ? <div> loading... </div> : null}
+        </>
     )
 }
 
