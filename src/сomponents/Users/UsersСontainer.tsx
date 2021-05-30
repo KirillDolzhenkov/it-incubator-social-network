@@ -34,6 +34,8 @@ type mapDispatchToPropsType = {
     toggleIsFetching: (isFetching: boolean) => void
 }
 
+type UsersContainerPropsType = mapStateToPropsType & mapDispatchToPropsType
+
 const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
     return {
         usersPage: state.usersPage,
@@ -70,7 +72,7 @@ const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
 
 }*/
 
-class UsersContainer extends React.Component<UsersPropsType, UsersPropsType> {
+class UsersContainer extends React.Component<UsersContainerPropsType> {
 
     componentDidMount() {
         this.props.toggleIsFetching(true);

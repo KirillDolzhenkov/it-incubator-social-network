@@ -10,6 +10,7 @@ import {Settings} from "./сomponents/Settings/Settings";
 import {DialogsContainer} from './сomponents/Dialogs/DialogsContainer'
 
 import UsersContainer from "./сomponents/Users/UsersСontainer";
+import {ProfileContainer} from "./сomponents/Profile/ProfileContainer";
 
 type AppPropsType = {
 
@@ -22,7 +23,7 @@ const App: React.FC<AppPropsType> = (props) => {
             <Navbar/>
             <div className='app-wrapper-content'>
                 <Route path='/profile'
-                       render={() => <Profile/>}/>
+                       render={() => <ProfileContainer/>}/>
                 <Route path='/dialogs'
                        render={() => <DialogsContainer/>}/>
                 <Route path='/users'
