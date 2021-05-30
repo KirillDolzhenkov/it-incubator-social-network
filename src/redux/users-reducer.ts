@@ -29,13 +29,15 @@ const initialState: usersPageInitialStateType = {
         {id: 2, followed: true, fullName: 'Victor', status: 'I love react', location: {city: 'Mogilev', country: 'Belarus'}},
     ]*/
 }
-type ActionType = ReturnType<typeof followAC>
-    | ReturnType<typeof unfollowAC>
-    | ReturnType<typeof setUsersAC>
-    | ReturnType<typeof setCurrentPageAC>
-    | ReturnType<typeof setTotalUsersCountAC>
-    | ReturnType<typeof toggleIsFetchingAC>
 
+type ActionType = ReturnType<typeof follow>
+    | ReturnType<typeof unfollow>
+    | ReturnType<typeof setUsers>
+    | ReturnType<typeof setCurrentPage>
+    | ReturnType<typeof setTotalUsersCount>
+    | ReturnType<typeof toggleIsFetching>
+
+// constants:
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
@@ -87,22 +89,23 @@ const usersReducer = (
     }
 }
 
-export const followAC = (userId: number) => {
+// Action Creators:
+export const follow = (userId: number) => {
     return {type: FOLLOW, userId} as const;
 }
-export const unfollowAC = (userId: number) => {
+export const unfollow = (userId: number) => {
     return {type: UNFOLLOW, userId} as const;
 }
-export const setUsersAC = (users: Array<UsersType>) => {
+export const setUsers = (users: Array<UsersType>) => {
     return {type: SET_USERS, users} as const;
 }
-export const setCurrentPageAC = (pageValue: number) => {
+export const setCurrentPage = (pageValue: number) => {
     return { type: SET_CURRENT_PAGE, pageValue} as const;
 }
-export const setTotalUsersCountAC = (countValue: number) => {
+export const setTotalUsersCount = (countValue: number) => {
     return {type: SET_TOTAL_USERS_COUNT, countValue}  as const;
 }
-export const toggleIsFetchingAC = (isFetching: boolean)=> {
+export const toggleIsFetching = (isFetching: boolean)=> {
     return {type: TOGGLE_IS_FETCHING, isFetching} as const;
 }
 

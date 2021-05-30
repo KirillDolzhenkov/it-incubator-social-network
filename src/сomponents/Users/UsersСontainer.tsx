@@ -1,10 +1,12 @@
 import {connect} from "react-redux";
 import {
-    followAC,
-    setCurrentPageAC,
-    setTotalUsersCountAC,
-    setUsersAC, toggleIsFetchingAC,
-    unfollowAC,
+
+    follow,
+    setCurrentPage,
+    setTotalUsersCount,
+    setUsers,
+    toggleIsFetching,
+    unfollow,
     usersPageInitialStateType,
     UsersType
 } from "../../redux/users-reducer";
@@ -42,30 +44,31 @@ const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
     }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType => {
+/*const mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType => {
     return {
+
         follow: (userId) => {
-            dispatch(followAC(userId));
+            dispatch(follow(userId));
         },
         unfollow: (userId) => {
-            dispatch(unfollowAC(userId));
+            dispatch(unfollow(userId));
         },
         setUsers: (users) => {
-            dispatch(setUsersAC(users));
+            dispatch(setUsers(users));
 
         },
         setCurrentPage: (pageValue) => {
-            dispatch(setCurrentPageAC(pageValue));
+            dispatch(setCurrentPage(pageValue));
         },
         setTotalUsersCount: (countValue) => {
-            dispatch(setTotalUsersCountAC(countValue));
+            dispatch(setTotalUsersCount(countValue));
         },
         toggleIsFetching: (isFetching) => {
-            dispatch(toggleIsFetchingAC(isFetching));
+            dispatch(toggleIsFetching(isFetching));
         }
     }
 
-}
+}*/
 
 class UsersContainer extends React.Component<UsersPropsType, UsersPropsType> {
 
@@ -77,7 +80,7 @@ class UsersContainer extends React.Component<UsersPropsType, UsersPropsType> {
             .then(response => {
                 this.props.toggleIsFetching(false);
                 this.props.setUsers(response.data.items);
-                this.props.setTotalUsersCount(response.data.totalCount); // TOO MANY PAGES !!!!!!
+                this.props.setTotalUsersCount(response.data.totalCount);
             });
     }
 
@@ -118,4 +121,12 @@ class UsersContainer extends React.Component<UsersPropsType, UsersPropsType> {
 export {
     UsersContainer
 }*/
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+
+export default connect(mapStateToProps, {
+    follow,
+    unfollow,
+    setUsers,
+    setCurrentPage,
+    setTotalUsersCount,
+    toggleIsFetching,
+})(UsersContainer);
