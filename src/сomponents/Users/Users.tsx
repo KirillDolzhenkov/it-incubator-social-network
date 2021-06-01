@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import {usersPageInitialStateType, UsersType} from "../../redux/users-reducer";
 import stylesModule from "./Users.module.css"
 
@@ -31,11 +32,12 @@ const Users: React.FC<UsersPropsType & onPageGangedType> = (props) => {
 
     return <div>
         <button >{'« prev'}</button>
-        {
-            pages[pages.length - pages.length] ===  startValue
+
+        {/*{
+            pages[pages.length - pages.length] ===  startValue // <-- need to fix
             ? ` ( ${pages[pages.length - pages.length]+1} ) `
             : null
-        }
+        }*/}
 
         {
             pages.map(p =>  {
@@ -48,15 +50,20 @@ const Users: React.FC<UsersPropsType & onPageGangedType> = (props) => {
             }).slice(startValue, endValue)  // !!!!!!
         }
 
-        {
-            pages[pages.length - 1] !==  endValue
+        {/*{
+            pages[pages.length - 1] !==  endValue // <-- need to fix
                 ? ` ( ${pages[pages.length - 1]} ) `
                 : null
-        }
+        }*/}
+
         <button>{'next  »'}</button>
         {
             props.usersPage.users.map(u => <div key={u.id}>
-                <div>img</div>
+
+                <NavLink to={"/profile"}>
+                    <div>imgAVATAR</div>
+                </NavLink>
+
                 <div>
                     {u.followed
                         ?
