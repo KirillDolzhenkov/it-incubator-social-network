@@ -1,3 +1,4 @@
+//types:
 export type PostType = {
     id: number
     messages: string
@@ -6,20 +7,51 @@ export type PostType = {
 export type ProfilePageInitialStateType = {
     posts: Array<PostType>
     newPostText: string
+    profile: ProfileType
 }
 
-const initialState = {
+export type ProfileType = { // ?????
+    aboutMe: string,
+    contacts:
+        {
+            facebook: null | string,
+            website: null | string,
+            vk: null | string,
+            twitter: null | string,
+            instagram: null | string,
+            youtube: null | string,
+            github: null | string,
+            mainLink: null | string
+        },
+    lookingForAJob: boolean,
+    lookingForAJobDescription: null | string,
+    fullName: string,
+    userId: number,
+    photos:
+        {
+            small: string,
+            large: string
+        }
+}
+
+
+type ActionType = ReturnType<typeof addPostAC>
+    | ReturnType<typeof changePostAC>
+    | ReturnType<typeof setUserProfile>
+
+// constants:
+const SEND_POST = "ADD-POST";
+const UPDATE_NEW_POST_BODY = "CHANGE-POST-TEXT";
+const SET_USER_PROFILE = "SET_USER_PROFILE";
+
+const initialState: ProfilePageInitialStateType = {
     posts: [
         {id: 1, messages: 'Hello', likesCount: 12},
         {id: 2, messages: 'Wats up', likesCount: 13},
     ],
-    newPostText: ""
+    newPostText: "",
+    profile: {} as ProfileType
 }
-
-type ActionType = ReturnType<typeof addPostAC> | ReturnType<typeof changePostAC>
-
-const SEND_POST = "ADD-POST";
-const UPDATE_NEW_POST_BODY = "CHANGE-POST-TEXT";
 
 const profileReducer = (state: ProfilePageInitialStateType = initialState, action: ActionType): ProfilePageInitialStateType => {
 
@@ -38,17 +70,28 @@ const profileReducer = (state: ProfilePageInitialStateType = initialState, actio
                 newPostText: ""
             }
         }
+        case SET_USER_PROFILE: {
+            return {
+                ...state,
+                profile: action.profile
+            }
+        }
         default:
             return state;
     }
 }
 
+//action creators:
 export const addPostAC = (newPostText: string) => {
     return {type: SEND_POST, newPostText} as const;
 }
 export const changePostAC = (newPostText: string) => {
     return {type: UPDATE_NEW_POST_BODY, newPostText} as const;
 }
+export const setUserProfile = (profile: any) => { // need to fix any
+    return{type: SET_USER_PROFILE, profile} as const;
+}
+
 
 export {
     profileReducer

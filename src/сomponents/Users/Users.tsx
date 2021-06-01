@@ -24,10 +24,10 @@ const Users: React.FC<UsersPropsType & onPageGangedType> = (props) => {
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
-    }
+    } // !!!!
 
     let startValue = 0; // need to create state for it
-    let endValue = 7; // need to create state for it
+    let endValue = 7; // the same
 
     return <div>
         <button >{'« prev'}</button>
@@ -36,8 +36,9 @@ const Users: React.FC<UsersPropsType & onPageGangedType> = (props) => {
             ? ` ( ${pages[pages.length - pages.length]+1} ) `
             : null
         }
+
         {
-            pages.map(p => {
+            pages.map(p =>  {
 
                 return <span
                     onClick={() => {
@@ -46,6 +47,7 @@ const Users: React.FC<UsersPropsType & onPageGangedType> = (props) => {
                     className={p === props.usersPage.currentPage ? stylesModule.selectedPage : ''}>| {p} |</span>
             }).slice(startValue, endValue)  // !!!!!!
         }
+
         {
             pages[pages.length - 1] !==  endValue
                 ? ` ( ${pages[pages.length - 1]} ) `

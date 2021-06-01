@@ -1,16 +1,17 @@
 import React from "react";
-import { PostsAreaContainer } from "./PostsArea/PostsAreaContainer";
+import {PostsAreaContainer} from "./PostsArea/PostsAreaContainer";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
-
+import {ProfilePageInitialStateType, ProfileType} from "../../redux/profile-reducer";
 
 
 type ProfilePropsType = {
-    /*store: StoreType*/
+    profile: any
 }
 export const Profile: React.FC<ProfilePropsType> = (props) => {
+
     return (
         <div>
-            <ProfileInfo/>
+            <ProfileInfo profile={props.profile}/>
             <PostsAreaContainer/>
         </div>
     )

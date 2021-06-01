@@ -4,10 +4,12 @@ type PreloaderPropsType = {
     isFetching: boolean
 }
 
-const Preloader: React.FC<PreloaderPropsType> = (props) => {
+const Preloader: React.FC<PreloaderPropsType> = (props) => { //need to fix any (preloader from profileContent)
     return (
         <>
-            {props.isFetching ? <div> loading... </div> : null}
+            {props.isFetching
+                ? <div> loading... </div>
+                : null}
         </>
     )
 }

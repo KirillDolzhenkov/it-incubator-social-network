@@ -1,6 +1,5 @@
 import {connect} from "react-redux";
 import {
-
     follow,
     setCurrentPage,
     setTotalUsersCount,
@@ -11,12 +10,12 @@ import {
     UsersType
 } from "../../redux/users-reducer";
 import {AppStateType} from "../../redux/redux-store";
-import {Dispatch} from "redux";
-import {Users, UsersPropsType} from "./Users";
+import {Users} from "./Users";
 import React from "react";
 import axios from "axios";
 import {Preloader} from "../common/Preloader/Preloader";
 
+//types:
 type mapStateToPropsType = {
     usersPage: usersPageInitialStateType
     pageSize: number
@@ -46,31 +45,6 @@ const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
     }
 }
 
-/*const mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType => {
-    return {
-
-        follow: (userId) => {
-            dispatch(follow(userId));
-        },
-        unfollow: (userId) => {
-            dispatch(unfollow(userId));
-        },
-        setUsers: (users) => {
-            dispatch(setUsers(users));
-
-        },
-        setCurrentPage: (pageValue) => {
-            dispatch(setCurrentPage(pageValue));
-        },
-        setTotalUsersCount: (countValue) => {
-            dispatch(setTotalUsersCount(countValue));
-        },
-        toggleIsFetching: (isFetching) => {
-            dispatch(toggleIsFetching(isFetching));
-        }
-    }
-
-}*/
 
 class UsersContainer extends React.Component<UsersContainerPropsType> {
 
@@ -100,7 +74,6 @@ class UsersContainer extends React.Component<UsersContainerPropsType> {
     render() {
         return (
             <>
-                {/*{this.props.usersPage.isFetching ? <div> loading... </div> : null}*/}
                 <Preloader isFetching={this.props.usersPage.isFetching}/>
                 <Users
                     follow={this.props.follow}
@@ -116,7 +89,6 @@ class UsersContainer extends React.Component<UsersContainerPropsType> {
         )
     }
 }
-
 
 /*const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(Users);
 

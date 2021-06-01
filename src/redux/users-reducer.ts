@@ -1,3 +1,4 @@
+//types:
 type locationType = {
     city: string
     country: string
@@ -18,18 +19,6 @@ export type usersPageInitialStateType = {
     isFetching: boolean
 }
 
-const initialState: usersPageInitialStateType = {
-    users: [],
-    pageSize: 5,
-    totalUserCount: 0,
-    currentPage: 1,
-    isFetching: false
-/*    users: [
-        {id: 1, followed: false, fullName: 'Dmitry', status: 'I love react', location: {city: 'Minsk', country: 'Belarus'}},
-        {id: 2, followed: true, fullName: 'Victor', status: 'I love react', location: {city: 'Mogilev', country: 'Belarus'}},
-    ]*/
-}
-
 type ActionType = ReturnType<typeof follow>
     | ReturnType<typeof unfollow>
     | ReturnType<typeof setUsers>
@@ -44,6 +33,19 @@ const SET_USERS = "SET_USERS";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
+
+
+const initialState: usersPageInitialStateType = {
+    users: [],
+    pageSize: 5,
+    totalUserCount: 0,
+    currentPage: 1,
+    isFetching: false
+/*    users: [
+        {id: 1, followed: false, fullName: 'Dmitry', status: 'I love react', location: {city: 'Minsk', country: 'Belarus'}},
+        {id: 2, followed: true, fullName: 'Victor', status: 'I love react', location: {city: 'Mogilev', country: 'Belarus'}},
+    ]*/
+}
 
 
 const usersReducer = (
@@ -89,7 +91,7 @@ const usersReducer = (
     }
 }
 
-// Action Creators:
+// action creators:
 export const follow = (userId: number) => {
     return {type: FOLLOW, userId} as const;
 }
