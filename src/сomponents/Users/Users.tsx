@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import {usersPageInitialStateType, UsersType} from "../../redux/users-reducer";
 import stylesModule from "./Users.module.css"
+/*import stylesModule from "../Profile/PostsArea/Post/Post.module.css";*/
 
 type onPageGangedType = {
     onPageGanged: (page: number) => void
@@ -61,7 +62,18 @@ const Users: React.FC<UsersPropsType & onPageGangedType> = (props) => {
             props.usersPage.users.map(u => <div key={u.id}>
 
                 <NavLink to={"/profile"}>
-                    <div>imgAVATAR</div>
+                    <div className={stylesModule.items}>
+                        <img
+                            src={"https://cdn4.iconfinder.com/data/icons/spring-festival/512/man-512.png"}
+                    />
+                    </div>
+                    {/*<div>
+                        <img src={u.photos.small !== null
+                            ? u.photos.small
+                            : usersPhoto
+                        }
+                             alt={"Photo"} className={styles.usersPhoto}/>
+                    </div>*/}
                 </NavLink>
 
                 <div>

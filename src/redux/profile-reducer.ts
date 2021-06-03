@@ -1,38 +1,38 @@
 //types:
-export type PostType = {
+export type PostsType = {
     id: number
     messages: string
     likesCount: number
 }
-export type ProfilePageInitialStateType = {
-    posts: Array<PostType>
+export type ProfilePageType = {
+    posts: Array<PostsType>
     newPostText: string
     profile: ProfileType
 }
 
 export type ProfileType = { // ?????
     aboutMe: string,
-    contacts:
-        {
-            facebook: null | string,
-            website: null | string,
-            vk: null | string,
-            twitter: null | string,
-            instagram: null | string,
-            youtube: null | string,
-            github: null | string,
-            mainLink: null | string
-        },
+    contacts: ConstantsType,
     lookingForAJob: boolean,
     lookingForAJobDescription: null | string,
     fullName: string,
     userId: number,
-    photos:
-        {
-            small: string,
-            large: string
-        }
+    photos: PhotosType
 }
+export type ConstantsType = {
+
+    facebook: null | string,
+    website: null | string,
+    vk: null | string,
+    twitter: null | string,
+    instagram: null | string,
+    youtube: null | string,
+    github: null | string,
+    mainLink: null | string
+
+}
+
+export type PhotosType = { small: string, large: string }
 
 
 type ActionType = ReturnType<typeof addPostAC>
@@ -44,7 +44,7 @@ const SEND_POST = "ADD-POST";
 const UPDATE_NEW_POST_BODY = "CHANGE-POST-TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 
-const initialState: ProfilePageInitialStateType = {
+const initialState: ProfilePageType = {
     posts: [
         {id: 1, messages: 'Hello', likesCount: 12},
         {id: 2, messages: 'Wats up', likesCount: 13},
@@ -53,7 +53,7 @@ const initialState: ProfilePageInitialStateType = {
     profile: {} as ProfileType
 }
 
-const profileReducer = (state: ProfilePageInitialStateType = initialState, action: ActionType): ProfilePageInitialStateType => {
+const profileReducer = (state: ProfilePageType = initialState, action: ActionType): ProfilePageType => {
 
     switch (action.type) {
         case UPDATE_NEW_POST_BODY: {
@@ -64,9 +64,9 @@ const profileReducer = (state: ProfilePageInitialStateType = initialState, actio
         }
         case SEND_POST: {
             let body = state.newPostText;
-            return  {
+            return {
                 ...state,
-                posts: [{id: 3, messages: body, likesCount: 0},...state.posts],
+                posts: [{id: 3, messages: body, likesCount: 0}, ...state.posts],
                 newPostText: ""
             }
         }
@@ -89,7 +89,7 @@ export const changePostAC = (newPostText: string) => {
     return {type: UPDATE_NEW_POST_BODY, newPostText} as const;
 }
 export const setUserProfile = (profile: any) => { // need to fix any
-    return{type: SET_USER_PROFILE, profile} as const;
+    return {type: SET_USER_PROFILE, profile} as const;
 }
 
 

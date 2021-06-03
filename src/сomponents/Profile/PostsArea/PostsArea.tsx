@@ -1,7 +1,7 @@
 import React, {ChangeEvent} from "react";
 import {Post} from "./Post/Post";
 import stylesModule from "./PostsArea.module.css";
-import {ProfilePageInitialStateType} from "../../../redux/profile-reducer";
+import {ProfilePageType} from "../../../redux/profile-reducer";
 
 
 /*type PostsAreaPropsType = {
@@ -14,7 +14,7 @@ import {ProfilePageInitialStateType} from "../../../redux/profile-reducer";
 type PostsAreaPropsType = {
     updateNewPostText: (text: string) => void
     addPost: (text: string) => void
-    profilePage: ProfilePageInitialStateType
+    profilePage: ProfilePageType
 }
 
 const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
