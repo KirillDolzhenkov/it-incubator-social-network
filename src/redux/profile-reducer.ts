@@ -10,7 +10,7 @@ export type ProfilePageType = {
     profile: ProfileType
 }
 
-export type ProfileType = { // ?????
+export type ProfileType = {
     aboutMe: string,
     contacts: ConstantsType,
     lookingForAJob: boolean,
@@ -20,7 +20,6 @@ export type ProfileType = { // ?????
     photos: PhotosType
 }
 export type ConstantsType = {
-
     facebook: null | string,
     website: null | string,
     vk: null | string,
@@ -29,7 +28,6 @@ export type ConstantsType = {
     youtube: null | string,
     github: null | string,
     mainLink: null | string
-
 }
 
 export type PhotosType = { small: string, large: string }
@@ -83,13 +81,13 @@ const profileReducer = (state: ProfilePageType = initialState, action: ActionTyp
 
 //action creators:
 export const addPostAC = (newPostText: string) => {
-    return {type: SEND_POST, newPostText} as const;
+    return ({type: SEND_POST, newPostText} as const);
 }
 export const changePostAC = (newPostText: string) => {
-    return {type: UPDATE_NEW_POST_BODY, newPostText} as const;
+    return ({type: UPDATE_NEW_POST_BODY, newPostText} as const);
 }
-export const setUserProfile = (profile: any) => { // need to fix any
-    return {type: SET_USER_PROFILE, profile} as const;
+export const setUserProfile = (profile: ProfileType) => { // need to fix any
+    return ({type: SET_USER_PROFILE, profile} as const);
 }
 
 
