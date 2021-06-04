@@ -5,13 +5,13 @@ import {ProfilePageType, ProfileType} from "../../redux/profile-reducer";
 
 
 type ProfilePropsType = {
-    /*profile: any*/
+    profile: ProfileType | null
 }
 const Profile: React.FC<ProfilePropsType> = (props) => {
 
     return (
         <div>
-            <ProfileInfo />
+            <ProfileInfo profile={props.profile}/>
             <PostsAreaContainer/>
         </div>
     )

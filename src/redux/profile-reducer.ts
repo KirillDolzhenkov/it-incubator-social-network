@@ -7,7 +7,7 @@ export type PostsType = {
 export type ProfilePageType = {
     posts: Array<PostsType>
     newPostText: string
-    profile: ProfileType
+    profile: ProfileType | null
 }
 
 export type ProfileType = {
@@ -48,7 +48,7 @@ const initialState: ProfilePageType = {
         {id: 2, messages: 'Wats up', likesCount: 13},
     ],
     newPostText: "",
-    profile: {} as ProfileType
+    profile: null
 }
 
 const profileReducer = (state: ProfilePageType = initialState, action: ActionType): ProfilePageType => {

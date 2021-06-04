@@ -21,12 +21,13 @@ export type UsersPropsType = {
 
 const Users: React.FC<UsersPropsType & onPageGangedType> = (props) => {
 
-    let pagesCount = Math.ceil(props.usersPage.totalUserCount / props.usersPage.pageSize);
+    let pageCount = Math.ceil(props.usersPage.totalUserCount / props.usersPage.pageSize);
 
-    let pages = [];
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i);
-    } // !!!!
+    let current = []
+
+    for (let i = 1; i <= pageCount; i++) {
+        current.push(i)
+    }
 
     let startValue = 0; // need to create state for it
     let endValue = 7; // the same
@@ -34,13 +35,13 @@ const Users: React.FC<UsersPropsType & onPageGangedType> = (props) => {
     return <div>
         <button >{'« prev'}</button>
         {
-            pages.map(p =>  {
+            current.map(p =>  {
 
                 return <span
                     onClick={() => {
                         props.onPageGanged(p)
                     }}
-                    className={p === props.usersPage.currentPage ? stylesModule.selectedPage : ''}>| {p} |</span>
+                    className={p === props.usersPage.currentPage ? stylesModule.selectedPage : ''}> | {p} | </span>
             }).slice(startValue, endValue)  // !!!!!!
         }
 
@@ -48,7 +49,7 @@ const Users: React.FC<UsersPropsType & onPageGangedType> = (props) => {
         {
             props.usersPage.users.map(u => <div key={u.id}>
 
-                <NavLink to={"/profile" + u.id}>
+                <NavLink to={"/profile/" + u.id}>
                     <div className={stylesModule.items}>
                         <img src={"https://cdn4.iconfinder.com/data/icons/spring-festival/512/man-512.png"}/>
                     </div>

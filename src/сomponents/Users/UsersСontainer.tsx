@@ -14,6 +14,7 @@ import {Users} from "./Users";
 import React from "react";
 import axios from "axios";
 import {Preloader} from "../common/Preloader/Preloader";
+import PreloaderLogo from "../common/Preloader/preloaderLogo.png";
 
 //types:
 type mapStateToPropsType = {
@@ -74,7 +75,9 @@ class UsersContainer extends React.Component<UsersContainerPropsType> {
     render() {
         return (
             <>
-                <Preloader isFetching={this.props.usersPage.isFetching}/>
+                {this.props.isFetching
+                    ? <Preloader/>
+                    : null}
                 <Users
                     follow={this.props.follow}
                     unfollow={this.props.unfollow}
@@ -91,11 +94,7 @@ class UsersContainer extends React.Component<UsersContainerPropsType> {
 }
 
 
-/*const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(Users);
 
-export {
-    UsersContainer
-}*/
 
 export default connect(mapStateToProps, {
     follow,
