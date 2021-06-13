@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/samurai-social-network/static/css/main.44ed438a.chunk.css",
-    "main.js": "/samurai-social-network/static/js/main.8dcd1ae4.chunk.js",
-    "main.js.map": "/samurai-social-network/static/js/main.8dcd1ae4.chunk.js.map",
+    "main.css": "/samurai-social-network/static/css/main.be56c4e5.chunk.css",
+    "main.js": "/samurai-social-network/static/js/main.06dab4c7.chunk.js",
+    "main.js.map": "/samurai-social-network/static/js/main.06dab4c7.chunk.js.map",
     "runtime-main.js": "/samurai-social-network/static/js/runtime-main.b251473c.js",
     "runtime-main.js.map": "/samurai-social-network/static/js/runtime-main.b251473c.js.map",
     "static/js/2.93bf74bf.chunk.js": "/samurai-social-network/static/js/2.93bf74bf.chunk.js",
@@ -10,16 +10,16 @@
     "static/js/3.bd287a93.chunk.js": "/samurai-social-network/static/js/3.bd287a93.chunk.js",
     "static/js/3.bd287a93.chunk.js.map": "/samurai-social-network/static/js/3.bd287a93.chunk.js.map",
     "index.html": "/samurai-social-network/index.html",
-    "static/css/main.44ed438a.chunk.css.map": "/samurai-social-network/static/css/main.44ed438a.chunk.css.map",
+    "static/css/main.be56c4e5.chunk.css.map": "/samurai-social-network/static/css/main.be56c4e5.chunk.css.map",
     "static/js/2.93bf74bf.chunk.js.LICENSE.txt": "/samurai-social-network/static/js/2.93bf74bf.chunk.js.LICENSE.txt",
     "static/media/logo_transparent_02.7aafc755.png": "/samurai-social-network/static/media/logo_transparent_02.7aafc755.png",
     "static/media/logo_transparent_03.230df42a.png": "/samurai-social-network/static/media/logo_transparent_03.230df42a.png",
-    "static/media/preloaderLogo.6b93d370.png": "/samurai-social-network/static/media/preloaderLogo.6b93d370.png"
+    "static/media/preloaderLogo.400bb8f2.png": "/samurai-social-network/static/media/preloaderLogo.400bb8f2.png"
   },
   "entrypoints": [
     "static/js/runtime-main.b251473c.js",
     "static/js/2.93bf74bf.chunk.js",
-    "static/css/main.44ed438a.chunk.css",
-    "static/js/main.8dcd1ae4.chunk.js"
+    "static/css/main.be56c4e5.chunk.css",
+    "static/js/main.06dab4c7.chunk.js"
   ]
 }
