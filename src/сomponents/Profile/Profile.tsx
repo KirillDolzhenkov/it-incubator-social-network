@@ -1,5 +1,5 @@
 import React from "react";
-import {PostsAreaContainer} from "./PostsArea/PostsAreaContainer";
+import {ContentAreaContainer} from "./ContentArea/ContentAreaContainer";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 import {ProfilePageType, ProfileType} from "../../redux/profile-reducer";
 
@@ -12,7 +12,7 @@ const Profile: React.FC<ProfilePropsType> = (props) => {
     return (
         <div>
             <ProfileInfo profile={props.profile}/>
-            <PostsAreaContainer/>
+            <ContentAreaContainer/>
         </div>
     )
 }

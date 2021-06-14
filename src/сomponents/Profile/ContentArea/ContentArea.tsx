@@ -1,40 +1,32 @@
 import React, {ChangeEvent} from "react";
 import {Post} from "./Post/Post";
-import stylesModule from "./PostsArea.module.css";
+import stylesModule from "./ContentArea.module.css";
 import {ProfilePageType} from "../../../redux/profile-reducer";
 
-
-/*type PostsAreaPropsType = {
-    updateNewPostText: (text: string) => void
-    addPost: (text: string) => void
-    posts: Array<PostType>
-    newPostText: string
-}*/
-
-type PostsAreaPropsType = {
+type ContentAreaPropsType = {
     updateNewPostText: (text: string) => void
     addPost: (text: string) => void
     profilePage: ProfilePageType
 }
 
-const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
+const ContentArea: React.FC<ContentAreaPropsType> = (props) => {
 
     let postsElements = props.profilePage.posts
-        .map(p => <Post key={p.id} message={p.messages} likesCount={p.likesCount}/>)
+        .map(p => <Post key={p.id} message={p.messages} likesCount={p.likesCount}/>);
 
     const onAddPost = () => {
         if(props.profilePage.newPostText.trim()){
-            props.addPost(props.profilePage.newPostText)
+            props.addPost(props.profilePage.newPostText);
         }
     }
 
     const onPostChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.updateNewPostText(e.currentTarget.value)
+        props.updateNewPostText(e.currentTarget.value);
     }
 
     const onKeyPressHandler = (e: React.KeyboardEvent<HTMLElement>) => {
         if (e.key === 'Enter') {
-            e.preventDefault()
+            e.preventDefault();
             onAddPost();
         }
     }
@@ -62,5 +54,5 @@ const PostsArea: React.FC<PostsAreaPropsType> = (props) => {
 }
 
 export {
-    PostsArea
+    ContentArea
 }

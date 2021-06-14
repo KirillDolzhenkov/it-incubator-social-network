@@ -86,7 +86,7 @@ export const addPostAC = (newPostText: string) => {
 export const changePostAC = (newPostText: string) => {
     return ({type: UPDATE_NEW_POST_BODY, newPostText} as const);
 }
-export const setUserProfile = (profile: ProfileType) => { // need to fix any
+export const setUserProfile = (profile: ProfileType) => {
     return ({type: SET_USER_PROFILE, profile} as const);
 }
 

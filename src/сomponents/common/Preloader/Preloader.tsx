@@ -8,9 +8,9 @@ type PreloaderPropsType = {
 const Preloader: React.FC<PreloaderPropsType> = (props) => {
     return (
         <div className="Preloader">
-            <header className="App-header">
-                <img src={PreloaderLogo} className="App-logo" alt="logo"/>
-                loading...
+            <header className="Preloader-header">
+                <img src={PreloaderLogo} className="Preloader-logo" alt="logo"/>
+                {/*loading...*/}
                 <br/>
             </header>
         </div>

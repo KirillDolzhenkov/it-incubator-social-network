@@ -4,8 +4,6 @@ import axios from "axios";
 import {connect} from "react-redux";
 import {AppStateType} from "../../redux/redux-store";
 import {ProfileType, setUserProfile} from "../../redux/profile-reducer";
-import {usersPageInitialStateType, UsersType} from "../../redux/users-reducer";
-
 
 //types:
 type mapStateToPropsType = {
