@@ -17,7 +17,6 @@ const Preloader: React.FC<PreloaderPropsType> = (props) => {
     )
 }
 
-export
-{
+export {
     Preloader
 }
