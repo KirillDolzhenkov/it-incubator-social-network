@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import {usersPageInitialStateType, UsersType} from "../../redux/users-reducer";
 import stylesModule from "./Users.module.css"
-/*import stylesModule from "../Profile/PostsArea/Post/Post.module.css";*/
 
 type onPageGangedType = {
     onPageGanged: (page: number) => void

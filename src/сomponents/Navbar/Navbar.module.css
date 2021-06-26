@@ -3,7 +3,7 @@
     grid-area: n;
     background-color: #2b3f4f;
     font-family: Arial, Helvetica, sans-serif;
-    opacity: 0.95
+    opacity: 0.95;
 }
 
 .item a {
@@ -12,14 +12,12 @@
 }
 
 .item a:hover {
+    display: block;
     background-color: #282c34;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     border-radius: 3px 50% 50% 3px;
-    display: block;
-
 }
 
 .item a.active {
     color: white;
 }
-

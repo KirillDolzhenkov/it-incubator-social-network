@@ -23,12 +23,8 @@
   padding: 5px;
 }
 
-
 .app-wrapper-content {
   grid-area: c;
-  /*
-  background-color: #4E5D74;
-  */
   background-color: #edeef0;
   opacity: 0.89;
 }

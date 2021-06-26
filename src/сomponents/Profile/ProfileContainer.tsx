@@ -4,6 +4,8 @@ import axios from "axios";
 import {connect} from "react-redux";
 import {AppStateType} from "../../redux/redux-store";
 import {ProfileType, setUserProfile} from "../../redux/profile-reducer";
+import {Preloader} from "../common/Preloader/Preloader";
+import {Users} from "../Users/Users";
 
 //types:
 type mapStateToPropsType = {
@@ -27,7 +29,10 @@ class ProfileContainer extends React.Component<ProfileContainerPropsType> {
     render() {
         return(
             <div>
-                <Profile {...this.props} profile={this.props.profile}/>
+                {this.props.profile
+                    ? <Preloader/>
+                    : <Profile {...this.props} profile={this.props.profile}/>
+                }
             </div>
         )
     }

@@ -75,32 +75,41 @@ class UsersContainer extends React.Component<UsersContainerPropsType> {
     render() {
         return (
             <>
+                {/*{this.props.isFetching
+                    ? <Preloader/>
+                    : null}*/}
                 {this.props.isFetching
                     ? <Preloader/>
-                    : null}
-                <Users
-                    follow={this.props.follow}
-                    unfollow={this.props.unfollow}
-                    setUsers={this.props.setUsers}
-                    usersPage={this.props.usersPage}
-                    setCurrentPage={this.props.setCurrentPage}
-                    setTotalUsersCount={this.props.setTotalUsersCount}
-                    onPageGanged={this.onPageGanged}
-                    toggleIsFetching={this.props.toggleIsFetching}
-                />
+                    : <Users
+                        follow={this.props.follow}
+                        unfollow={this.props.unfollow}
+                        setUsers={this.props.setUsers}
+                        usersPage={this.props.usersPage}
+                        setCurrentPage={this.props.setCurrentPage}
+                        setTotalUsersCount={this.props.setTotalUsersCount}
+                        onPageGanged={this.onPageGanged}
+                        toggleIsFetching={this.props.toggleIsFetching}
+                    />
+                }
             </>
         )
     }
+
 }
 
 
-
-
 export default connect(mapStateToProps, {
-    follow,
-    unfollow,
-    setUsers,
-    setCurrentPage,
-    setTotalUsersCount,
-    toggleIsFetching,
-})(UsersContainer);
+        follow
+        ,
+        unfollow
+        ,
+        setUsers
+        ,
+        setCurrentPage
+        ,
+        setTotalUsersCount
+        ,
+        toggleIsFetching
+        ,
+    }
+)(UsersContainer);

@@ -8,9 +8,7 @@ type ProfileInfoPropsType = {
 }
 
 export const ProfileInfo: React.FC<ProfileInfoPropsType> = (props) => {
-    /*if (props.profile){
-        return <Preloader />
-    }*/
+
 
     return (
         <div>
