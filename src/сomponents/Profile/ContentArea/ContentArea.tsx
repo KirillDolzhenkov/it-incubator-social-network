@@ -15,8 +15,8 @@ const ContentArea: React.FC<ContentAreaPropsType> = (props) => {
         .map(p => <Post key={p.id} message={p.messages} likesCount={p.likesCount}/>);
 
     const onAddPost = () => {
-        if(props.profilePage.newPostText.trim()){
-            props.addPost(props.profilePage.newPostText);
+        if(props.profilePage.newPostText){
+            props.addPost(props.profilePage.newPostText.trim());
         }
     }
 

@@ -27,8 +27,8 @@ const Dialogs: React.FC<DialogsPropsType> = (props) => {
         .map(m => <Messages key={m.id} messageText={m.message}/>)
 
     const addMessage = () => {
-        if(props.dialogsPage.newMessageText.trim()){
-            props.addMessage(props.dialogsPage.newMessageText)
+        if(props.dialogsPage.newMessageText){
+            props.addMessage(props.dialogsPage.newMessageText.trim())
         }
     }
     let onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
