@@ -20,16 +20,15 @@ export type UsersPropsType = {
 
 const Users: React.FC<UsersPropsType & onPageGangedType> = (props) => {
 
+
     let pageCount = Math.ceil(props.usersPage.totalUserCount / props.usersPage.pageSize);
-
     let current = []
-
     for (let i = 1; i <= pageCount; i++) {
         current.push(i)
     }
 
-    let startValue = 0; // need to create state for it
-    let endValue = 7; // the same
+    let startValue = 0; //need to create state
+    let endValue = 7; //need to create state
 
     return <div>
         <button >{'« prev'}</button>
@@ -41,7 +40,7 @@ const Users: React.FC<UsersPropsType & onPageGangedType> = (props) => {
                         props.onPageGanged(p)
                     }}
                     className={p === props.usersPage.currentPage ? stylesModule.selectedPage : ''}> | {p} | </span>
-            }).slice(startValue, endValue)  // !!!!!!
+            }).slice(startValue, endValue)  //slice !!!!!!
         }
 
         <button>{'next  »'}</button>
