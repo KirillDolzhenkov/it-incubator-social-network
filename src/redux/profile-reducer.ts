@@ -32,15 +32,9 @@ export type ConstantsType = {
 
 export type PhotosType = { small: string, large: string }
 
-
 type ActionType = ReturnType<typeof addPostAC>
     | ReturnType<typeof changePostAC>
     | ReturnType<typeof setUserProfile>
-
-// constants:
-const SEND_POST = "ADD-POST";
-const UPDATE_NEW_POST_BODY = "CHANGE-POST-TEXT";
-const SET_USER_PROFILE = "SET_USER_PROFILE";
 
 const initialState: ProfilePageType = {
     posts: [
@@ -54,13 +48,7 @@ const initialState: ProfilePageType = {
 const profileReducer = (state: ProfilePageType = initialState, action: ActionType): ProfilePageType => {
 
     switch (action.type) {
-        case UPDATE_NEW_POST_BODY: {
-            return {
-                ...state,
-                newPostText: action.newPostText
-            }
-        }
-        case SEND_POST: {
+        case "SN/PROFILE/ADD_POST": {
             let body = state.newPostText;
             return {
                 ...state,
@@ -68,7 +56,13 @@ const profileReducer = (state: ProfilePageType = initialState, action: ActionTyp
                 newPostText: ""
             }
         }
-        case SET_USER_PROFILE: {
+        case "SN/PROFILE/CHANGE_POST": {
+            return {
+                ...state,
+                newPostText: action.newPostText
+            }
+        }
+        case "SN/PROFILE/SET_NEW_POST_TEXT": {
             return {
                 ...state,
                 profile: action.profile
@@ -81,13 +75,13 @@ const profileReducer = (state: ProfilePageType = initialState, action: ActionTyp
 
 //action creators:
 export const addPostAC = (newPostText: string) => {
-    return ({type: SEND_POST, newPostText} as const);
+    return ({type: "SN/PROFILE/ADD_POST", newPostText} as const);
 }
 export const changePostAC = (newPostText: string) => {
-    return ({type: UPDATE_NEW_POST_BODY, newPostText} as const);
+    return ({type: "SN/PROFILE/CHANGE_POST", newPostText} as const);
 }
 export const setUserProfile = (profile: ProfileType) => {
-    return ({type: SET_USER_PROFILE, profile} as const);
+    return ({type: "SN/PROFILE/SET_NEW_POST_TEXT", profile} as const);
 }
 
 

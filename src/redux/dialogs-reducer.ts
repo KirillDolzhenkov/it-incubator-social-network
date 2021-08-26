@@ -13,11 +13,7 @@ export type DialogsPageInitialStateType = {
     newMessageText: string
 }
 
-
 type ActionType = ReturnType<typeof addMessageAC> | ReturnType<typeof changeMessageAC>
-
-const SEND_MESSAGE = "ADD-MESSAGE";
-const UPDATE_NEW_MESSAGE_BODY = "CHANGE-MESSAGE-TEXT";
 
 const initialState: DialogsPageInitialStateType = {
     dialogs: [
@@ -31,22 +27,10 @@ const initialState: DialogsPageInitialStateType = {
     newMessageText: ""
 }
 
-export const addMessageAC = (newMessageText: string) => {
-    return {type: SEND_MESSAGE, newMessageText} as const;
-}
-export const changeMessageAC = (newDialogText: string) => {
-    return {type: UPDATE_NEW_MESSAGE_BODY, newDialogText} as const;
-}
-
 const dialogsReducer = (state: DialogsPageInitialStateType = initialState, action: ActionType): DialogsPageInitialStateType => {
 
     switch (action.type) {
-        case UPDATE_NEW_MESSAGE_BODY:
-            return {
-                ...state,
-                newMessageText: action.newDialogText
-            }
-        case SEND_MESSAGE: {
+        case "SN/DIALOGS/ADD_MESSAGE": {
             let body = state.newMessageText;
             return {
                 ...state,
@@ -54,6 +38,11 @@ const dialogsReducer = (state: DialogsPageInitialStateType = initialState, actio
                 newMessageText: ""
             }
         }
+        case "SN/DIALOGS/SET_NEW_MESSAGE_TEXT":
+            return {
+                ...state,
+                newMessageText: action.newDialogText
+            }
         default: {
             return state;
         }
@@ -61,6 +50,14 @@ const dialogsReducer = (state: DialogsPageInitialStateType = initialState, actio
     }
 
 }
+
+export const addMessageAC = (newMessageText: string) => {
+    return {type: "SN/DIALOGS/ADD_MESSAGE", newMessageText} as const;
+}
+export const changeMessageAC = (newDialogText: string) => {
+    return {type: "SN/DIALOGS/SET_NEW_MESSAGE_TEXT", newDialogText} as const;
+}
+
 export {
     dialogsReducer
 }

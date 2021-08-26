@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import {usersPageInitialStateType, UsersType} from "../../redux/users-reducer";
 import stylesModule from "./Users.module.css"
 
-type onPageGangedType = {
+type onPageChangedType = {
     onPageGanged: (page: number) => void
 }
 
@@ -18,7 +18,7 @@ export type UsersPropsType = {
 }
 
 
-const Users: React.FC<UsersPropsType & onPageGangedType> = (props) => {
+const Users: React.FC<UsersPropsType & onPageChangedType> = (props) => {
 
 
     let pageCount = Math.ceil(props.usersPage.totalUserCount / props.usersPage.pageSize);
