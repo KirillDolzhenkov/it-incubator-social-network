@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/samurai-social-network/static/css/main.876fe932.chunk.css",
-    "main.js": "/samurai-social-network/static/js/main.d1a17419.chunk.js",
-    "main.js.map": "/samurai-social-network/static/js/main.d1a17419.chunk.js.map",
-    "runtime-main.js": "/samurai-social-network/static/js/runtime-main.b251473c.js",
-    "runtime-main.js.map": "/samurai-social-network/static/js/runtime-main.b251473c.js.map",
-    "static/js/2.93bf74bf.chunk.js": "/samurai-social-network/static/js/2.93bf74bf.chunk.js",
-    "static/js/2.93bf74bf.chunk.js.map": "/samurai-social-network/static/js/2.93bf74bf.chunk.js.map",
-    "static/js/3.bd287a93.chunk.js": "/samurai-social-network/static/js/3.bd287a93.chunk.js",
-    "static/js/3.bd287a93.chunk.js.map": "/samurai-social-network/static/js/3.bd287a93.chunk.js.map",
-    "index.html": "/samurai-social-network/index.html",
-    "static/css/main.876fe932.chunk.css.map": "/samurai-social-network/static/css/main.876fe932.chunk.css.map",
-    "static/js/2.93bf74bf.chunk.js.LICENSE.txt": "/samurai-social-network/static/js/2.93bf74bf.chunk.js.LICENSE.txt",
-    "static/media/logo_transparent_02.7aafc755.png": "/samurai-social-network/static/media/logo_transparent_02.7aafc755.png",
-    "static/media/logo_transparent_03.230df42a.png": "/samurai-social-network/static/media/logo_transparent_03.230df42a.png",
-    "static/media/preloaderLogo.400bb8f2.png": "/samurai-social-network/static/media/preloaderLogo.400bb8f2.png"
+    "main.css": "/testing-social-network/static/css/main.876fe932.chunk.css",
+    "main.js": "/testing-social-network/static/js/main.f467f1a2.chunk.js",
+    "main.js.map": "/testing-social-network/static/js/main.f467f1a2.chunk.js.map",
+    "runtime-main.js": "/testing-social-network/static/js/runtime-main.1025ea69.js",
+    "runtime-main.js.map": "/testing-social-network/static/js/runtime-main.1025ea69.js.map",
+    "static/js/2.93bf74bf.chunk.js": "/testing-social-network/static/js/2.93bf74bf.chunk.js",
+    "static/js/2.93bf74bf.chunk.js.map": "/testing-social-network/static/js/2.93bf74bf.chunk.js.map",
+    "static/js/3.bd287a93.chunk.js": "/testing-social-network/static/js/3.bd287a93.chunk.js",
+    "static/js/3.bd287a93.chunk.js.map": "/testing-social-network/static/js/3.bd287a93.chunk.js.map",
+    "index.html": "/testing-social-network/index.html",
+    "static/css/main.876fe932.chunk.css.map": "/testing-social-network/static/css/main.876fe932.chunk.css.map",
+    "static/js/2.93bf74bf.chunk.js.LICENSE.txt": "/testing-social-network/static/js/2.93bf74bf.chunk.js.LICENSE.txt",
+    "static/media/logo_transparent_02.7aafc755.png": "/testing-social-network/static/media/logo_transparent_02.7aafc755.png",
+    "static/media/logo_transparent_03.230df42a.png": "/testing-social-network/static/media/logo_transparent_03.230df42a.png",
+    "static/media/preloaderLogo.400bb8f2.png": "/testing-social-network/static/media/preloaderLogo.400bb8f2.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.b251473c.js",
+    "static/js/runtime-main.1025ea69.js",
     "static/js/2.93bf74bf.chunk.js",
     "static/css/main.876fe932.chunk.css",
-    "static/js/main.d1a17419.chunk.js"
+    "static/js/main.f467f1a2.chunk.js"
   ]
 }
