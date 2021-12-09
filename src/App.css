@@ -1,36 +1,29 @@
-.app-wrapper {
-  display: grid;
-  margin: 0 auto;
-  width: 1200px ;
-  background-image: url(https://img3.goodfon.ru/wallpaper/nbig/7/6d/ozero-gory-otrazhenie-priroda-3483.jpg);
 
-  grid-template-areas:
+.app-wrapper {
+    display: grid;
+    margin: 0 auto;
+    width: 1200px ;
+    height: 850px;
+    background-color: white;
+    background-image: url("assets/images/appBackroundImage.png");
+
+    grid-template-areas:
   'h h'
   'n c';
 
-  grid-template-rows: 75px 1fr;
-  grid-template-columns: 2fr 10fr;
-  grid-gap: 10px;
-}
-
-.header {
-  grid-area: h;
-  background-color: #20232a;
-}
-.header img {
-  width: 75px;
-  height: 65px;
-  padding: 5px;
+    grid-template-rows: 75px 1fr;
+    grid-template-columns: 2fr 10fr;
+    grid-gap: 10px;
 }
 
 .app-wrapper-content {
-  grid-area: c;
-  background-color: #edeef0;
-  opacity: 0.89;
+    grid-area: c;
+    background-color: #edeef0;
+    opacity: 0.89;
+    border-radius: 4px;
 }
 .app-wrapper-content img {
-  width: 1000px;
-  height: 200px;
-  opacity: 2;
+    width: 1000px;
+    height: 200px;
+    opacity: 2;
 }
-

@@ -1,0 +1,10 @@
+.items {
+    color: burlywood;
+}
+
+.items img {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+}

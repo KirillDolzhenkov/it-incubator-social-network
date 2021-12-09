@@ -1,0 +1,40 @@
+.header {
+    grid-area: h;
+    background-color: #20232a;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.logoArea{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 2px;
+}
+
+.header img {
+    display: flex;
+    width: 70px;
+    height: 70px;
+}
+
+.loginBlock {
+    display: flex;
+    align-items: center;
+    padding-right: 30px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.3ch;
+    font-size: 15px;
+}
+
+.loginBlock a{
+    color: gray;
+    text-decoration: none;
+}
+
+.loginBlock a:hover{
+    color: white;
+}

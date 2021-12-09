@@ -1,0 +1,10 @@
+.items img {
+    width: 70px;
+    height: 70px;
+    border-radius: 40px;
+    /*border: 1px solid gray;*/
+}
+
+.selectedPage{
+    font-weight: bold;
+}
