@@ -1,5 +1,5 @@
 #### Technologies: React, Redux, REST API, Typescript
-## 🌐 [here is the project](https://KirillDolzhenkov.github.io/samurai-social-network)
+## 🌐 [here is the project](https://KirillDolzhenkov.github.io/testing-social-network)
 
 # Getting Started with Create React App
 
