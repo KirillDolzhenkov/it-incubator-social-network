@@ -1,32 +1,32 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import styles from "./Navbar.module.css";
+import style from "./Navbar.module.css";
 
 //types:
 type NavbarPropsType = {}
 
-//function component:
+//functional component:
 const Navbar: React.FC<NavbarPropsType> = (props) => {
     return (
-        <div className={styles.navbar}>
-            <div className={styles.item}>
-                <NavLink to={"/Profile"} activeClassName={styles.active}>Profile</NavLink>
+        <div className={style.navbar}>
+            <div className={style.item}>
+                <NavLink to={"/Profile"} activeClassName={style.active}>My profile</NavLink>
             </div>
-            <div className={styles.item}>
-                <NavLink to={"/Dialogs"} activeClassName={styles.active}>Messages</NavLink>
+            <div className={style.item}>
+                <NavLink to={"/News"} activeClassName={style.active}>News</NavLink>
             </div>
-            <div className={styles.item}>
-                <NavLink to={"/Users"} activeClassName={styles.active}>Users</NavLink>
+            <div className={style.item}>
+                <NavLink to={"/Dialogs"} activeClassName={style.active}>Messages</NavLink>
             </div>
-            <div className={styles.item}>
-                <NavLink to={"/News"} activeClassName={styles.active}>News</NavLink>
+            <div className={style.item}>
+                <NavLink to={"/Users"} activeClassName={style.active}>Users</NavLink>
             </div>
-            <div className={styles.item}>
-                <NavLink to={"/Music"} activeClassName={styles.active}>Music</NavLink>
+            <div className={style.item}>
+                <NavLink to={"/Music"} activeClassName={style.active}>Music</NavLink>
             </div>
-            <div className={styles.item}>
-                <NavLink to={"/Settings"} activeClassName={styles.active}>Settings</NavLink>
+            <div className={style.item}>
+                <NavLink to={"/Settings"} activeClassName={style.active}>Settings</NavLink>
             </div>
         </div>
     )
