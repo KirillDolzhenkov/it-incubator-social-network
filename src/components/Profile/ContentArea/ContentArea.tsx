@@ -11,7 +11,7 @@ type ContentAreaPropsType = {
     setNewPostText: (newText: string) => void
 }
 
-//function component:
+//functional component:
 const ContentArea: React.FC<ContentAreaPropsType> = (props) => {
 
     const state = props.profilePage; //state!!!

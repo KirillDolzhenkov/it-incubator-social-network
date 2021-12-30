@@ -3,7 +3,7 @@ import React from "react";
 //types:
 type SettingsPropsType = {}
 
-//function component:
+//functional component:
 const Settings: React.FC<SettingsPropsType> = (props) => {
     return (
         <div>

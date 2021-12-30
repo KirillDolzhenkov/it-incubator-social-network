@@ -16,7 +16,7 @@ export type DialogsPropsType = {
 }
 
 
-//function component:
+//functional component:
 const Dialogs: React.FC<DialogsPropsType> = (props) => {
 
     const state = props.dialogsPage; // state!!!

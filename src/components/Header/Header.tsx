@@ -12,7 +12,7 @@ type HeaderPropsType = {
     login: null | string
 }
 
-//function component:
+//functional component:
 const Header: React.FC<HeaderPropsType> = (props) => {
     return (
         <div className={style.header}>

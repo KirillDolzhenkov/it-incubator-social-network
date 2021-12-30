@@ -9,7 +9,7 @@ type DialogPropsType = {
     name: string
 }
 
-//function component:
+//functional component:
 const DialogItem: React.FC<DialogPropsType> = (props) => {
 
     return (

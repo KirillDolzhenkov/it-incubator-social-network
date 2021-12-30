@@ -10,7 +10,7 @@ type ProfilePropsType = {
     profile: ProfilePageType | null
 }
 
-//function component:
+//functional component:
 const Profile: React.FC<ProfilePropsType> = (props) => {
 
     return (
