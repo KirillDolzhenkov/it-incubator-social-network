@@ -16,7 +16,7 @@ import {DialogsContainer} from "./components/Dialogs/DialogsContainer";
 //types:
 type PropsType = {}
 
-//function component:
+//functional component:
 const App: React.FC<PropsType> = (props) => {
     return (
         <div className="app-wrapper">
@@ -24,9 +24,9 @@ const App: React.FC<PropsType> = (props) => {
             <Navbar/>
             <div className={"app-wrapper-content"}>
                 <Route path={"/Profile/:userId?"} render={() => <ProfileContainer />}/>
+                <Route path={"/News"} render={() => <News/>}/>
                 <Route path={"/Dialogs"} render={() => <DialogsContainer/>}/>
                 <Route path={"/Users"} render={() => <UsersContainer/>}/>
-                <Route path={"/News"} render={() => <News/>}/>
                 <Route path={"/Music"} render={() => <Music/>}/>
                 <Route path={"/Settings"} render={() => <Settings/>}/>
                 <Route path={"/Login"} render={() => <Login/>}/>
@@ -35,4 +35,6 @@ const App: React.FC<PropsType> = (props) => {
     );
 }
 
-export default App;
+export {
+    App
+}

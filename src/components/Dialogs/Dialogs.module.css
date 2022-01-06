@@ -35,3 +35,11 @@
 .messages .message {
 
 }
+
+.inputAreaElements {
+    display: flex;
+    width: 870px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

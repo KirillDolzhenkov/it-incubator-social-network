@@ -19,6 +19,7 @@ import {
 import {usersAPI} from "../../api/api";
 import {AppStateType} from "../../redux/redux-store";
 import {Preloader} from "../common/Preloader/Preloader";
+import preloaderStyle from "../common/Preloader/Preloader.module.css"
 import {Users} from "./Users";
 
 //types:
@@ -71,7 +72,7 @@ class UsersClassContainer extends React.Component<UsersClassContainerPropsType> 
             <>
                 {
                     this.props.isFetching
-                        ? <Preloader/>
+                        ? <div className={preloaderStyle.main}><Preloader/></div>
                         : <Users
                             usersPage={this.props.usersPage}
                             pageSize={this.props.pageSize}
@@ -92,7 +93,6 @@ class UsersClassContainer extends React.Component<UsersClassContainerPropsType> 
             </>
         )
     }
-
 }
 
 //container component:

@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 
 import {UsersInitialStateType, UsersType} from "../../redux/users-reducer";
 import defaultSmallUserPhoto from "../../assets/images/defaultSmallUserPhoto.png"
-import styles from "./Users.module.css";
+import style from "./Users.module.css";
 
 
 //types:
@@ -42,23 +42,24 @@ const Users: React.FC<UsersPropsType> = (props) => {
 
     return (
 
-        <div className={styles.items}>
+        <div className={style.items}>
             <div>
                 { //pagination:
                     pages.map(p => <span
                         className={p === state.currentPage
-                            ? styles.selectedPage
+                            ? style.selectedPage
                             : ''
                         }
                         onClick={() => props.onPageChanged(p)} //callBack?
                     >{p}</span>)
                 }
+
             </div>
-            <hr/>
 
             {
                 state.users.map(u => <div key={u.id}>
-                    <div>
+                    <hr/>
+                    <div className={style.profile}>
                         <NavLink to={'/profile/' + u.id}>
                             <img src={
                                 u.photos.small !== null
@@ -66,33 +67,38 @@ const Users: React.FC<UsersPropsType> = (props) => {
                                     : defaultSmallUserPhoto //defaultAsset
                             }/>
                         </NavLink>
+                        <div className={style.info}>
+                            <NavLink to={'/profile/' + u.id}>
+                                <div className={style.name}>{u.name}</div>
+                            </NavLink>
+                        </div>
                     </div>
-                    <div><b>{u.name}</b></div>
-                    <div style={{textDecoration: "underline", color: "blue"}}>{"Write message"}</div>{/*need to create style at styleModule*/}
-                    <div>
-                        {
-                            u.followed
-                                ? <button
-                                    disabled={props.followingInProgress.some(id => id === u.id)}
-                                    onClick={() => {
-                                        props.unFollowThunkCreator(u.id);
-                                    }}
-                                >unfollow</button>
-                                : <button
-                                    disabled={props.followingInProgress.some(id => id === u.id)}
-                                    onClick={() => {
-                                        props.followThunkCreator(u.id);
-                                    }}
-                                >follow</button>
-                        }
+
+
+                    <div className={style.buttonsArea}>
+                        <div>
+                            {
+                                u.followed
+                                    ? <button
+                                        disabled={props.followingInProgress.some(id => id === u.id)}
+                                        onClick={() => {
+                                            props.unFollowThunkCreator(u.id);
+                                        }}
+                                    >unfollow</button>
+                                    : <button
+                                        disabled={props.followingInProgress.some(id => id === u.id)}
+                                        onClick={() => {
+                                            props.followThunkCreator(u.id);
+                                        }}
+                                    >follow</button>
+                            }
+                        </div>
+                        <div>
+                            <NavLink to={'/dialogs/' + u.id}> {/*<- NavLink!!!!!!*/}
+                                <button>{"Write message"}</button>
+                            </NavLink>
+                        </div>
                     </div>
-                    <div>
-                        {"country:"}{u.location?.country ? u.location.country : " - "}
-                    </div>
-                    <div>
-                        {"city:"}{u.location?.city ? u.location.city : " - "}
-                    </div>
-                    <hr/>
                 </div>)
             }
         </div>

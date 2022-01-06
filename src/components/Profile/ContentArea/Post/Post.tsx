@@ -1,6 +1,7 @@
 import React from "react";
 
-import styles from "./Post.module.css"
+import style from "./Post.module.css"
+import defaultSmallUserPhoto from "../../../../assets/images/defaultSmallUserPhoto.png"
 
 //types:
 type PostPropsType = {
@@ -12,29 +13,53 @@ type PostPropsType = {
     removeLike: (id: number, isLiked: boolean) => void
 }
 
-//Functional Component:
+//functional component:
 const Post: React.FC<PostPropsType> = (props) => {
 
     return (
-        <div className={styles.items}>
-            <img src='https://cdn4.iconfinder.com/data/icons/spring-festival/512/man-512.png' alt=""/>
-            <b>{"UserName"} </b> {/*<-- props.UserName !!!*/}
-            <span>{props.message}</span>
-            {/*<span >♥{props.likesCount}</span>*/}
-            <div>
-            {
-                props.isLiked
-                    ? <button onClick={() => {
-                        props.removeLike(props.id, props.isLiked);
-                    }}>Liked ♥{props.likesCount}</button>
-                    :
-                    <button onClick={() => {
-                        props.addLike(props.id, props.isLiked);
-                    }}>Like ♡{props.likesCount}</button>
-            }
+        <>
+            <div className={style.post}>
+                <div className={style.items}>
+                    <div>
+                        {/*need to fix: */}
+                        <img src={defaultSmallUserPhoto} alt="defaultSmallUserPhoto"/>
+                        {/* <img src={
+                        u.photos.small !== null
+                            ? u.photos.small
+                            : defaultSmallUserPhoto //defaultAsset
+                    }/>*/}
+                    </div>
+                    <div className={style.postMessage}>
+                        <div>
+                            <b>{"UserName"} </b> {/*<-- props.UserName !!!*/}
+                        </div>
+
+                        <div>
+                            <div>{props.message}</div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div className={style.reactions}>
+                    <div>
+                        {
+                            props.isLiked
+                                ? <button onClick={() => {
+                                    props.removeLike(props.id, props.isLiked);
+                                }}>Liked ♥{props.likesCount}</button>
+                                :
+                                <button onClick={() => {
+                                    props.addLike(props.id, props.isLiked);
+                                }}>Like ♡{props.likesCount}</button>
+                        }
+                    </div>
+                    <div> <button> Write comment</button> </div>
+                    <div> <button> Share</button> </div>
+                </div>
             </div>
             <hr/>
-        </div>
+        </>
     )
 }
 

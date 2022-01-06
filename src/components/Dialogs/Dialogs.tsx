@@ -1,7 +1,7 @@
 import React, {ChangeEvent} from "react";
 import { Redirect } from "react-router-dom";
 
-import styles from "./Dialogs.module.css"
+import style from "./Dialogs.module.css"
 import { DialogsInitialStateType } from "../../redux/dialogs-reducer";
 import {DialogItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
@@ -46,32 +46,35 @@ const Dialogs: React.FC<DialogsPropsType> = (props) => {
     }
 
     return (
-        <div className={styles.dialogsPage}>
+        <div className={style.dialogsPage}>
 
-            <div className={styles.dialogs}>
+            <div className={style.dialogs}>
                 {
                     dialogElements
                 }
             </div>
 
-            <div className={styles.messages}>
-                <div className={styles.messageElements}>
+            <div className={style.messages}>
+                <div className={style.messageElements}>
                     {
                         messageElements
                     }
                 </div>
-                <div>
-                    <hr/>
-                    <textarea
-                        value={state.newMessageText}
-                        maxLength={100000}
-                        onChange={onChangeHandler}
-                        placeholder={"Write something"}
-                        onKeyPress={onKeyPressHandler}
-                    />
-                    <span>
+                <hr/>
+                <div className={style.inputAreaElements}>
+
+                    <div>
+                        <textarea
+                            value={state.newMessageText}
+                            maxLength={100000}
+                            onChange={onChangeHandler}
+                            placeholder={"Write something"}
+                            onKeyPress={onKeyPressHandler}
+                        />
+                    </div>
+                    <div>
                         <button onClick={addMessageHandler}>Send</button>
-                    </span>
+                    </div>
                 </div>
             </div>
 

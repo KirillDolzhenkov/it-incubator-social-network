@@ -5,7 +5,6 @@ import style from "./Header.module.css";
 import logo1 from "../../assets/images/logo_part_1.png";
 import logo2 from "../../assets/images/logo_part_2.png";
 
-
 //types:
 type HeaderPropsType = {
     isAuth: boolean
@@ -14,16 +13,17 @@ type HeaderPropsType = {
 
 //functional component:
 const Header: React.FC<HeaderPropsType> = (props) => {
+
     return (
         <div className={style.header}>
-            <div className={style.logoArea}>
+            <NavLink to={"/news"} className={style.logoArea}>
                 <div>
                     <img src={logo1} alt="logoName1"/>
                 </div>
                 <div>
                     <img src={logo2} alt="logoName2"/>
                 </div>
-            </div>
+            </NavLink>
             <div className={style.loginBlock}>
                 {
                     props.isAuth

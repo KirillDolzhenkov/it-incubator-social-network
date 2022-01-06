@@ -1,11 +1,14 @@
 
 .app-wrapper {
+    /*app size on page: */
+    /* width: 1200px ;
+     height: 850px;*/
     display: grid;
+    height: 100vh;
     margin: 0 auto;
-    width: 1200px ;
-    height: 850px;
     background-color: white;
-    background-image: url("assets/images/appBackroundImage.png");
+    background-image: url("assets/images/appBackroundImage.png") ;
+    background-size:  1200px 700px;
 
     grid-template-areas:
   'h h'
@@ -21,6 +24,8 @@
     background-color: #edeef0;
     opacity: 0.89;
     border-radius: 4px;
+    /*color: #63855c;*/
+    padding: 10px;
 }
 .app-wrapper-content img {
     width: 1000px;

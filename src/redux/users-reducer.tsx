@@ -70,7 +70,7 @@ const usersReducer = (state: UsersInitialStateType = initialState, action: AppAc
             }
         }
         case "SN/USERS/SET_USERS": {
-            return {...state, users: [...action.users]} //need to return {...state, users: [...state.users, ...action.users]}
+            return {...state, users: [...action.users]} //need to return {...state, users: [...state.users, ...action.users]} (no)
         }
         case "SN/USERS/SET_CURRENT_PAGE": {
             return {...state, currentPage: action.currentPage}
