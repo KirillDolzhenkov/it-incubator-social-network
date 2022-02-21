@@ -8,7 +8,7 @@ import {Music} from "./components/Music/Music";
 import {UsersContainer} from "./components/Users/UsersClassContainer";
 import {News} from "./components/News/News";
 import {Navbar} from "./components/Navbar/Navbar";
-import {Login} from "./components/Login/Login";
+import {LoginPage} from "./components/Login/Login";
 import {Settings} from "./components/Settings/Settings";
 import {DialogsContainer} from "./components/Dialogs/DialogsContainer";
 
@@ -29,7 +29,7 @@ const App: React.FC<PropsType> = (props) => {
                 <Route path={"/Users"} render={() => <UsersContainer/>}/>
                 <Route path={"/Music"} render={() => <Music/>}/>
                 <Route path={"/Settings"} render={() => <Settings/>}/>
-                <Route path={"/Login"} render={() => <Login/>}/>
+                <Route path={"/Login"} render={() => <LoginPage/>}/>
             </div>
         </div>
     );

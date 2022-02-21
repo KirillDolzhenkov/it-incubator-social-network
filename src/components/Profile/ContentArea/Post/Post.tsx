@@ -18,6 +18,7 @@ const Post: React.FC<PostPropsType> = (props) => {
 
     return (
         <>
+            <hr/>
             <div className={style.post}>
                 <div className={style.items}>
                     <div>
@@ -27,19 +28,12 @@ const Post: React.FC<PostPropsType> = (props) => {
                         u.photos.small !== null
                             ? u.photos.small
                             : defaultSmallUserPhoto //defaultAsset
-                    }/>*/}
+                    } alt="defaultSmallUserPhoto"/>*/}
                     </div>
                     <div className={style.postMessage}>
-                        <div>
-                            <b>{"UserName"} </b> {/*<-- props.UserName !!!*/}
-                        </div>
-
-                        <div>
-                            <div>{props.message}</div>
-                        </div>
-
+                        <div><b>{"UserName"} </b> {/*<-- props.UserName !!!*/}</div>
+                        <div><div>{props.message}</div></div>
                     </div>
-
                 </div>
                 <div className={style.reactions}>
                     <div>
@@ -58,7 +52,7 @@ const Post: React.FC<PostPropsType> = (props) => {
                     <div> <button> Share</button> </div>
                 </div>
             </div>
-            <hr/>
+
         </>
     )
 }

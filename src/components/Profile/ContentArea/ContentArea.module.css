@@ -1,5 +1,6 @@
 .postBlock {
     padding: 10px;
+    width: 750px;
 }
 
 .posts {
@@ -8,17 +9,12 @@
 
 .inputAreaElements {
     display: flex;
-    width: 1010px;
+    width: 750px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
 .postBlock textArea{
-    width:1000px;
-    max-width:950px;
-    min-width:950px;
-    height: 60px;
-    max-height:60px;
-    min-height:60px;
+    width:690px;
 }

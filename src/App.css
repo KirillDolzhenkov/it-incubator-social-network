@@ -1,19 +1,17 @@
 
 .app-wrapper {
-    /*app size on page: */
-    /* width: 1200px ;
-     height: 850px;*/
+    width: 1000px;
+    height: 850px;
     display: grid;
-    height: 100vh;
     margin: 0 auto;
     background-color: white;
-    background-image: url("assets/images/appBackroundImage.png") ;
-    background-size:  1200px 700px;
+    /*background-image: url("assets/images/appBackroundImage.png") ;
+    background-size:  1200px 700px;*/
+
 
     grid-template-areas:
   'h h'
   'n c';
-
     grid-template-rows: 75px 1fr;
     grid-template-columns: 2fr 10fr;
     grid-gap: 10px;
@@ -24,7 +22,6 @@
     background-color: #edeef0;
     opacity: 0.89;
     border-radius: 4px;
-    /*color: #63855c;*/
     padding: 10px;
 }
 .app-wrapper-content img {

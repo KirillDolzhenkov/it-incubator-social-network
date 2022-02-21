@@ -5,7 +5,6 @@ import {AppStateType} from "../../../redux/redux-store";
 import {addPost, ProfileInitialStateType, setNewPostText} from "../../../redux/profile-reducer";
 
 //types:
-type ContentAreaType = {}
 type mapStateToPropsType = {
     profilePage: ProfileInitialStateType
 }
@@ -22,10 +21,10 @@ const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
 }
 
 //HOC:
-const ContentAreaContainer = connect<mapStateToPropsType,
-    mapDispatchToPropsType,
-    ContentAreaType,
-    AppStateType>(mapStateToProps, {addPost, setNewPostText})(ContentArea);
+const ContentAreaContainer = connect<mapStateToPropsType, mapDispatchToPropsType, {}, AppStateType>(mapStateToProps, {
+    addPost,
+    setNewPostText
+})(ContentArea);
 
 export {
     ContentAreaContainer

@@ -1,8 +1,7 @@
 import React, {ChangeEvent} from "react";
-import { Redirect } from "react-router-dom";
 
 import style from "./Dialogs.module.css"
-import { DialogsInitialStateType } from "../../redux/dialogs-reducer";
+import {DialogsInitialStateType} from "../../redux/dialogs-reducer";
 import {DialogItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
 
@@ -12,14 +11,12 @@ export type DialogsPropsType = {
     dialogsPage: DialogsInitialStateType
     addMessage: (newMessageText: string) => void
     setNewMessageText: (newText: string) => void
-    isAuth: boolean
 }
-
 
 //functional component:
 const Dialogs: React.FC<DialogsPropsType> = (props) => {
 
-    const state = props.dialogsPage; // state!!!
+    const state = props.dialogsPage;
 
     let dialogElements = state.dialogs.map(d => <DialogItem key={d.id} name={d.name} id={d.id}/>);
     let messageElements = state.messages.map(m => <Message key={m.id} message={m.message} id={m.id}/>);
@@ -40,11 +37,6 @@ const Dialogs: React.FC<DialogsPropsType> = (props) => {
         }
     }
 
-
-    if (!props.isAuth){ //auth Redirect!!!
-        return <Redirect to={"/Login"}/>
-    }
-
     return (
         <div className={style.dialogsPage}>
 
@@ -62,11 +54,11 @@ const Dialogs: React.FC<DialogsPropsType> = (props) => {
                 </div>
                 <hr/>
                 <div className={style.inputAreaElements}>
-
+                    <AddMessageForm/>
                     <div>
                         <textarea
                             value={state.newMessageText}
-                            maxLength={100000}
+                            maxLength={500}
                             onChange={onChangeHandler}
                             placeholder={"Write something"}
                             onKeyPress={onKeyPressHandler}
@@ -79,6 +71,26 @@ const Dialogs: React.FC<DialogsPropsType> = (props) => {
             </div>
 
         </div>
+    )
+}
+
+//functional component:
+const AddMessageForm: React.FC<{}> = (props) => {
+    return(
+        <form>
+            {/*<div>
+                        <textarea
+                            value={state.newMessageText}
+                            maxLength={500}
+                            onChange={onChangeHandler}
+                            placeholder={"Write something"}
+                            onKeyPress={onKeyPressHandler}
+                        />
+            </div>
+            <div>
+                <button onClick={addMessageHandler}>Send</button>
+            </div>*/}
+        </form>
     )
 }
 

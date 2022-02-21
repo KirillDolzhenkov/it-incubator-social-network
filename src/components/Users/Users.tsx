@@ -13,25 +13,19 @@ type UsersPropsType = {
     totalUsersCount: number
     currentPage: number
     followingInProgress: any[]
-
-    //callBacksTypes (mapDispatchToPropsType):
-    follow: (id: number) => void
-    unFollow: (id: number) => void
     setUsers: (users: Array<UsersType>) => void
     setCurrentPage: (pageNumber: number) => void
     setTotalUsersCount: (totalCount: number) => void
     onPageChanged: (p: number) => void
-    setFollowingProgress: (followingProgress: boolean, id: number) => void
 
-    //thunkTypes:
-    unFollowThunkCreator: (userId: number) => void
-    followThunkCreator: (userId: number) => void
+    unFollowThunkCreator: (userId: number) => void //need rename to unFollow
+    followThunkCreator: (userId: number) => void //need rename to follow
 }
 
 //functional component:
 const Users: React.FC<UsersPropsType> = (props) => {
 
-    const state = props.usersPage; //state!!!
+    const state = props.usersPage;
 
     //pages for pagination:
     const pagesCount = Math.ceil(state.totalUsersCount / state.pageSize) //.ceil rounds a number up to the next largest integer
@@ -41,39 +35,26 @@ const Users: React.FC<UsersPropsType> = (props) => {
     }
 
     return (
-
         <div className={style.items}>
-            <div>
-                { //pagination:
-                    pages.map(p => <span
-                        className={p === state.currentPage
-                            ? style.selectedPage
-                            : ''
-                        }
-                        onClick={() => props.onPageChanged(p)} //callBack?
-                    >{p}</span>)
-                }
-
-            </div>
-
             {
                 state.users.map(u => <div key={u.id}>
-                    <hr/>
+                    {/*<hr/>*/}
                     <div className={style.profile}>
+
                         <NavLink to={'/profile/' + u.id}>
                             <img src={
                                 u.photos.small !== null
                                     ? u.photos.small
                                     : defaultSmallUserPhoto //defaultAsset
-                            }/>
+                            } alt="defaultSmallUserPhoto"/>
                         </NavLink>
+
                         <div className={style.info}>
                             <NavLink to={'/profile/' + u.id}>
                                 <div className={style.name}>{u.name}</div>
                             </NavLink>
                         </div>
                     </div>
-
 
                     <div className={style.buttonsArea}>
                         <div>
@@ -99,8 +80,22 @@ const Users: React.FC<UsersPropsType> = (props) => {
                             </NavLink>
                         </div>
                     </div>
+                    <hr/>
                 </div>)
+
             }
+            <div>
+
+                {
+                    pages.map(p => <span  //pagination
+                        className={p === state.currentPage
+                            ? style.selectedPage
+                            : ''
+                        }
+                        onClick={() => props.onPageChanged(p)}
+                    >{p}</span>)
+                }
+            </div>
         </div>
     )
 }

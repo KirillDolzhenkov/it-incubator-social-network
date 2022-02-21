@@ -5,6 +5,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+    opacity: 0.99;
 }
 
 .logoArea{
@@ -37,4 +43,12 @@
 
 .loginBlock a:hover{
     color: white;
+}
+
+.items {
+    display: flex;
+    width: 140px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }

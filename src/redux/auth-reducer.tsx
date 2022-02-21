@@ -37,7 +37,7 @@ const authReducer = (state: AuthInitialStateType = initialState, action: AppActi
 
 //action creators:
 export const setAuthUserData = (data: AuthInitialStateType) => {
-    return {type: "SN/SET_AUTH_USER_DATA", data} as const
+    return {type: "SN/SET_AUTH_USER_DATA", data} as const //data = id, email, login
 }
 
 //thunk creators:

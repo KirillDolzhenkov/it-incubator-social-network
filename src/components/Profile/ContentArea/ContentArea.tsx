@@ -43,21 +43,21 @@ const ContentArea: React.FC<ContentAreaPropsType> = (props) => {
     return (
         <div className={style.postBlock}>
             <div className={style.inputAreaElements}>
-                <div>
-                <textarea
+                <div><textarea
                     value={state.newPostText}
                     maxLength={100000}
                     onChange={onChangeHandler}
                     placeholder={"What's new?"}
                     onKeyPress={onKeyPressHandler}
-                />
-                </div>
+                /></div>
                 <div>
                     <button onClick={addPostHandler}>Post</button>
                 </div>
             </div>
             <div className={style.posts}>
-                {postsElements}
+                {
+                    postsElements
+                }
             </div>
         </div>
     )

@@ -1,8 +1,7 @@
 import {Dispatch} from "redux";
 
-import {usersAPI} from "../api/api";
+import {profileAPI} from "../api/api";
 import {AppActionType} from "./redux-store";
-import {getUsersThunkCreator, setFollowingProgress} from "./users-reducer";
 
 //types:
 type PostType = {
@@ -15,6 +14,7 @@ export type ProfileInitialStateType = {
     posts: Array<PostType>
     newPostText: string
     profile: ProfilePageType | null
+    status: string | null
 }
 
 export type ProfilePageType = {
@@ -43,17 +43,27 @@ export type ProfileActionType = ReturnType<typeof addPost>
     | ReturnType<typeof addLike>
     | ReturnType<typeof removeLike>
     | ReturnType<typeof setProfile>
+    | ReturnType<typeof setStatus>
 
 
 //initialState:
 const initialState: ProfileInitialStateType = {
-    posts: [],
+    posts: [
+        {
+            id: 21313,
+            message: "testPost",
+            likesCount: 1,
+            isLiked: false
+        }
+    ],
     newPostText: "",
-    profile: null
+    profile: null,
+    status: null
 }
 
 //reducer:
 const profileReducer = (state: ProfileInitialStateType = initialState, action: AppActionType): ProfileInitialStateType => {
+
     switch (action.type) {
         case "SN/PROFILE/ADD_POST": {
             const stateCopy = {...state}
@@ -97,6 +107,8 @@ const profileReducer = (state: ProfileInitialStateType = initialState, action: A
         case "SN/PROFILE/SET_PROFILE": {
             return {...state, profile: action.profile}
         }
+        case "SN/PROFILE/SET_STATUS":
+            return {...state, status: action.status}
         default:
             return state;
     }
@@ -118,13 +130,39 @@ export const removeLike = (id: number, isLiked: boolean) => {
 export const setProfile = (profile: ProfilePageType) => {
     return {type: "SN/PROFILE/SET_PROFILE", profile} as const
 }
+export const setStatus = (status: string) => {
+    return {type: "SN/PROFILE/SET_STATUS", status} as const
+}
+
 
 //thunk creators:
 export const getUserProfile = (userId: number) => {
     return (dispatch: Dispatch<AppActionType>) => {
-        usersAPI.getProfile(userId).then(response => {
-            dispatch(setProfile(response.data));
-        });
+        profileAPI
+            .getProfile(userId)
+            .then(response => {
+                dispatch(setProfile(response.data));
+            });
+    }
+}
+export const getUserStatus = (userId: number) => {
+    return (dispatch: Dispatch<AppActionType>) => {
+        profileAPI
+            .getUserStatus(userId) //+userId ??
+            .then(response => {
+                dispatch(setStatus(response.data));
+            });
+    }
+}
+export const updateUserStatus = (status: string) => {
+    return (dispatch: Dispatch<AppActionType>) => {
+        profileAPI
+            .updateUserStatus(status)
+            .then(response => {
+                if (response.data.resultCode === 0){
+                    dispatch(setStatus(status));
+                }
+            });
     }
 }
 

@@ -1,36 +1,37 @@
 import React from "react";
-import {Redirect} from "react-router-dom";
-import {connect} from "react-redux";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
-import {AppStateType} from "../redux/redux-store";
+import { AppStateType } from "../redux/redux-store";
 
 //types:
 type mapStateToPropsType = {
-    isAuth: boolean
+  isAuth: boolean;
 }
+
+const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
+  return {
+    isAuth: state.auth.isAuth,
+  }
+}
+
 
 //container component:
-const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
-    return {
-        isAuth: state.auth.isAuth
+function WithAuthRedirect<T>(Component: React.ComponentType<T>) { //possible to make arrow function?
+
+  const RedirectComponent = (props: mapStateToPropsType) => {
+
+    const {isAuth, ...restProps} = props
+    if (!isAuth) {
+      return <Redirect to={"/Login"}/>
     }
+
+    return <Component {...(restProps as T)} />
+  }
+
+  return connect(mapStateToProps)(RedirectComponent)
 }
-
-function WithAuthRedirect<T>(Component: React.ComponentType<T>)  {
-
-    const RedirectComponent = (props: mapStateToPropsType) => {
-        let {isAuth, ...restProps} = props
-
-        if (!isAuth) {
-            return <Redirect to={"/Login"}/>
-        }
-        return <Component {...restProps as T}/>
-    }
-    let ConnectedRedirectComponent = connect(mapStateToProps)(RedirectComponent);
-    return ConnectedRedirectComponent;
-}
-
 
 export {
-    WithAuthRedirect
+  WithAuthRedirect
 }

@@ -16,3 +16,21 @@
     height: 200px;
     border-radius: 20px;
 }
+
+.items {
+    display: flex;
+    flex-direction: column;
+}
+
+.statusStaticMode {
+    color: gray;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.statusEditMode {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 220px;
+}
